@@ -1,2 +1,4 @@
-package com.manager.payment_manager;public class App {
+package com.manager.payment_manager;
+
+public class App {
 }
