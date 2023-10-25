@@ -1,2 +1,4 @@
-package com.manager.payment_manager.Controllers;public class LoginController {
+package com.manager.payment_manager.Controllers;
+
+public class LoginController {
 }

@@ -1,0 +1,42 @@
+.label {
+    -fx-font-family: "Roboto";
+    -fx-text-fill: BLACK;
+}
+
+.login-container {
+    -fx-background-color: #E9E9E9;
+}
+
+.login-info {
+    -fx-border-radius: 10px;
+    -fx-background-color: WHITE;
+    -fx-alignment: center;
+}
+
+/* All about font */
+#greeting-label {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-style: bold;
+    -fx-font-size: 30;
+}
+
+.button {
+    -fx-min-width: 270px;
+    -fx-min-height: 40px;
+    -fx-border-radius: 20px;
+}
+#login-button {
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-background-color: black;
+}
+#login-google-button {
+    -fx-background-color: #E9E9E9;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+}
+
+#sign-up {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-style: bold;
+}

@@ -1,2 +1,4 @@
-package com.manager.payment_manager.Models;public class Model {
+package com.manager.payment_manager.Models;
+
+public class Model {
 }

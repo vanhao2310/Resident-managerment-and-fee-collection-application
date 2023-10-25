@@ -1,2 +1,4 @@
-package com.manager.payment_manager.Controllers.Admin;public class AdminController {
+package com.manager.payment_manager.Controllers.Admin;
+
+public class AdminController {
 }
