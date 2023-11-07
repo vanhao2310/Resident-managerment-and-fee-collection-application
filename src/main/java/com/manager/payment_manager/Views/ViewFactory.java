@@ -1,51 +1,71 @@
 package com.manager.payment_manager.Views;
 
 import com.manager.payment_manager.Controllers.Client.ClientController;
+import com.manager.payment_manager.Controllers.LoginController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class ViewFactory {
-    private AnchorPane dashboardView;
+    private static ViewFactory instance;
+    private final Stage stage;
+    private Scene loginScene;
+    private Scene clientScene;
+    private LoginController loginController;
+    private ClientController clientController;
 
-    public ViewFactory() {}
+    private ViewFactory() {
+        stage = new Stage();
 
-    public AnchorPane getDashboardView() {
-        if (dashboardView == null) {
-            try {
-                dashboardView = new FXMLLoader(getClass().getResource("/Fxml/Client/ClientDashboard.fxml")).load();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return dashboardView;
-    }
+        // TODO: Load all the FXML file
+        FXMLLoader loginView = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
+        FXMLLoader clientView = new FXMLLoader(getClass().getResource("/Fxml/Client/Client.fxml"));
 
-    public void showLoginWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/login.fxml"));
-        createStage(loader);
-    }
-
-    public void showClientWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Client/Client.fxml"));
-        ClientController clientController = new ClientController();
-        loader.setController(clientController);
-        createStage(loader);
-
-    }
-
-    final Stage stage = new Stage();
-    private void createStage(FXMLLoader loader) {
-        stage.close();
-        Scene scene = null;
         try {
-            scene = new Scene(loader.load());
+            // TODO: Create Scene and Controller
+            // Login
+            loginScene = new Scene(loginView.load());
+            loginController = loginView.getController();
+
+            // Client Dashboard
+            clientScene = new Scene(clientView.load());
+            clientController = clientView.getController();
+
         } catch (Exception e) {
+            System.out.println("Error to load fxml in ViewFactory");
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
-        stage.setScene(scene);
+
+        stage.setScene(loginScene);
         stage.setTitle("Payment Manager");
         stage.show();
+    }
+
+    public static ViewFactory getInstance() {
+        if (instance == null) {
+            instance = new ViewFactory();
+        }
+        return instance;
+    }
+
+    public void routes(SCENE scene) {
+        stage.close();
+        switch (scene) {
+            case LOGIN: {
+                stage.setScene(loginScene);
+                break;
+            }
+            case CLIENT_DASHBOARD: {
+                stage.setScene(clientScene);
+                break;
+            }
+        }
+        stage.show();
+    }
+
+    public enum SCENE {
+        LOGIN,
+        CLIENT_DASHBOARD
     }
 }
