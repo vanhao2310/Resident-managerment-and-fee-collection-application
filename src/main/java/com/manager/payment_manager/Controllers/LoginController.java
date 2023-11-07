@@ -1,6 +1,7 @@
 package com.manager.payment_manager.Controllers;
 
-import com.manager.payment_manager.Models.Model;
+import com.manager.payment_manager.Views.ViewFactory;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
@@ -9,12 +10,13 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
+    @FXML
     public Button login_btn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         login_btn.setOnAction(e -> {
-            Model.getInstance().getViewFactory().showClientWindow();
+            ViewFactory.getInstance().routes(ViewFactory.SCENE.CLIENT_DASHBOARD);
         });
     }
 }

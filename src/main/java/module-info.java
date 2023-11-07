@@ -8,6 +8,5 @@ module com.manager.payment_manager {
     exports com.manager.payment_manager.Controllers;
     exports com.manager.payment_manager.Controllers.Admin;
     exports com.manager.payment_manager.Controllers.Client;
-    exports com.manager.payment_manager.Models;
     exports com.manager.payment_manager.Views;
 }
