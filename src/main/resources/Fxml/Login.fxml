@@ -64,7 +64,7 @@
                   </VBox>
                   <VBox layoutX="56.0" layoutY="343.0">
                      <children>
-                        <Button id="login-button" mnemonicParsing="false" text="Log in">
+                        <Button id="login-button" fx:id="login_btn" mnemonicParsing="false" text="Log in">
                            <VBox.margin>
                               <Insets bottom="10.0" />
                            </VBox.margin>
