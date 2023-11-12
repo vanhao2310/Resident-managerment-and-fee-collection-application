@@ -1,71 +1,84 @@
 package com.manager.payment_manager.Views;
 
-import com.manager.payment_manager.Controllers.Client.ClientController;
-import com.manager.payment_manager.Controllers.LoginController;
+import com.manager.payment_manager.Controllers.Manager.ManagerController;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+// TODO: MANAGE SCENE CHANGING
 public class ViewFactory {
-    private static ViewFactory instance;
-    private final Stage stage;
-    private Scene loginScene;
-    private Scene clientScene;
-    private LoginController loginController;
-    private ClientController clientController;
 
-    private ViewFactory() {
-        stage = new Stage();
+    // Manager View
+    private final StringProperty managerSelectedMenuItem;
+    private AnchorPane managerDashboardView;
+    private AnchorPane managerManagingView;
+    public ViewFactory() {
+        this.managerSelectedMenuItem = new SimpleStringProperty("");
+    }
 
-        // TODO: Load all the FXML file
-        FXMLLoader loginView = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
-        FXMLLoader clientView = new FXMLLoader(getClass().getResource("/Fxml/Client/Client.fxml"));
+    public StringProperty getManagerSelectedMenuItem() {
+        return managerSelectedMenuItem;
+    }
 
+
+    // TODO: LOGIN
+    public void showLoginWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
+
+        createStage(loader);
+    }
+
+    // TODO: MANAGER
+    public void showManagerWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/Manager.fxml"));
+        ManagerController managerController = new ManagerController();
+        loader.setController(managerController);
+        createStage(loader);
+    }
+
+    // TODO: SET MENU OPTION SCENE
+    public AnchorPane getManagerDashboardView() {
+        if (managerDashboardView == null) {
+            try {
+                managerDashboardView = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerDashboard.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return managerDashboardView;
+    }
+    public AnchorPane getManagerManagingView() {
+        if (managerManagingView == null) {
+            try {
+                managerManagingView = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerManaging.fxml")).load();
+            } catch (Exception e) {
+                System.out.println("Error while loading managerManaging");
+                e.printStackTrace();
+            }
+        }
+        return managerManagingView;
+    }
+
+
+
+    // IGNORE THESE
+    private void createStage(FXMLLoader loader) {
+        Scene scene = null;
         try {
-            // TODO: Create Scene and Controller
-            // Login
-            loginScene = new Scene(loginView.load());
-            loginController = loginView.getController();
-
-            // Client Dashboard
-            clientScene = new Scene(clientView.load());
-            clientController = clientView.getController();
-
+            scene = new Scene(loader.load());
         } catch (Exception e) {
-            System.out.println("Error to load fxml in ViewFactory");
-            System.out.println(e.getMessage());
+            System.out.println("Error while loading fxml");
             e.printStackTrace();
         }
-
-        stage.setScene(loginScene);
+        Stage stage = new Stage();
+        stage.setScene(scene);
         stage.setTitle("Payment Manager");
         stage.show();
     }
-
-    public static ViewFactory getInstance() {
-        if (instance == null) {
-            instance = new ViewFactory();
-        }
-        return instance;
-    }
-
-    public void routes(SCENE scene) {
+    public void closeStage(Stage stage) {
         stage.close();
-        switch (scene) {
-            case LOGIN: {
-                stage.setScene(loginScene);
-                break;
-            }
-            case CLIENT_DASHBOARD: {
-                stage.setScene(clientScene);
-                break;
-            }
-        }
-        stage.show();
-    }
-
-    public enum SCENE {
-        LOGIN,
-        CLIENT_DASHBOARD
     }
 }

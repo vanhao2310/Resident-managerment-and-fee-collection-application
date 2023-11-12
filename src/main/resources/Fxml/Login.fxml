@@ -11,73 +11,58 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane styleClass="login-container" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.LoginController">
-   <children>
-      <HBox>
-         <children>
-            <ImageView fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/login_background.png" />
-               </image>
+<AnchorPane styleClass="login-container" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.LoginController">
+   <HBox>
+      <padding>
+         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+      </padding>
+      <ImageView fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets top="50.0"/>
+         </HBox.margin>
+         <Image url="@../Images/login_background.png"/>
+      </ImageView>
+      <AnchorPane prefHeight="580.0" prefWidth="380.0" styleClass="login-info">
+         <HBox.margin>
+            <Insets/>
+         </HBox.margin>
+         <HBox layoutX="97.0" layoutY="525.0">
+            <Label text="Don't have an account?">
                <HBox.margin>
-                  <Insets top="50.0" />
+                  <Insets right="5.0"/>
                </HBox.margin>
-            </ImageView>
-            <AnchorPane prefHeight="580.0" prefWidth="380.0" styleClass="login-info">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-               <children>
-                  <HBox layoutX="97.0" layoutY="525.0">
-                     <children>
-                        <Label text="Don't have an account?">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label id="sign-up" text="Sign up">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <VBox alignment="TOP_CENTER" layoutX="87.0" layoutY="143.0">
-                     <children>
-                        <Label id="greeting-label" graphicTextGap="3.0" text="Welcome back!">
-                           <VBox.margin>
-                              <Insets bottom="7.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label text="Please enter your details" />
-                     </children>
-                  </VBox>
-                  <VBox layoutX="53.0" layoutY="253.0" prefHeight="89.0" prefWidth="271.0">
-                     <children>
-                        <TextField promptText="Email">
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <TextField promptText="Password" />
-                     </children>
-                  </VBox>
-                  <VBox layoutX="56.0" layoutY="343.0">
-                     <children>
-                        <Button id="login-button" fx:id="login_btn" mnemonicParsing="false" text="Log in">
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button id="login-google-button" mnemonicParsing="false" text="Log in with Google" />
-                     </children>
-                  </VBox>
-               </children>
-            </AnchorPane>
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </HBox>
-   </children>
+            </Label>
+            <Label id="sign-up" text="Sign up">
+               <font>
+                  <Font name="System Bold" size="12.0"/>
+               </font>
+            </Label>
+         </HBox>
+         <VBox alignment="TOP_CENTER" layoutX="87.0" layoutY="143.0">
+            <Label id="greeting-label" graphicTextGap="3.0" text="Welcome back!">
+               <VBox.margin>
+                  <Insets bottom="7.0"/>
+               </VBox.margin>
+            </Label>
+            <Label text="Please enter your details"/>
+         </VBox>
+         <VBox layoutX="53.0" layoutY="253.0" prefHeight="89.0" prefWidth="271.0">
+            <TextField promptText="Email">
+               <VBox.margin>
+                  <Insets bottom="10.0"/>
+               </VBox.margin>
+            </TextField>
+            <TextField promptText="Password"/>
+         </VBox>
+         <VBox layoutX="56.0" layoutY="343.0">
+            <Button id="login-button" fx:id="login_btn" mnemonicParsing="false" text="Log in">
+               <VBox.margin>
+                  <Insets bottom="10.0"/>
+               </VBox.margin>
+            </Button>
+            <Button id="login-google-button" mnemonicParsing="false" text="Log in with Google"/>
+         </VBox>
+      </AnchorPane>
+   </HBox>
 </AnchorPane>
