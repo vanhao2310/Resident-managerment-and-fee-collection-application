@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1150.0" styleClass="dashboard-container"
+            stylesheets="@../../Styles/manager_dashboard.css" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.manager.payment_manager.Controllers.Manager.ManagerDashboardController">
+   <VBox>
+      <AnchorPane prefHeight="140.0" prefWidth="1150.0">
+         <Button layoutX="1000.0" layoutY="60.0" mnemonicParsing="false" text="Button"/>
+      </AnchorPane>
+      <Line endX="1150.0" stroke="#bdbcbd"/>
+   </VBox>
+</AnchorPane>

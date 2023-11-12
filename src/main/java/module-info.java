@@ -6,7 +6,7 @@ module com.manager.payment_manager {
     opens com.manager.payment_manager to javafx.fxml;
     exports com.manager.payment_manager;
     exports com.manager.payment_manager.Controllers;
-    exports com.manager.payment_manager.Controllers.Admin;
-    exports com.manager.payment_manager.Controllers.Client;
+    exports com.manager.payment_manager.Controllers.Leader;
+    exports com.manager.payment_manager.Controllers.Manager;
     exports com.manager.payment_manager.Views;
 }
