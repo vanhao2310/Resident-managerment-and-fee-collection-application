@@ -12,10 +12,10 @@ public class ManagerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Model.getInstance().getViewFactory().getManagerSelectedMenuItem().addListener((observableValue, oldVal, newVal) -> {
-            switch (newVal) {
-                case "Managing" -> manager_parent.setCenter(Model.getInstance().getViewFactory().getManagerManagingView());
-                case "Statistic" -> {}
-                default -> manager_parent.setCenter(Model.getInstance().getViewFactory().getManagerDashboardView());
+            if (newVal.equals("Managing")) {
+                manager_parent.setCenter(Model.getInstance().getViewFactory().getManagerManagingView());
+            } else {
+                manager_parent.setCenter(Model.getInstance().getViewFactory().getManagerDashboardView());
             }
         });
     }

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.manager.payment_manager.Controllers.Leader.LeaderController"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane fx:id="leader_parent"
+            xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/19">
+    <left>
+        <fx:include source="LeaderMenu.fxml"/>
+    </left>
 
-</AnchorPane>
+    <center>
+        <fx:include source="LeaderDashboard.fxml"/>
+    </center>
+</BorderPane>
