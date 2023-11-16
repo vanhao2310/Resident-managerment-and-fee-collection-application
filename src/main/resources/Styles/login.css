@@ -1,8 +1,3 @@
-.label {
-    -fx-font-family: "Roboto";
-    -fx-text-fill: BLACK;
-}
-
 .login-container {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 10px;
@@ -10,10 +5,9 @@
 }
 
 .login-info {
+    -fx-background-color: WHITE;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-    -fx-background-color: WHITE;
-    -fx-alignment: center;
 }
 
 .text-field {
@@ -24,12 +18,6 @@
 .text-field:focused {
     -fx-background-color: #a9a9a9 , white , white;
     -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
-}
-
-/* All about font */
-#greeting-label {
-    -fx-font-family: "Roboto Medium";
-    -fx-font-size: 30;
 }
 
 .button {
@@ -46,8 +34,4 @@
     -fx-background-color: #E9E9E9;
     -fx-border-color: black;
     -fx-text-fill: black;
-}
-
-#sign-up {
-    -fx-font-family: "Roboto Medium";
 }
