@@ -7,3 +7,6 @@
     -fx-border-radius: 20px;
     -fx-background-color: #BDFEDC;
 }
+.option:hover {
+    -fx-background-color: #005797;
+}

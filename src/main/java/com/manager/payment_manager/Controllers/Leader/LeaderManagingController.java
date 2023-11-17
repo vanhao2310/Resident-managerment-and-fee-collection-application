@@ -11,8 +11,6 @@ public class LeaderManagingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        add_member_btn.setOnMouseClicked(mouseEvent -> {
-            Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("AddMember");
-        });
+        add_member_btn.setOnMouseClicked(mouseEvent -> Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("AddMember"));
     }
 }

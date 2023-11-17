@@ -23,7 +23,7 @@ public class ViewFactory {
     // View in manager
     private AnchorPane managerDashboardView;
     private AnchorPane managerManagingView;
-    private AnchorPane managerStatisticView;
+
     public ViewFactory() {
         this.managerSelectedMenuItem = new SimpleStringProperty("");
         this.leaderSelectedMenuItem = new SimpleStringProperty("");
