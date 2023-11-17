@@ -19,10 +19,11 @@ public class ViewFactory {
     private AnchorPane leaderDashboardView;
     private AnchorPane leaderManagingView;
     private AnchorPane leaderStatisticView;
+    private AnchorPane addMemberView;
     // View in manager
     private AnchorPane managerDashboardView;
     private AnchorPane managerManagingView;
-    private AnchorPane managerStatisticView;
+
     public ViewFactory() {
         this.managerSelectedMenuItem = new SimpleStringProperty("");
         this.leaderSelectedMenuItem = new SimpleStringProperty("");
@@ -91,6 +92,17 @@ public class ViewFactory {
             }
         }
         return leaderStatisticView;
+    }
+    public AnchorPane getAddMemberView() {
+        if (addMemberView == null) {
+            try {
+                addMemberView = new FXMLLoader(getClass().getResource("/Fxml/Leader/AddMember.fxml")).load();
+            } catch (Exception e) {
+                System.out.println("Error while loading addMember");
+                System.out.println(e.getMessage());
+            }
+        }
+        return addMemberView;
     }
     public AnchorPane getManagerDashboardView() {
         if (managerDashboardView == null) {
