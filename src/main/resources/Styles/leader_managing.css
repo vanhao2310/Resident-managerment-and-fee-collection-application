@@ -1,0 +1,9 @@
+.managing-container {
+    -fx-background-color: WHITE;
+}
+
+.option {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 20px;
+    -fx-background-color: #BDFEDC;
+}

@@ -15,6 +15,7 @@ public class LeaderController implements Initializable {
             switch (newVal) {
                 case "Managing" -> leader_parent.setCenter(Model.getInstance().getViewFactory().getLeaderManagingView());
                 case "Statistic" -> leader_parent.setCenter(Model.getInstance().getViewFactory().getLeaderStatisticView());
+                case "AddMember" -> leader_parent.setCenter(Model.getInstance().getViewFactory().getAddMemberView());
                 default -> leader_parent.setCenter(Model.getInstance().getViewFactory().getLeaderDashboardView());
             }
         }));
