@@ -2,6 +2,7 @@ module com.manager.payment_manager {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires java.sql;
 
     opens com.manager.payment_manager to javafx.fxml;
     exports com.manager.payment_manager;
