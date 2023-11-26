@@ -1,4 +1,8 @@
-﻿create table HoKhau 
+﻿DROP DATABASE IF EXISTS QLYDANCU;
+CREATE DATABASE QLYDANCU;
+USE QLYDANCU;
+
+create table HoKhau
 (
 	ID_HO int identity(1, 1), 
 	chu_ho nvarchar(100), 
@@ -18,7 +22,7 @@ values
 	(N'Lê Tuấn Hờ', N'Số nhà 145 - Đường B - Quận A - Thành phố D', 2);
 
 --------------------------------------------------------------------------------------------------
-//#update 2023/11/26
+--#update 2023/11/26
 
 create table NHANKHAU
 (
