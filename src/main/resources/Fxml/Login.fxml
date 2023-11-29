@@ -29,22 +29,22 @@
          <VBox alignment="TOP_CENTER" layoutX="86.0" layoutY="145.0">
             <Label text="Welcome back" textFill="#4e3030">
                <font>
-                  <Font name="System Bold" size="30.0"/>
+                  <Font name="System Bold" size="30.0" />
                </font>
             </Label>
             <Label text="Welcome back" textFill="#4e3030">
                <font>
-                  <Font size="15.0"/>
+                  <Font size="15.0" />
                </font>
             </Label>
          </VBox>
          <VBox layoutX="53.0" layoutY="253.0" prefHeight="89.0" prefWidth="271.0">
-            <TextField promptText="Email">
+            <TextField fx:id="user_name_lbl" promptText="User Name">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Password" />
+            <TextField fx:id="password_lbl" promptText="Password" />
          </VBox>
          <VBox layoutX="56.0" layoutY="343.0">
             <Button id="login-button" fx:id="login_btn" mnemonicParsing="false" text="Manager">
