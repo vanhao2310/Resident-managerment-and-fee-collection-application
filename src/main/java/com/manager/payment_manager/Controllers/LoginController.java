@@ -11,14 +11,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-    @FXML
-    private TextField password_lbl;
 
-    @FXML
-    private TextField user_name_lbl;
     @FXML
     public Button login_btn;
     public Button leader_btn;
+    public TextField user_name_lbl;
+    public TextField password_lbl;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         login_btn.setOnAction(e -> onLoginManager());
@@ -40,7 +39,7 @@ public class LoginController implements Initializable {
         }
     }
     private void onLoginLeader() {
-        if(check_fill()){
+        if(!check_fill()){
             System.out.println("Please fill all the fields");
             return;
         }
@@ -51,7 +50,6 @@ public class LoginController implements Initializable {
             Model.getInstance().getViewFactory().showLeaderWindow();
             System.out.println("Leader Mode");
         }
-
     }
 
     private boolean check_fill(){
