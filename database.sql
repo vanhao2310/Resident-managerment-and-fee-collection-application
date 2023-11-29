@@ -78,4 +78,17 @@ values
     (1, 'Nguyễn Đức Thuậ', '2008-10-28', 'Nam', 'Kinh', 'Học sinh', 'Hà Nội', 'Hà Nội', 'Hà Nội', NULL, NULL, NULL, 'Co');
 
 
+create table user_account(
+                             id int auto_increment primary key,
+                             user_name varchar(50) not null unique,
+                             user_password varchar(50) not null,
+                             user_role char(20) not null
+);
+
+
+insert into user_account values
+                             (1, 'admin', 'admin', 'leader'),
+                             ( 2,'manager', 'manager', 'manager'),
+                             (3, 'vanhao', '2310', 'leader'),
+                             (4, 'dodat', 'dodat', 'leader');
 
