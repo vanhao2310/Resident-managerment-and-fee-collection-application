@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.LeaderDashboardController">
+    <VBox layoutX="50.0" layoutY="50.0">
+        <Label text="TRANG CHỦ">
+            <font>
+                <Font name="System Bold" size="50.0" />
+            </font>
+        </Label>
+        <Label text="Hệ thống quản lý nhân khẩu">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Label>
+    </VBox>
+    <HBox alignment="CENTER_LEFT" layoutX="550.0" layoutY="60.0">
+        <ImageView fitHeight="60.0" fitWidth="40.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+            <HBox.margin>
+                <Insets right="10.0"/>
+            </HBox.margin>
+            <Image url="@../../Images/search_icon.png"/>
+        </ImageView>
+        <TextField prefHeight="47.0" prefWidth="424.0" promptText="Search">
+           <font>
+               <Font size="20.0"/>
+           </font>
+        </TextField>
+        <ImageView fitHeight="40.0" fitWidth="40.0" opacity="0.44" pickOnBounds="true" preserveRatio="true">
+            <HBox.margin>
+                <Insets left="10.0"/>
+            </HBox.margin>
+            <Image url="@../../Images/bell_icon.png"/>
+        </ImageView>
+    </HBox>
+</AnchorPane>

@@ -1,0 +1,34 @@
+.menu-container {
+    -fx-background-color: #F6F4F5;
+    -fx-border-width: 1px;
+    -fx-border-color: #BDBCBD;
+}
+
+#menu-logo {
+    /*-fx-border-width: 1px;*/
+    /*-fx-border-color: #BDBCBD;*/
+}
+
+#dashboard {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 20px;
+}
+#dashboard:hover {
+    -fx-background-color: #BDFEDC;
+}
+
+#managing {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 20px;
+}
+#managing:hover {
+    -fx-background-color: #BDFEDC;
+}
+
+#statistic {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 20px;
+}
+#statistic:hover {
+    -fx-background-color: #BDFEDC;
+}

@@ -1,0 +1,33 @@
+.dashboard-container {
+    -fx-background-color: WHITE;
+}
+
+.image-container {
+    -fx-background-color: WHITE;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 20px;
+}
+
+#pane-soldier {
+    -fx-background-color: #7A80F0;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 20px;
+}
+
+#pane-child {
+    -fx-background-color: #BDFEDC;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 20px;
+}
+
+#pane-poor {
+    -fx-background-color: #FFEFB9;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 20px;
+}
+
+#pane-storm {
+    -fx-background-color: #313234;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 20px;
+}
