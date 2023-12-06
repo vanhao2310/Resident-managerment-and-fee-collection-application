@@ -5,67 +5,82 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0"
-            style="-fx-background-color: WHITE;" stylesheets="@../../Styles/leader_managing.css"
-            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: WHITE;"
+            stylesheets="@../../Styles/leader_managing.css" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.manager.payment_manager.Controllers.Leader.FamilyInfoController">
-   <children>
-      <Label layoutX="300.0" layoutY="27.0" text="Thông tin hộ gia đình">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="90.0">
-         <children>
-            <Label text="Danh sách thành viên">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-      <VBox layoutX="600.0" layoutY="100.0">
-         <children>
-            <AnchorPane fx:id="add_member_btn" prefHeight="60.0" prefWidth="250.0" styleClass="option">
-               <children>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Images/add_member_icon.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="60.0" layoutY="12.0" text="Thêm nhân khẩu">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="60.0" prefWidth="250.0" styleClass="option">
-               <children>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Images/add_member_icon.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="60.0" layoutY="12.0" text="Xóa nhân khẩu">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </AnchorPane>
-         </children>
-      </VBox>
-      <ImageView fitHeight="40.0" fitWidth="30.0" layoutX="860.0" layoutY="10.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Images/close_btn.png" />
-         </image>
-      </ImageView>
-   </children>
+   <Label layoutX="350.0" layoutY="21.0" text="Thông tin hộ gia đình">
+      <font>
+         <Font size="30.0"/>
+      </font>
+   </Label>
+   <VBox layoutX="40.0" layoutY="82.0">
+      <HBox>
+         <Label text="Số hộ khẩu: ">
+            <font>
+               <Font size="25.0"/>
+            </font>
+         </Label>
+         <Label fx:id="id_ho_lbl" text="1">
+            <font>
+               <Font size="25.0"/>
+            </font>
+         </Label>
+      </HBox>
+      <HBox>
+         <Label text="Chủ hộ: ">
+            <font>
+               <Font size="25.0"/>
+            </font>
+         </Label>
+         <Label fx:id="chu_ho_lbl" text="abc">
+            <font>
+               <Font size="25.0"/>
+            </font>
+         </Label>
+      </HBox>
+      <HBox>
+         <Label text="Địa chỉ: ">
+            <font>
+               <Font size="25.0"/>
+            </font>
+         </Label>
+         <Label fx:id="address_lbl" text="dia_chi">
+            <font>
+               <Font size="25.0"/>
+            </font>
+         </Label>
+      </HBox>
+   </VBox>
+   <VBox layoutX="700.0" layoutY="100.0">
+      <AnchorPane fx:id="add_member_btn" prefHeight="60.0" prefWidth="250.0" styleClass="option">
+         <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../../Images/add_member_icon.png"/>
+         </ImageView>
+         <Label layoutX="60.0" layoutY="12.0" text="Thêm nhân khẩu">
+            <font>
+               <Font size="25.0"/>
+            </font>
+         </Label>
+      </AnchorPane>
+      <AnchorPane prefHeight="60.0" prefWidth="250.0" styleClass="option">
+         <VBox.margin>
+            <Insets top="10.0"/>
+         </VBox.margin>
+         <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../../Images/add_member_icon.png"/>
+         </ImageView>
+         <Label layoutX="60.0" layoutY="12.0" text="Xóa nhân khẩu">
+            <font>
+               <Font size="25.0"/>
+            </font>
+         </Label>
+      </AnchorPane>
+   </VBox>
 </AnchorPane>
