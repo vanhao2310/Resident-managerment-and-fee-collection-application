@@ -20,9 +20,10 @@ public class FamilyListController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         detail_lbl.setOnMouseClicked(mouseEvent -> {
-            id_ho = id_lbl.getText();
+            this.id_ho = this.id_lbl.getText();
             Model.getInstance().getViewFactory().showFamilyDetail();
             Model.getInstance().getViewFactory().updateFamilyDetail(id_ho);
+            System.out.println(id_ho);
         });
     }
 

@@ -76,6 +76,7 @@ public class ViewFactory {
         stage.show();
     }
     public void updateFamilyDetail(String id_ho) {
+        System.out.println("ViewFactory: " + id_ho);
         familyInfoController.updateFamilyInfo(id_ho);
     }
 
