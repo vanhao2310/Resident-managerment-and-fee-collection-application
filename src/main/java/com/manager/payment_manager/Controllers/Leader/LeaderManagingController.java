@@ -2,6 +2,7 @@ package com.manager.payment_manager.Controllers.Leader;
 
 import com.manager.payment_manager.Models.Family;
 import com.manager.payment_manager.Models.Model;
+import com.manager.payment_manager.Services.FamilyService;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -27,7 +28,7 @@ public class LeaderManagingController implements Initializable {
     private void loadFamily() {
         family_vbox.getChildren().clear();
 
-        List<Family> allFamily = getAllFamily();
+        List<Family> allFamily = FamilyService.getAllFamily();
         if(!allFamily.isEmpty()) {
             for (Family f : allFamily) {
                 try {
