@@ -36,9 +36,11 @@ public class FamilyInfoController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         add_member_btn.setOnMouseClicked(mouseEvent -> {
             Stage stage = (Stage) add_member_btn.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/AddMember.fxml"));
             try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/AddMember.fxml"));
                 stage.setScene(new Scene(loader.load()));
+                AddMemberController addMemberController = loader.getController();
+                addMemberController.saveID(id_ho_lbl.getText());
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
@@ -54,7 +56,8 @@ public class FamilyInfoController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/MemberList.fxml"));
                 Parent memberList = loader.load();
                 MemberListController controller = loader.getController();
-                controller.setInfor(tmp);
+                controller.setInfo(tmp);
+                controller.saveID(id_ho_lbl.getText());
                 member_vbox.getChildren().add(memberList);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
