@@ -8,6 +8,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,7 @@ public class AddMemberController implements Initializable {
     public Button add_done_btn;
     @FXML
     public Button add_cancel_btn;
+    private String id_ho;
 
     // DATA INPUT
     /* TODO: INPUT INFO
@@ -44,7 +46,7 @@ public class AddMemberController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         warning_label.setVisible(false);
 
-        back_btn.setOnMouseClicked(mouseEvent -> Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Managing"));
+        back_btn.setOnMouseClicked(mouseEvent -> getBackToFamilyInfo());
 
         add_done_btn.setOnAction(actionEvent -> {
             // TODO: Check valid
@@ -53,7 +55,7 @@ public class AddMemberController implements Initializable {
                 // TODO: Add to database
 
                 // TODO: Return to Managing View
-                Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Managing");
+                getBackToFamilyInfo();
             } else {
                 warning_label.setVisible(true);
             }
@@ -63,12 +65,12 @@ public class AddMemberController implements Initializable {
             // TODO: Clear input
             clear_input();
             // TODO: Return to Managing View
-            Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Managing");
+            getBackToFamilyInfo();
         });
     }
 
     // TODO: Check for filling all required info
-    boolean validation_check() {
+    private boolean validation_check() {
         if (full_name_field.getText().isEmpty()) return false;
         if (nick_name_field.getText().isEmpty()) return false;
         if (born_field.getText().isEmpty()) return false;
@@ -81,7 +83,7 @@ public class AddMemberController implements Initializable {
         return !prev_address_field.getText().isEmpty();
     }
 
-    void clear_input() {
+    private void clear_input() {
         full_name_field.clear();
         nick_name_field.clear();
         born_field.clear();
@@ -92,5 +94,17 @@ public class AddMemberController implements Initializable {
         id_field.clear();
         create_place_field.clear();
         prev_address_field.clear();
+    }
+
+    public void saveID(String id_ho) {
+        this.id_ho = id_ho;
+        System.out.println("saved id");
+    }
+
+    private void getBackToFamilyInfo() {
+        Stage stage = (Stage) back_btn.getScene().getWindow();
+        stage.close();
+        Model.getInstance().getViewFactory().showFamilyDetail();
+        Model.getInstance().getViewFactory().updateFamilyDetail(this.id_ho);
     }
 }
