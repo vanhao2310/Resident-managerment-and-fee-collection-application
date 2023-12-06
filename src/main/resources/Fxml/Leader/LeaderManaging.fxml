@@ -70,7 +70,7 @@
                         </padding>
                      </Label>
                      <Line startY="30.0" />
-                     <Label text="Số lượng thành viên" textFill="WHITE">
+                     <Label prefWidth="60.0" text="Sửa" textFill="WHITE">
                         <font>
                            <Font size="20.0" />
                         </font>
@@ -78,14 +78,11 @@
                            <Insets left="20.0" right="20.0" />
                         </HBox.margin>
                      </Label>
-                     <Line startY="30.0" />
-                     <Label text="Chỉnh sửa" textFill="WHITE">
+                     <Line layoutX="579.0" layoutY="11.0" startY="30.0" />
+                     <Label layoutX="600.0" layoutY="11.0" prefWidth="50.0" textFill="WHITE">
                         <font>
                            <Font size="20.0" />
                         </font>
-                        <HBox.margin>
-                           <Insets left="20.0" right="20.0" />
-                        </HBox.margin>
                      </Label>
                   </children>
                </HBox>

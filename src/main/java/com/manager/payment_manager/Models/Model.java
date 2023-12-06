@@ -18,6 +18,6 @@ public class Model {
     }
 
     public ViewFactory getViewFactory() {
-        return viewFactory;
+        return this.viewFactory;
     }
 }
