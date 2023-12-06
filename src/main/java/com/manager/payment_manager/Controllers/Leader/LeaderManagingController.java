@@ -16,14 +16,12 @@ import java.util.ResourceBundle;
 import static com.manager.payment_manager.Services.FamilyService.getAllFamily;
 
 public class LeaderManagingController implements Initializable {
-    public AnchorPane add_member_btn;
     public VBox family_vbox;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadFamily();
-        add_member_btn.setOnMouseClicked(mouseEvent -> Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("AddMember"));
     }
 
     private void loadFamily() {

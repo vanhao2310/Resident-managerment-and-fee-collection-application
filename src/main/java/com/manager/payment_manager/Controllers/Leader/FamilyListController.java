@@ -1,10 +1,10 @@
 package com.manager.payment_manager.Controllers.Leader;
 
 import com.manager.payment_manager.Models.Family;
+import com.manager.payment_manager.Models.Model;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,7 +19,7 @@ public class FamilyListController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         detail_lbl.setOnMouseClicked(mouseEvent -> {
-
+            Model.getInstance().getViewFactory().showFamilyDetail();
         });
     }
 

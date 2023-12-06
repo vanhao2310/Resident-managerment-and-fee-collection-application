@@ -1,5 +1,6 @@
 package com.manager.payment_manager.Views;
 
+import com.manager.payment_manager.Controllers.Leader.FamilyInfoController;
 import com.manager.payment_manager.Controllers.Leader.LeaderController;
 import com.manager.payment_manager.Controllers.Manager.ManagerController;
 import javafx.beans.property.SimpleStringProperty;
@@ -56,6 +57,12 @@ public class ViewFactory {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/Manager.fxml"));
         ManagerController managerController = new ManagerController();
         loader.setController(managerController);
+        createStage(loader);
+    }
+
+    public void showFamilyDetail() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/FamilyInfo.fxml"));
+        loader.getController();
         createStage(loader);
     }
 
@@ -126,7 +133,6 @@ public class ViewFactory {
         }
         return managerManagingView;
     }
-
 
 
     // TODO: IGNORE THESE
