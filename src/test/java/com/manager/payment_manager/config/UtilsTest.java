@@ -30,7 +30,7 @@ public class UtilsTest {
         ResultSet rs = pst.executeQuery();
 
         while (rs.next()) {
-            System.out.println(rs.getString("chu_ho") + rs.getString("dia_chi") + rs.getString("dia_chi") + rs.getInt("so_thanh_vien") + "\n");
+            System.out.println(rs.getInt("ID_HO") + rs.getString("chu_ho") + rs.getString("dia_chi") + rs.getInt("so_thanh_vien") + "\n");
         }
         pst.close();
     }
