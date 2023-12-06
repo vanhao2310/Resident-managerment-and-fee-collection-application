@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class FamilyListController implements Initializable {
-
+    private String id_ho;
     public Label id_lbl;
     public Label name_lbl;
     public Label address_lbl;
@@ -19,7 +19,9 @@ public class FamilyListController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         detail_lbl.setOnMouseClicked(mouseEvent -> {
+            id_ho = id_lbl.getText();
             Model.getInstance().getViewFactory().showFamilyDetail();
+            Model.getInstance().getViewFactory().updateFamilyDetail(id_ho);
         });
     }
 

@@ -25,6 +25,9 @@ public class ViewFactory {
     private AnchorPane managerDashboardView;
     private AnchorPane managerManagingView;
 
+    private Scene familyInfoScene;
+    private FamilyInfoController familyInfoController;
+
     public ViewFactory() {
         this.managerSelectedMenuItem = new SimpleStringProperty("");
         this.leaderSelectedMenuItem = new SimpleStringProperty("");
@@ -62,8 +65,18 @@ public class ViewFactory {
 
     public void showFamilyDetail() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/FamilyInfo.fxml"));
-        loader.getController();
-        createStage(loader);
+        try {
+            familyInfoScene = new Scene(loader.load());
+            familyInfoController = loader.getController();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        Stage stage = new Stage();
+        stage.setScene(familyInfoScene);
+        stage.show();
+    }
+    public void updateFamilyDetail(String id_ho) {
+        familyInfoController.updateFamilyInfo(id_ho);
     }
 
     // TODO: SET MENU OPTION SCENE
