@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="40.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.FamilyListController">
+   <Label fx:id="id_lbl" prefWidth="40.0" text="1" wrapText="true">
+      <font>
+         <Font size="20.0" />
+      </font>
+      <HBox.margin>
+         <Insets left="20.0" />
+      </HBox.margin>
+      <padding>
+         <Insets right="20.0" />
+      </padding>
+   </Label>
+   <Line startY="38.0" />
+   <Label fx:id="name_lbl" prefWidth="126.4" text="Họ tên chủ hộ" wrapText="true">
+      <font>
+         <Font size="20.0" />
+      </font>
+      <HBox.margin>
+         <Insets left="20.0" right="20.0" />
+      </HBox.margin>
+   </Label>
+   <Line startY="38.0" />
+   <Label fx:id="address_lbl" prefWidth="300.0" text="Địa chỉ" textAlignment="CENTER">
+      <font>
+         <Font size="20.0" />
+      </font>
+      <HBox.margin>
+         <Insets left="20.0" right="20.0" />
+      </HBox.margin>
+   </Label>
+   <Line startY="38.0" />
+   <Label fx:id="no_people_lbl" prefWidth="177.6" text="3" wrapText="true">
+      <font>
+         <Font size="20.0" />
+      </font>
+      <HBox.margin>
+         <Insets left="20.0" right="20.0" />
+      </HBox.margin>
+   </Label>
+   <Line startY="38.0" />
+   <Hyperlink fx:id="detail_lbl" prefWidth="87.2" text="Chi tiết">
+      <HBox.margin>
+         <Insets left="20.0" right="20.0" />
+      </HBox.margin>
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Hyperlink>
+</HBox>
