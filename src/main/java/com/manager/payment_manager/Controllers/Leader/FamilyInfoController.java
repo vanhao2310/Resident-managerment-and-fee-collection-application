@@ -25,11 +25,10 @@ public class FamilyInfoController implements Initializable {
     public Label id_ho_lbl;
     public VBox member_vbox;
 
-
     public void updateFamilyInfo(String id_ho) {
-        System.out.println(id_ho);
-        System.out.println(id_ho_lbl.getText());
+        System.out.println("FamilyInfo: " + id_ho);
         this.id_ho_lbl.setText(id_ho);
+        showListMember(id_ho);
     }
 
     @Override
@@ -45,11 +44,10 @@ public class FamilyInfoController implements Initializable {
                 System.out.println(e.getMessage());
             }
         });
-        this.showListMember();
     }
-    public void showListMember(){
+    public void showListMember(String id_ho){
         member_vbox.getChildren().clear();
-        List<NhanKhau> dsNhanKhau = NhanKhauService.getNhanKhau(this.id_ho_lbl.getText());
+        List<NhanKhau> dsNhanKhau = NhanKhauService.getNhanKhau(id_ho);
         for(NhanKhau tmp : dsNhanKhau){
             System.out.println(tmp.toString());
             try{
@@ -57,7 +55,7 @@ public class FamilyInfoController implements Initializable {
                 Parent memberList = loader.load();
                 MemberListController controller = loader.getController();
                 controller.setInfo(tmp);
-                controller.saveID(id_ho_lbl.getText());
+                controller.saveID(id_ho);
                 member_vbox.getChildren().add(memberList);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
