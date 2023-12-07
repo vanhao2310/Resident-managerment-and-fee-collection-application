@@ -7,24 +7,24 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddMemberController implements Initializable {
-    // BUTTON
-    @FXML
-    public Label return_btn;
     @FXML
     public Button add_done_btn;
     @FXML
     public Button add_cancel_btn;
+    private String id_ho;
 
     // DATA INPUT
     /* TODO: INPUT INFO
     * full_name_field - Họ và tên
     * nick_name_field - Bí danh
-    * birth_date_picker - ngày sinh
+    * DATE birth_date_picker - ngày sinh
     * born_field - nơi sinh
     * native_field - nguyên quán
     * nation_field - dân tộc
@@ -32,20 +32,21 @@ public class AddMemberController implements Initializable {
     * work_place_field - nơi làm việc
     * id_field - số CMND/CCCD
     * create_place_field - nơi cấp CMND/CCCD
-    * create_date_picker - ngày cấp
-    * sign_up_date_picker - ngày đăng ký thường trú
+    * DATE create_date_picker - ngày cấp
+    * DATE sign_up_date_picker - ngày đăng ký thường trú
     * prev_address_field - địa chỉ thường trú trước khi chuyển đến
     * */
     public TextField full_name_field, nick_name_field, born_field, native_field,
             nation_field, job_field, work_place_field, id_field, create_place_field, prev_address_field;
     public DatePicker birth_date_picker, create_date_picker, sign_up_date_picker;
     public Label warning_label;
+    public AnchorPane back_btn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         warning_label.setVisible(false);
 
-        return_btn.setOnMouseClicked(mouseEvent -> Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Managing"));
+        back_btn.setOnMouseClicked(mouseEvent -> getBackToFamilyInfo());
 
         add_done_btn.setOnAction(actionEvent -> {
             // TODO: Check valid
@@ -54,7 +55,7 @@ public class AddMemberController implements Initializable {
                 // TODO: Add to database
 
                 // TODO: Return to Managing View
-                Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Managing");
+                getBackToFamilyInfo();
             } else {
                 warning_label.setVisible(true);
             }
@@ -62,13 +63,14 @@ public class AddMemberController implements Initializable {
 
         add_cancel_btn.setOnAction(actionEvent -> {
             // TODO: Clear input
-
+            clear_input();
             // TODO: Return to Managing View
-            Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Managing");
+            getBackToFamilyInfo();
         });
     }
 
-    boolean validation_check() {
+    // TODO: Check for filling all required info
+    private boolean validation_check() {
         if (full_name_field.getText().isEmpty()) return false;
         if (nick_name_field.getText().isEmpty()) return false;
         if (born_field.getText().isEmpty()) return false;
@@ -79,5 +81,30 @@ public class AddMemberController implements Initializable {
         if (id_field.getText().isEmpty()) return false;
         if (create_place_field.getText().isEmpty()) return false;
         return !prev_address_field.getText().isEmpty();
+    }
+
+    private void clear_input() {
+        full_name_field.clear();
+        nick_name_field.clear();
+        born_field.clear();
+        nation_field.clear();
+        native_field.clear();
+        job_field.clear();
+        work_place_field.clear();
+        id_field.clear();
+        create_place_field.clear();
+        prev_address_field.clear();
+    }
+
+    public void saveID(String id_ho) {
+        this.id_ho = id_ho;
+        System.out.println("saved id");
+    }
+
+    private void getBackToFamilyInfo() {
+        Stage stage = (Stage) back_btn.getScene().getWindow();
+        stage.close();
+        Model.getInstance().getViewFactory().showFamilyDetail();
+        Model.getInstance().getViewFactory().updateFamilyDetail(this.id_ho);
     }
 }

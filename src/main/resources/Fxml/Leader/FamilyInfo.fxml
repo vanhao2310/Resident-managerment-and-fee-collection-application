@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: WHITE;" stylesheets="@../../Styles/leader_managing.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.FamilyInfoController">
+   <Label layoutX="350.0" layoutY="21.0" text="Thông tin hộ gia đình">
+      <font>
+         <Font size="30.0" />
+      </font>
+   </Label>
+   <VBox layoutX="40.0" layoutY="60.0">
+      <HBox>
+         <Label text="Số hộ khẩu: ">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
+         <Label fx:id="id_ho_lbl" text="1">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
+      </HBox>
+      <HBox>
+         <Label text="Chủ hộ: ">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
+         <Label fx:id="chu_ho_lbl" text="abc">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
+      </HBox>
+      <HBox>
+         <Label text="Địa chỉ: ">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
+         <Label fx:id="address_lbl" text="dia_chi">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
+      </HBox>
+   </VBox>
+   <HBox layoutX="114.0" layoutY="519.0">
+      <AnchorPane fx:id="add_member_btn" styleClass="option">
+         <Label text="Thêm nhân khẩu">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
+      </AnchorPane>
+      <AnchorPane styleClass="option">
+         <Label text="Xóa nhân khẩu">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+      </AnchorPane>
+   </HBox>
+   <ScrollPane layoutX="40.0" layoutY="180.0" prefHeight="300.0" prefWidth="600.0">
+      <VBox>
+         <HBox alignment="CENTER_LEFT" prefHeight="30.0" style="-fx-background-color: #2772aa;">
+            <Label prefWidth="50.0" text="ID" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </Label>
+            <Line startY="30.0" />
+            <Label prefWidth="150.0" text="Họ và tên" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </Label>
+            <Line startY="30.0" />
+            <Label prefWidth="130.0" text="CCCD/CMND" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Line startY="30.0" />
+            <Label prefWidth="60.0" text="Sửa" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Label>
+            <Line layoutX="579.0" layoutY="11.0" startY="30.0" />
+            <Label layoutX="600.0" layoutY="11.0" prefWidth="50.0" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </HBox>
+         <VBox fx:id="member_vbox" />
+      </VBox>
+   </ScrollPane>
+</AnchorPane>

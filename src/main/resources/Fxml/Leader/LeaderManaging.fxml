@@ -2,11 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -34,13 +31,66 @@
          </font>
       </TextField>
    </HBox>
-   <TableView fx:id="family_table" layoutX="60.0" layoutY="200.0" prefHeight="548.0" prefWidth="670.0">
-      <columns>
-         <TableColumn prefWidth="101.86667251586914" text="Số hộ khẩu" />
-         <TableColumn minWidth="0.0" prefWidth="218.6666717529297" text="Họ tên chủ hộ" />
-         <TableColumn minWidth="0.0" prefWidth="347.7333068847656" text="Địa chỉ" />
-      </columns>
-   </TableView>
+   <ScrollPane layoutX="60.0" layoutY="225.0" prefHeight="500.0" prefWidth="700.0">
+      <content>
+         <VBox>
+            <children>
+               <HBox alignment="CENTER_LEFT" prefHeight="30.0" style="-fx-background-color: #2772aa;">
+                  <children>
+                     <Label prefWidth="40.0" text="ID" textFill="WHITE">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets left="20.0" />
+                        </HBox.margin>
+                        <padding>
+                           <Insets right="20.0" />
+                        </padding>
+                     </Label>
+                     <Line startY="30.0" />
+                     <Label text="Họ tên chủ hộ" textFill="WHITE">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets left="20.0" right="20.0" />
+                        </HBox.margin>
+                     </Label>
+                     <Line startY="30.0" />
+                     <Label prefWidth="300.0" text="Địa chỉ" textAlignment="CENTER" textFill="WHITE">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets left="20.0" right="20.0" />
+                        </HBox.margin>
+                        <padding>
+                           <Insets left="120.0" />
+                        </padding>
+                     </Label>
+                     <Line startY="30.0" />
+                     <Label prefWidth="60.0" text="Sửa" textFill="WHITE">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets left="20.0" right="20.0" />
+                        </HBox.margin>
+                     </Label>
+                     <Line layoutX="579.0" layoutY="11.0" startY="30.0" />
+                     <Label layoutX="600.0" layoutY="11.0" prefWidth="50.0" textFill="WHITE">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </HBox>
+               <VBox fx:id="family_vbox" />
+            </children>
+         </VBox>
+      </content>
+   </ScrollPane>
    <AnchorPane layoutX="755.0" layoutY="200.0" prefHeight="367.0" prefWidth="345.0">
       <VBox layoutX="30.0" layoutY="30.0">
          <Label text="Thông tin hộ ">
@@ -82,44 +132,7 @@
                <Insets bottom="10.0" />
             </VBox.margin>
          </Label>
-         <VBox>
-            <AnchorPane fx:id="add_member_btn" prefHeight="60.0" prefWidth="310.0" styleClass="option">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-               <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../Images/add_member_icon.png" />
-               </ImageView>
-               <Label layoutX="80.0" layoutY="12.0" text="Thêm nhân khẩu">
-                  <font>
-                     <Font size="25.0" />
-                  </font>
-               </Label>
-            </AnchorPane>
-            <AnchorPane prefHeight="60.0" prefWidth="310.0" styleClass="option">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-               <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../Images/add_member_icon.png" />
-               </ImageView>
-               <Label layoutX="80.0" layoutY="12.0" text="Thay đổi nhân khẩu">
-                  <font>
-                     <Font size="25.0" />
-                  </font>
-               </Label>
-            </AnchorPane>
-            <AnchorPane prefHeight="60.0" prefWidth="310.0" styleClass="option">
-               <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="30.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../Images/add_member_icon.png" />
-               </ImageView>
-               <Label layoutX="80.0" layoutY="12.0" text="Chỉnh sửa thông tin">
-                  <font>
-                     <Font size="25.0" />
-                  </font>
-               </Label>
-            </AnchorPane>
-         </VBox>
+         <VBox />
       </VBox>
    </AnchorPane>
 </AnchorPane>

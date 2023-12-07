@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="40.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.MemberListController">
+    <Label fx:id="id_lbl" prefWidth="50.0" text="1" wrapText="true">
+        <font>
+          <Font size="20.0" />
+        </font>
+        <HBox.margin>
+          <Insets left="20.0" />
+        </HBox.margin>
+        <padding>
+          <Insets right="20.0" />
+        </padding>
+    </Label>
+    <Line startY="38.0" />
+    <Label fx:id="name_lbl" prefWidth="150.0" text="Họ tên chủ hộ" wrapText="true">
+        <font>
+          <Font size="20.0" />
+        </font>
+        <HBox.margin>
+          <Insets left="20.0" right="20.0" />
+        </HBox.margin>
+    </Label>
+    <Line startY="38.0" />
+    <Label fx:id="cccd_lbl" prefWidth="130.0" text="025203003513" textAlignment="CENTER">
+        <font>
+          <Font size="20.0" />
+        </font>
+        <HBox.margin>
+          <Insets left="20.0" right="20.0" />
+        </HBox.margin>
+    </Label>
+    <Line startY="38.0" />
+    <Hyperlink fx:id="detail_lbl" prefHeight="28.0" prefWidth="60.0" text="Chi tiết">
+        <HBox.margin>
+          <Insets left="20.0" right="20.0" />
+        </HBox.margin>
+        <font>
+          <Font size="15.0" />
+        </font>
+    </Hyperlink>
+    <Line layoutX="580.0" layoutY="11.0" startY="38.0" />
+    <CheckBox fx:id="delete_check_box" mnemonicParsing="false">
+        <HBox.margin>
+          <Insets left="20.0" right="20.0" />
+        </HBox.margin>
+    </CheckBox>
+</HBox>

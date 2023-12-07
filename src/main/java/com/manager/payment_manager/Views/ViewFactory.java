@@ -1,5 +1,6 @@
 package com.manager.payment_manager.Views;
 
+import com.manager.payment_manager.Controllers.Leader.FamilyInfoController;
 import com.manager.payment_manager.Controllers.Leader.LeaderController;
 import com.manager.payment_manager.Controllers.Manager.ManagerController;
 import javafx.beans.property.SimpleStringProperty;
@@ -23,6 +24,9 @@ public class ViewFactory {
     // View in manager
     private AnchorPane managerDashboardView;
     private AnchorPane managerManagingView;
+
+    private Scene familyInfoScene;
+    private FamilyInfoController familyInfoController;
 
     public ViewFactory() {
         this.managerSelectedMenuItem = new SimpleStringProperty("");
@@ -57,6 +61,23 @@ public class ViewFactory {
         ManagerController managerController = new ManagerController();
         loader.setController(managerController);
         createStage(loader);
+    }
+
+    public void showFamilyDetail() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/FamilyInfo.fxml"));
+        try {
+            familyInfoScene = new Scene(loader.load());
+            familyInfoController = loader.getController();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        Stage stage = new Stage();
+        stage.setScene(familyInfoScene);
+        stage.show();
+    }
+    public void updateFamilyDetail(String id_ho) {
+        System.out.println("ViewFactory: " + id_ho);
+        familyInfoController.updateFamilyInfo(id_ho);
     }
 
     // TODO: SET MENU OPTION SCENE
@@ -126,7 +147,6 @@ public class ViewFactory {
         }
         return managerManagingView;
     }
-
 
 
     // TODO: IGNORE THESE
