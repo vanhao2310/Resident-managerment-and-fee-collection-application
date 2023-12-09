@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: WHITE;" stylesheets="@../../Styles/leader_managing.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.FamilyInfoController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: WHITE;" stylesheets="@../../Styles/leader_managing.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.FamilyInfoController">
    <Label layoutX="350.0" layoutY="21.0" text="Thông tin hộ gia đình">
       <font>
          <Font size="30.0" />
@@ -61,7 +61,7 @@
             </font>
          </Label>
       </AnchorPane>
-      <AnchorPane styleClass="option">
+      <AnchorPane fx:id="delete_member_btn" styleClass="option">
          <Label text="Xóa nhân khẩu">
             <font>
                <Font size="25.0" />

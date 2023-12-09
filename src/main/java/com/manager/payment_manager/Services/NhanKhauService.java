@@ -68,4 +68,16 @@ public class NhanKhauService {
         }
         return result;
     }
+    public static void deleteNhanKhau(String idNguoi) {
+        try (Connection conn = Utils.getConnection()) {
+            String sql = "DELETE FROM nhankhau WHERE ID_Nguoi = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, idNguoi);
+            pst.executeUpdate();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Exception in NhanKhauService deleteNhanKhau");
+            System.out.println(e.getMessage());
+        }
+    }
 }
