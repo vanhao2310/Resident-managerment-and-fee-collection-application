@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -71,13 +71,24 @@ public class FamilyInfoController implements Initializable {
     }
     public void deleteMember() {
         List<MemberListController> selectedMembers = new ArrayList<>();
-
+        boolean hasCheckedMember = false;
         // Lặp qua tất cả các thành viên trong member_vbox và kiểm tra xem đã chọn delete_check_box chưa
         for (int i = 0; i < member_vbox.getChildren().size(); i++) {
             MemberListController controller = (MemberListController) member_vbox.getChildren().get(i).getUserData();
             if (controller != null && controller.isChecked()) {
                 selectedMembers.add(controller);
+                hasCheckedMember = true;
             }
+        }
+
+        if (!hasCheckedMember) {
+            // Hiển thị thông báo không thể xóa vì chưa chọn checkbox
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Thông báo");
+            alert.setHeaderText(null);
+            alert.setContentText("Không thể xóa. Hãy chọn ít nhất một thành viên để xóa.");
+            alert.showAndWait();
+            return;
         }
 
         // Xóa các thành viên đã chọn khỏi cơ sở dữ liệu và giao diện
