@@ -42,4 +42,27 @@ public class FamilyService {
         }
         return result;
     }
+
+    public static Family getFamilyWithID(String id_ho) {
+        Family result = null;
+        try (Connection conn = Utils.getConnection()) {
+            String sql = "select * from HoKhau where ID_HO = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, id_ho);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                result = new Family(rs.getInt("ID_HO"),
+                                    rs.getString("chu_ho"),
+                                    rs.getString("dia_chi"),
+                                    rs.getInt("so_thanh_vien"));
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println("Can not query family");
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
 }

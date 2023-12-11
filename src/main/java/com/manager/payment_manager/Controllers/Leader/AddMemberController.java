@@ -46,12 +46,16 @@ public class AddMemberController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         warning_label.setVisible(false);
 
-        back_btn.setOnMouseClicked(mouseEvent -> getBackToFamilyInfo());
+        back_btn.setOnMouseClicked(mouseEvent -> {
+            clear_input();
+            getBackToFamilyInfo();
+        });
 
         add_done_btn.setOnAction(actionEvent -> {
             // TODO: Check valid
             if (validation_check()) {
                 warning_label.setVisible(false);
+                clear_input();
                 // TODO: Add to database
 
                 // TODO: Return to Managing View
