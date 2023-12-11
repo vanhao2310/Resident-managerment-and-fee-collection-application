@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: WHITE;" stylesheets="@../../Styles/leader_managing.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.FamilyInfoController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: WHITE;" stylesheets="@../../Styles/leader_managing.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.FamilyInfoController">
    <Label layoutX="350.0" layoutY="21.0" text="Thông tin hộ gia đình">
       <font>
          <Font size="30.0" />
@@ -53,25 +53,6 @@
          </Label>
       </HBox>
    </VBox>
-   <HBox layoutX="114.0" layoutY="519.0">
-      <AnchorPane fx:id="add_member_btn" styleClass="option">
-         <Label text="Thêm nhân khẩu">
-            <font>
-               <Font size="25.0" />
-            </font>
-         </Label>
-      </AnchorPane>
-      <AnchorPane fx:id="delete_member_btn" styleClass="option">
-         <Label text="Xóa nhân khẩu">
-            <font>
-               <Font size="25.0" />
-            </font>
-         </Label>
-         <HBox.margin>
-            <Insets left="20.0" />
-         </HBox.margin>
-      </AnchorPane>
-   </HBox>
    <ScrollPane layoutX="40.0" layoutY="180.0" prefHeight="300.0" prefWidth="600.0">
       <VBox>
          <HBox alignment="CENTER_LEFT" prefHeight="30.0" style="-fx-background-color: #2772aa;">
@@ -132,4 +113,33 @@
          <VBox fx:id="member_vbox" />
       </VBox>
    </ScrollPane>
+   <VBox layoutX="700.0" layoutY="180.0">
+      <AnchorPane fx:id="add_member_btn" styleClass="option">
+         <Label text="Thêm nhân khẩu">
+            <font>
+               <Font size="25.0"/>
+            </font>
+         </Label>
+      </AnchorPane>
+      <AnchorPane fx:id="delete_member_btn" styleClass="option">
+         <Label text="Xóa nhân khẩu">
+            <font>
+               <Font size="25.0"/>
+            </font>
+         </Label>
+         <VBox.margin>
+            <Insets top="10.0"/>
+         </VBox.margin>
+      </AnchorPane>
+      <AnchorPane fx:id="delete_member_btn1" styleClass="option">
+         <VBox.margin>
+            <Insets top="10.0"/>
+         </VBox.margin>
+         <Label text="Tách hộ">
+            <font>
+               <Font size="25.0"/>
+            </font>
+         </Label>
+      </AnchorPane>
+   </VBox>
 </AnchorPane>
