@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -20,6 +21,7 @@ import java.util.ResourceBundle;
 
 public class FamilyInfoController implements Initializable {
     public AnchorPane add_member_btn;
+    public AnchorPane delete_member_btn;
     public Label chu_ho_lbl;
     public Label address_lbl;
     public Label id_ho_lbl;
@@ -44,6 +46,9 @@ public class FamilyInfoController implements Initializable {
                 System.out.println(e.getMessage());
             }
         });
+        delete_member_btn.setOnMouseClicked(actionEvent -> {
+            deleteMember();
+        });
     }
     public void showListMember(String id_ho){
         member_vbox.getChildren().clear();
@@ -56,11 +61,42 @@ public class FamilyInfoController implements Initializable {
                 MemberListController controller = loader.getController();
                 controller.setInfo(tmp);
                 controller.saveID(id_ho);
+                memberList.setUserData(controller);
                 member_vbox.getChildren().add(memberList);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
         }
 
+    }
+    public void deleteMember() {
+        List<MemberListController> selectedMembers = new ArrayList<>();
+        boolean hasCheckedMember = false;
+        // Lặp qua tất cả các thành viên trong member_vbox và kiểm tra xem đã chọn delete_check_box chưa
+        for (int i = 0; i < member_vbox.getChildren().size(); i++) {
+            MemberListController controller = (MemberListController) member_vbox.getChildren().get(i).getUserData();
+            if (controller != null && controller.isChecked()) {
+                selectedMembers.add(controller);
+                hasCheckedMember = true;
+            }
+        }
+
+        if (!hasCheckedMember) {
+            // Hiển thị thông báo không thể xóa vì chưa chọn checkbox
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Thông báo");
+            alert.setHeaderText(null);
+            alert.setContentText("Không thể xóa. Hãy chọn ít nhất một thành viên để xóa.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Xóa các thành viên đã chọn khỏi cơ sở dữ liệu và giao diện
+        for (MemberListController controller : selectedMembers) {
+            String memberId = controller.id_lbl.getText();
+            NhanKhauService.deleteNhanKhau(memberId); // Thực hiện xóa thành viên khỏi cơ sở dữ liệu
+            member_vbox.getChildren().remove((Parent) controller.delete_check_box.getParent()); // Xóa thành viên khỏi giao diện
+            updateFamilyInfo(id_ho_lbl.getText());
+        }
     }
 }
