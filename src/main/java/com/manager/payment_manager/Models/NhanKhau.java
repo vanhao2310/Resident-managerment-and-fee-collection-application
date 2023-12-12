@@ -4,9 +4,11 @@ import java.util.Date;
 
 public class NhanKhau {
     private String id;
+    private int idHo;
     private String hoTen;
     private String biDanh;
     private Date ngaySinh;
+    private String gioiTinh;
     private String noiSinh;
     private String nguyenQuan;
     private String danToc;
@@ -25,6 +27,26 @@ public class NhanKhau {
         this.hoTen = hoTen;
         this.biDanh = biDanh;
         this.ngaySinh = ngaySinh;
+        this.noiSinh = noiSinh;
+        this.nguyenQuan = nguyenQuan;
+        this.danToc = danToc;
+        this.ngheNghiep = ngheNghiep;
+        this.noiLamViec = noiLamViec;
+        this.CCCD = CCCD;
+        this.ngayCap = ngayCap;
+        this.noiCap = noiCap;
+        this.ngayDangKiThuongTru = ngayDangKiThuongTru;
+        this.diaChiTruoc = diaChiTruoc;
+    }
+
+    public NhanKhau(int idHo, String hoTen, String biDanh, Date ngaySinh, String gioiTinh, String noiSinh,
+                    String nguyenQuan, String danToc, String ngheNghiep, String noiLamViec, String CCCD, Date ngayCap,
+                    String noiCap, Date ngayDangKiThuongTru, String diaChiTruoc) {
+        this.idHo = idHo;
+        this.hoTen = hoTen;
+        this.biDanh = biDanh;
+        this.ngaySinh = ngaySinh;
+        this.gioiTinh = gioiTinh;
         this.noiSinh = noiSinh;
         this.nguyenQuan = nguyenQuan;
         this.danToc = danToc;
@@ -101,8 +123,8 @@ public class NhanKhau {
         return biDanh;
     }
 
-    public Date getNgaySinh() {
-        return ngaySinh;
+    public java.sql.Date getNgaySinh() {
+        return (java.sql.Date) this.ngaySinh;
     }
 
     public String getNoiSinh() {
@@ -129,8 +151,8 @@ public class NhanKhau {
         return CCCD;
     }
 
-    public Date getNgayCap() {
-        return ngayCap;
+    public java.sql.Date getNgayCap() {
+        return (java.sql.Date) ngayCap;
     }
 
     public String getNoiCap() {
@@ -147,5 +169,12 @@ public class NhanKhau {
 
     public String getId() {
         return id;
+    }
+
+    public int getIdHo(){
+        return this.idHo;
+    }
+    public String getGioiTinh(){
+        return this.gioiTinh;
     }
 }

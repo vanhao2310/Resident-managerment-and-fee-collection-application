@@ -2,9 +2,11 @@ package com.manager.payment_manager.Views;
 
 import com.manager.payment_manager.Controllers.Leader.FamilyInfoController;
 import com.manager.payment_manager.Controllers.Leader.LeaderController;
+import com.manager.payment_manager.Controllers.Leader.LeaderManagingController;
 import com.manager.payment_manager.Controllers.Manager.ManagerController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -19,6 +21,7 @@ public class ViewFactory {
     // View in leader
     private AnchorPane leaderDashboardView;
     private AnchorPane leaderManagingView;
+    private LeaderManagingController leaderManagingController;
     private AnchorPane leaderStatisticView;
     private AnchorPane addMemberView;
     private AnchorPane addFamilyView;
@@ -85,7 +88,8 @@ public class ViewFactory {
     public AnchorPane getLeaderDashboardView() {
         if(leaderDashboardView == null) {
             try {
-                leaderDashboardView = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderDashboard.fxml")).load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderDashboard.fxml"));
+                leaderDashboardView = loader.load();
             } catch (Exception e) {
                 System.out.println("Error while loading leaderDashboard");
                 System.out.println(e.getMessage());
@@ -96,7 +100,9 @@ public class ViewFactory {
     public AnchorPane getLeaderManagingView() {
         if(leaderManagingView == null) {
             try {
-                leaderManagingView = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderManaging.fxml")).load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderManaging.fxml"));
+                leaderManagingView = loader.load();
+                this.leaderManagingController = loader.getController();
             } catch (Exception e) {
                 System.out.println("Error while loading leaderManaging");
                 System.out.println(e.getMessage());
@@ -167,5 +173,9 @@ public class ViewFactory {
     }
     public void closeStage(Stage stage) {
         stage.close();
+    }
+
+    public void updateListFamily(){
+        this.leaderManagingController.loadFamily();
     }
 }

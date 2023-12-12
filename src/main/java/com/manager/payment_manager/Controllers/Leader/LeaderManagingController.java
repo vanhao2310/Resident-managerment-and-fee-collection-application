@@ -40,7 +40,7 @@ public class LeaderManagingController implements Initializable {
             }
         });
     }
-    private void loadFamily() {
+    public void loadFamily() {
         family_vbox.getChildren().clear();
 
         List<Family> allFamily = FamilyService.getAllFamily();
