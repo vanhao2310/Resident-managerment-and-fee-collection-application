@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="30.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.manager.payment_manager.Controllers.Manager.FeeListController">
+   <children>
+      <Label prefWidth="40.0" text="ID">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </Label>
+      <Line startY="30.0" />
+      <Label prefWidth="230.0" text="Họ tên chủ hộ">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="20.0" right="20.0" />
+         </HBox.margin>
+         <padding>
+            <Insets left="45.0" />
+         </padding>
+      </Label>
+      <Line startY="30.0" />
+      <Label prefWidth="300.0" text="Địa chỉ" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="20.0" right="20.0" />
+         </HBox.margin>
+         <padding>
+            <Insets left="120.0" />
+         </padding>
+      </Label>
+      <Line startY="30.0" />
+      <Label prefWidth="200.0" text="Trạng thái">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Label>
+      <Line startY="30.0" />
+      <Hyperlink prefWidth="80.0" text="Chi tiết">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="20.0" right="20.0" />
+         </HBox.margin>
+      </Hyperlink>
+      <Line layoutX="579.0" layoutY="11.0" startY="30.0" />
+      <CheckBox mnemonicParsing="false" prefWidth="50.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </CheckBox>
+   </children>
+</HBox>

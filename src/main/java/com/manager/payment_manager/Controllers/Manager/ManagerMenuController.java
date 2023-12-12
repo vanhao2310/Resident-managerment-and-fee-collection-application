@@ -17,7 +17,7 @@ public class ManagerMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dashboard_select.setStyle("-fx-background-color: #BDFEDC;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        setStyleButton("Dashboard");
         addListener();
     }
     private void addListener() {
@@ -28,20 +28,28 @@ public class ManagerMenuController implements Initializable {
 
     private void onDashboard() {
         Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Dashboard");
-        dashboard_select.setStyle("-fx-background-color: #BDFEDC;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        managing_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        statistic_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        setStyleButton("Dashboard");
     }
     public void onManaging() {
         Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Managing");
-        dashboard_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        managing_select.setStyle("-fx-background-color: #BDFEDC;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        statistic_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        setStyleButton("Managing");
     }
     private void onStatistic() {
         Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Statistic");
+        setStyleButton("Statistic");
+    }
+
+    public void setStyleButton(String hBox) {
         dashboard_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
         managing_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        statistic_select.setStyle("-fx-background-color: #BDFEDC;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        statistic_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+
+//      System.out.println("Set Button " + hBox);
+        switch (hBox) {
+            case "Dashboard" -> dashboard_select.setStyle("-fx-background-color: #BDFEDC;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+            case "Managing" -> managing_select.setStyle("-fx-background-color: #BDFEDC;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+            case "Statistic" -> statistic_select.setStyle("-fx-background-color: #BDFEDC;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        }
+
     }
 }
