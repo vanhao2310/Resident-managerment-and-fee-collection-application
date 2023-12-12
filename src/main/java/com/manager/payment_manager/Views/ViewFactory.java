@@ -4,9 +4,10 @@ import com.manager.payment_manager.Controllers.Leader.FamilyInfoController;
 import com.manager.payment_manager.Controllers.Leader.LeaderController;
 import com.manager.payment_manager.Controllers.Leader.LeaderManagingController;
 import com.manager.payment_manager.Controllers.Manager.ManagerController;
+import com.manager.payment_manager.Controllers.Manager.ManagerManagingController;
+import com.manager.payment_manager.Controllers.Manager.ManagerMenuController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -23,11 +24,11 @@ public class ViewFactory {
     private AnchorPane leaderManagingView;
     private LeaderManagingController leaderManagingController;
     private AnchorPane leaderStatisticView;
-    private AnchorPane addMemberView;
     private AnchorPane addFamilyView;
     // View in manager
     private AnchorPane managerDashboardView;
     private AnchorPane managerManagingView;
+    private AnchorPane managerMenuView;
 
     private Scene familyInfoScene;
     private FamilyInfoController familyInfoController;
@@ -154,6 +155,30 @@ public class ViewFactory {
             }
         }
         return managerManagingView;
+    }
+    public AnchorPane getManagerManageView(String content) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerManaging.fxml"));
+            managerManagingView = loader.load();
+            ManagerManagingController managerManagingController = loader.getController();
+            managerManagingController.setComboItem(content);
+            System.out.println(content);
+        } catch (Exception e) {
+            System.out.println("Error while loading managerManaging");
+            System.out.println(e.getMessage());
+        }
+        return managerManagingView;
+    }
+    public AnchorPane updateManagerMenuView(String hBox) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerMenu.fxml"));
+            managerMenuView = loader.load();
+            ManagerMenuController managerMenuController = loader.getController();
+            managerMenuController.setStyleButton(hBox);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return managerMenuView;
     }
 
 

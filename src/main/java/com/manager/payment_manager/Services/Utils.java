@@ -8,14 +8,14 @@ import java.sql.SQLException;
 public class Utils {
     static final String url = "jdbc:mysql://localhost:3306/qlydancu";
     static final String user = "root";
-    static final String password = "";  //fix this
+    static final String password = "root";  //fix this
 
 
     static{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

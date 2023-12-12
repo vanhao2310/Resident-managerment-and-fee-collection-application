@@ -17,16 +17,16 @@ public class ManagerDashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         soldier_btn.setOnMouseClicked(event -> {
-            Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Managing");
+            Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Managing_soldier");
         });
         child_btn.setOnMouseClicked(event -> {
-            Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Managing");
+            Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Managing_child");
         });
         poor_btn.setOnMouseClicked(event -> {
-            Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Managing");
+            Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Managing_poor");
         });
         storm_btn.setOnMouseClicked(event -> {
-            Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Managing");
+            Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Managing_storm");
         });
     }
 }
