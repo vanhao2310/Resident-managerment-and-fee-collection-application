@@ -65,4 +65,21 @@ public class FamilyService {
         }
         return result;
     }
+
+    //add family to database
+    public static void addFamily(Family family){
+        try(Connection conn = Utils.getConnection()){
+            String sql = "insert into HoKhau (chu_ho, dia_chi, so_thanh_vien) value (?, ?, ?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, family.getFamilyHead());
+            pst.setString(2, family.getFamilyAddress());
+            pst.setInt(3, family.getNumOfPeople());
+            pst.executeUpdate();
+            //
+            pst.close();
+        } catch (SQLException e){
+            System.out.println("Error in insert family to database");
+            System.out.println(e.getMessage());
+        }
+    }
 }

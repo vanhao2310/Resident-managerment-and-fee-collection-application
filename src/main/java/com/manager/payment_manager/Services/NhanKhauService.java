@@ -39,9 +39,29 @@ public class NhanKhauService {
 
     public static void addNhanKhau(NhanKhau nhankhau){
         try(Connection conn = Utils.getConnection()){
-            String sql = "insert into nhankhau value ()";
+            String sql = "insert into NHANKHAU (ID_HO, ho_ten, ngay_sinh, gioi_tinh, dan_toc, nghe_nghiep, nguyen_quan, noi_sinh, noi_lam_viec, CCCD, ngay_cap_CCCD, noi_cap_CCCD, dia_chi_cu, bi_danh) " +
+                    "value (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, nhankhau.getIdHo());
+            pst.setString(2, nhankhau.getHoTen());
+            pst.setDate(3, nhankhau.getNgaySinh());
+            pst.setString(4, nhankhau.getGioiTinh());
+            pst.setString(5, nhankhau.getDanToc());
+            pst.setString(6, nhankhau.getNgheNghiep());
+            pst.setString(7, nhankhau.getNguyenQuan());
+            pst.setString(8, nhankhau.getNoiSinh());
+            pst.setString(9, nhankhau.getNoiLamViec());
+            pst.setString(10, nhankhau.getCCCD());
+            pst.setDate(11, nhankhau.getNgayCap());
+            pst.setString(12, nhankhau.getNoiCap());
+            pst.setString(13, nhankhau.getDiaChiTruoc());
+            pst.setString(14, nhankhau.getBiDanh());
+            pst.executeUpdate();
+
+            pst.close();
         }catch(SQLException e){
-            e.printStackTrace();
+            System.out.println("Error in Insert Nhan Khau to database");
+            System.out.println(e.getMessage());
         }
     }
 

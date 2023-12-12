@@ -1,6 +1,8 @@
 package com.manager.payment_manager.Controllers.Leader;
 
 import com.manager.payment_manager.Models.Model;
+import com.manager.payment_manager.Models.NhanKhau;
+import com.manager.payment_manager.Services.NhanKhauService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,6 +13,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.text.DateFormat;
+import java.time.Instant;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class AddMemberController implements Initializable {
@@ -47,19 +52,25 @@ public class AddMemberController implements Initializable {
         warning_label.setVisible(false);
 
         back_btn.setOnMouseClicked(mouseEvent -> {
-            clear_input();
-            getBackToFamilyInfo();
+            this.clear_input();
+            this.getBackToFamilyInfo();
         });
 
         add_done_btn.setOnAction(actionEvent -> {
             // TODO: Check valid
             if (validation_check()) {
                 warning_label.setVisible(false);
-                clear_input();
-                // TODO: Add to database
 
+                //TODO: get infor from form
+                NhanKhau newNhanKhau = new NhanKhau(Integer.valueOf(this.id_ho), full_name_field.getText(), nick_name_field.getText(), java.sql.Date.valueOf(birth_date_picker.getValue()),
+                        " ", born_field.getText(), native_field.getText(), nation_field.getText(), job_field.getText(), work_place_field.getText(),
+                        id_field.getText(), java.sql.Date.valueOf(create_date_picker.getValue()), create_place_field.getText(),
+                        java.sql.Date.valueOf(sign_up_date_picker.getValue()), prev_address_field.getText());
+                // TODO: Add to database
+                NhanKhauService.addNhanKhau(newNhanKhau);
                 // TODO: Return to Managing View
-                getBackToFamilyInfo();
+                this.clear_input();
+                this.getBackToFamilyInfo();
             } else {
                 warning_label.setVisible(true);
             }
@@ -69,14 +80,13 @@ public class AddMemberController implements Initializable {
             // TODO: Clear input
             clear_input();
             // TODO: Return to Managing View
-            getBackToFamilyInfo();
+            this.getBackToFamilyInfo();
         });
     }
 
     // TODO: Check for filling all required info
     private boolean validation_check() {
         if (full_name_field.getText().isEmpty()) return false;
-        if (nick_name_field.getText().isEmpty()) return false;
         if (born_field.getText().isEmpty()) return false;
         if (native_field.getText().isEmpty()) return false;
         if (nation_field.getText().isEmpty()) return false;

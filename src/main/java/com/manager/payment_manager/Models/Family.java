@@ -13,6 +13,12 @@ public class Family {
         this.numOfPeople = numOfPeople;
     }
 
+    public Family(String familyHead, String familyAddress, int numOfPeople) {
+        this.familyHead = familyHead;
+        this.familyAddress = familyAddress;
+        this.numOfPeople = numOfPeople;
+    }
+
     public int getFamilyId() {
         return familyId;
     }

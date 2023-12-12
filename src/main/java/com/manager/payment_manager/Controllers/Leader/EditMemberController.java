@@ -48,10 +48,10 @@ public class EditMemberController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setCombobox();
+        this.setCombobox();
         warning_label.setVisible(false);
-        back_btn.setOnMouseClicked(mouseEvent -> getBackToFamilyInfo());
-        edit_cancel_btn.setOnMouseClicked(mouseEvent -> getBackToFamilyInfo());
+        back_btn.setOnMouseClicked(mouseEvent -> this.getBackToFamilyInfo());
+        edit_cancel_btn.setOnMouseClicked(mouseEvent -> this.getBackToFamilyInfo());
         edit_done_btn.setOnMouseClicked(mouseEvent -> {
             // TODO: UPDATE INFORMATION
         });

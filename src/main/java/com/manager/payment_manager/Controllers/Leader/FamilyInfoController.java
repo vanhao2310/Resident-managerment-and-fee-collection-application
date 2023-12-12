@@ -47,7 +47,7 @@ public class FamilyInfoController implements Initializable {
             }
         });
         delete_member_btn.setOnMouseClicked(actionEvent -> {
-            deleteMember();
+            this.deleteMember();
         });
     }
     public void showListMember(String id_ho){

@@ -1,6 +1,8 @@
 package com.manager.payment_manager.Controllers.Leader;
 
+import com.manager.payment_manager.Models.Family;
 import com.manager.payment_manager.Models.Model;
+import com.manager.payment_manager.Services.FamilyService;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -32,9 +34,12 @@ public class AddFamilyController implements Initializable {
         add_done_btn.setOnAction(actionEvent -> {
             if (validation_check()) {
                 // save family
-
+                String address = "Số " + house_num_lbl.getText() + ", Phố " + street_lbl.getText() + ", Phường " +  town_lbl.getText() + ", Quận " + city_lbl.getText() + ", Thành Phố Hà Nội";
+                Family newFamily = new Family(this.owner_name_lbl.getText(), address, 0);
+                FamilyService.addFamily(newFamily);
                 // back to managing
-                clear_input();
+                this.clear_input();
+                Model.getInstance().getViewFactory().updateListFamily();
                 Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Managing");
             } else {
                 warning_label.setVisible(true);
@@ -51,7 +56,6 @@ public class AddFamilyController implements Initializable {
     }
 
     private boolean validation_check() {
-        if (family_id.getText().isEmpty()) return false;
         if (owner_name_lbl.getText().isEmpty()) return false;
         if (house_num_lbl.getText().isEmpty()) return false;
         if (street_lbl.getText().isEmpty()) return false;
