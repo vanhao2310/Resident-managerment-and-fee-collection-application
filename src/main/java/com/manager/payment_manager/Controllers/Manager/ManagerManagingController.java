@@ -33,10 +33,15 @@ public class ManagerManagingController implements Initializable {
         if (Objects.equals(feeType, "Phí vệ sinh"))
             add_family.setVisible(false);
 
-        combobox.setOnMouseClicked(mouseEvent -> {
+        combobox.setOnAction(mouseEvent -> {
             feeType = combobox.getValue();
-            if (Objects.equals(feeType, "Phí vệ sinh"))
+            System.out.println("fee:" + feeType);
+            if (Objects.equals(feeType, "Phí vệ sinh")) {
                 add_family.setVisible(false);
+                System.out.println("no add");
+            }
+            else
+                add_family.setVisible(true);
             loadFamily(feeType);
         });
 

@@ -36,7 +36,6 @@ public class NhanKhauService {
         }
         return dsNhanKhau;
     }
-
     public static void addNhanKhau(NhanKhau nhankhau){
         try(Connection conn = Utils.getConnection()){
             String sql = "insert into NHANKHAU (ID_HO, ho_ten, ngay_sinh, gioi_tinh, dan_toc, nghe_nghiep, nguyen_quan, noi_sinh, noi_lam_viec, CCCD, ngay_cap_CCCD, noi_cap_CCCD, dia_chi_cu, bi_danh) " +
@@ -64,15 +63,14 @@ public class NhanKhauService {
             System.out.println(e.getMessage());
         }
     }
-
     public static NhanKhau getThongTinNhanKhau(String idNhanKhau){
         NhanKhau result = null;
-        try(Connection conn = Utils.getConnection()){
+        try (Connection conn = Utils.getConnection()){
             String sql = "select * from nhankhau where ID_NGUOI = ?";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, idNhanKhau);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 result = new NhanKhau(rs.getString("ID_Nguoi"), rs.getString("ho_ten"),
                         rs.getString("bi_danh"), rs.getDate("ngay_sinh"), rs.getString("noi_sinh"),
                         rs.getString("nguyen_quan"), rs.getString("dan_toc"),
@@ -82,7 +80,7 @@ public class NhanKhauService {
             }
             rs.close();
             pst.close();
-        }catch(SQLException e){
+        } catch (SQLException e){
             System.out.println("Exception in NhanKhauService getNhanKhau");
             System.out.println(e.getMessage());
         }
@@ -99,5 +97,39 @@ public class NhanKhauService {
             System.out.println("Exception in NhanKhauService deleteNhanKhau");
             System.out.println(e.getMessage());
         }
+    }
+
+    public static int maleCount() {
+        int result = 0;
+        try (Connection conn = Utils.getConnection()) {
+            PreparedStatement pst = conn.prepareStatement("select count(ID_NGUOI) from nhankhau where gioi_tinh = 'Nam'");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                result = rs.getInt(1);
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Exception in maleCount");
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
+
+    public static int femaleCount() {
+        int result = 0;
+        try (Connection conn = Utils.getConnection()) {
+            PreparedStatement pst = conn.prepareStatement("select count(ID_NGUOI) from nhankhau where gioi_tinh = 'Nữ'");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                result = rs.getInt(1);
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Exception in maleCount");
+            System.out.println(e.getMessage());
+        }
+        return result;
     }
 }

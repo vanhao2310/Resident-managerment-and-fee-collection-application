@@ -66,111 +66,84 @@ public class NhanKhau {
     public void setHoTen(String hoTen) {
         this.hoTen = hoTen;
     }
-
     public void setBiDanh(String biDanh) {
         this.biDanh = biDanh;
     }
-
     public void setNgaySinh(Date ngaySinh) {
         this.ngaySinh = ngaySinh;
     }
-
     public void setNoiSinh(String noiSinh) {
         this.noiSinh = noiSinh;
     }
-
     public void setNguyenQuan(String nguyenQuan) {
         this.nguyenQuan = nguyenQuan;
     }
-
     public void setDanToc(String danToc) {
         this.danToc = danToc;
     }
-
     public void setNgheNghiep(String ngheNghiep) {
         this.ngheNghiep = ngheNghiep;
     }
-
     public void setNoiLamViec(String noiLamViec) {
         this.noiLamViec = noiLamViec;
     }
-
     public void setCCCD(String CCCD) {
         this.CCCD = CCCD;
     }
-
     public void setNgayCap(Date ngayCap) {
         this.ngayCap = ngayCap;
     }
-
     public void setNoiCap(String noiCap) {
         this.noiCap = noiCap;
     }
-
     public void setNgayDangKiThuongTru(Date ngayDangKiThuongTru) {
         this.ngayDangKiThuongTru = ngayDangKiThuongTru;
     }
-
     public void setDiaChiTruoc(String diaChiTruoc) {
         this.diaChiTruoc = diaChiTruoc;
     }
-
     public String getHoTen() {
         return hoTen;
     }
-
     public String getBiDanh() {
         return biDanh;
     }
-
     public java.sql.Date getNgaySinh() {
         return (java.sql.Date) this.ngaySinh;
     }
-
     public String getNoiSinh() {
         return noiSinh;
     }
-
     public String getNguyenQuan() {
         return nguyenQuan;
     }
-
     public String getDanToc() {
         return danToc;
     }
-
     public String getNgheNghiep() {
         return ngheNghiep;
     }
-
     public String getNoiLamViec() {
         return noiLamViec;
     }
-
     public String getCCCD() {
         return CCCD;
     }
-
     public java.sql.Date getNgayCap() {
         return (java.sql.Date) ngayCap;
     }
-
     public String getNoiCap() {
         return noiCap;
     }
-
     public Date getNgayDangKiThuongTru() {
         return ngayDangKiThuongTru;
     }
-
     public String getDiaChiTruoc() {
         return diaChiTruoc;
     }
-
     public String getId() {
         return id;
     }
-
     public int getIdHo(){
         return this.idHo;
     }

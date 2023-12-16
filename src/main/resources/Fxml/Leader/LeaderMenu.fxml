@@ -77,9 +77,9 @@
                   <HBox.margin>
                      <Insets right="10.0" />
                   </HBox.margin>
-                  <Image url="@../../Images/statistic_icon.png" />
+                  <Image url="@../../Images/history_icon.png" />
                </ImageView>
-               <Label text="Thống kê ">
+               <Label text="Lịch sử thay đổi">
                   <font>
                      <Font size="20.0" />
                   </font>
