@@ -13,95 +13,83 @@
    <VBox layoutX="60.0" layoutY="310.0">
       <HBox>
          <AnchorPane id="pane-soldier" fx:id="gender_btn" prefHeight="150.0" prefWidth="426.0">
-            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
-                        styleClass="image-container">
-               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
-                          pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../Images/gender_icon.png"/>
+            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0" styleClass="image-container">
+               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../Images/gender_icon.png" />
                </ImageView>
             </AnchorPane>
-            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="230.0"
-                   text="Thống kê theo giới tính" textFill="WHITE" wrapText="true">
+            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="230.0" text="Thống kê theo giới tính" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="System Bold" size="20.0"/>
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
          </AnchorPane>
          <AnchorPane id="pane-child" fx:id="age_btn" prefHeight="150.0" prefWidth="426.0">
             <HBox.margin>
-               <Insets left="30.0"/>
+               <Insets left="30.0" />
             </HBox.margin>
-            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
-                        styleClass="image-container">
-               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
-                          pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../Images/age_icon.png"/>
+            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0" styleClass="image-container">
+               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../Images/age_icon.png" />
                </ImageView>
             </AnchorPane>
-            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="221.0" text="Thống kê theo độ tuổi"
-                   wrapText="true">
+            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="221.0" text="Thống kê theo độ tuổi" wrapText="true">
                <font>
-                  <Font name="System Bold" size="20.0"/>
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
          </AnchorPane>
       </HBox>
       <HBox>
          <VBox.margin>
-            <Insets top="30.0"/>
+            <Insets top="30.0" />
          </VBox.margin>
          <AnchorPane id="pane-poor" fx:id="time_btn" prefHeight="150.0" prefWidth="426.0">
-            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
-                        styleClass="image-container">
-               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
-                          pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../Images/time_icon.png"/>
+            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0" styleClass="image-container">
+               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../Images/time_icon.png" />
                </ImageView>
             </AnchorPane>
-            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="230.0"
-                   text="Thống kê theo khoảng thời gian" wrapText="true">
+            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="230.0" text="Thống kê theo khoảng thời gian" wrapText="true">
                <font>
-                  <Font name="System Bold" size="20.0"/>
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
          </AnchorPane>
          <AnchorPane id="pane-storm" fx:id="absence_btn" prefHeight="150.0" prefWidth="426.0">
             <HBox.margin>
-               <Insets left="30.0"/>
+               <Insets left="30.0" />
             </HBox.margin>
-            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
-                        styleClass="image-container">
-               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
-                          pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../Images/absent_icon.png"/>
+            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0" styleClass="image-container">
+               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../Images/absent_icon.png" />
                </ImageView>
             </AnchorPane>
-            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="222.0"
-                   text="Thống kê tạm vắng, tạm trú" textFill="WHITE" wrapText="true">
+            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="222.0" text="Thống kê tạm vắng, tạm trú" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="System Bold" size="20.0"/>
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
          </AnchorPane>
       </HBox>
    </VBox>
    <VBox layoutX="60.0" layoutY="60.0" prefHeight="105.0" prefWidth="534.0">
-      <Label text="TRANG CHỦ ">
+      <Label style="-fx-text-fill: #46467a;" text="TRANG CHỦ ">
          <font>
-            <Font name="System Bold" size="50.0"/>
+            <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <Label text="Hệ thống quản lý nhân khẩu">
+      <Label style="-fx-text-fill: #46467a;" text="Hệ thống quản lý nhân khẩu">
          <font>
-            <Font size="20.0"/>
+            <Font size="20.0" />
          </font>
       </Label>
-      <Label text="Thống kê nhân khẩu">
+      <Label style="-fx-text-fill: #46467a;" text="Thống kê nhân khẩu">
          <font>
-            <Font name="System Bold" size="30.0"/>
+            <Font name="System Bold" size="30.0" />
          </font>
          <VBox.margin>
-            <Insets top="20.0"/>
+            <Insets top="20.0" />
          </VBox.margin>
       </Label>
    </VBox>

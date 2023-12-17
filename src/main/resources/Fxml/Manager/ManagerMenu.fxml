@@ -11,7 +11,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="menu-container" stylesheets="@../../Styles/menu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Manager.ManagerMenuController">
    <VBox prefHeight="800.0" prefWidth="250.0">
-      <HBox id="menu-logo" alignment="CENTER" prefHeight="140.0" prefWidth="281.0" />
+      <HBox id="menu-logo" alignment="CENTER" prefHeight="140.0" prefWidth="281.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/manager_gif.gif" />
+               </image>
+            </ImageView>
+         </children></HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
          <padding>
             <Insets left="20.0" right="20.0" />

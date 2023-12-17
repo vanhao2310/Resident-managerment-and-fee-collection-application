@@ -26,6 +26,7 @@ public class ViewFactory {
     private AnchorPane leaderStatisticView;
     private AnchorPane addFamilyView;
     private AnchorPane leaderGenderStatView;
+    private AnchorPane leaderAgeStatView;
     // View in manager
     private AnchorPane managerDashboardView;
     private AnchorPane managerManagingView;
@@ -68,7 +69,6 @@ public class ViewFactory {
         loader.setController(managerController);
         createStage(loader);
     }
-
     public void showFamilyDetail() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/FamilyInfo.fxml"));
         try {
@@ -133,6 +133,17 @@ public class ViewFactory {
             }
         }
         return  leaderGenderStatView;
+    }
+    public AnchorPane getLeaderAgeStatView() {
+        if (leaderAgeStatView == null) {
+            try {
+                leaderAgeStatView = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderAgeStat.fxml")).load();
+            } catch (Exception e) {
+                System.out.println("Error while loading leaderAgeStat");
+                System.out.println(e.getMessage());
+            }
+        }
+        return leaderAgeStatView;
     }
 
 

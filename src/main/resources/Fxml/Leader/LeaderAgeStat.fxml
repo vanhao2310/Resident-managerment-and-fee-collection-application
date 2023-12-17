@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1150.0" stylesheets="@../../Styles/age_stat.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.LeaderAgeStatController">
+   <VBox layoutX="60.0" layoutY="60.0" prefHeight="105.0" prefWidth="534.0">
+      <Label text="TRANG CHỦ ">
+         <font>
+            <Font name="System Bold" size="50.0" />
+         </font>
+      </Label>
+      <Label text="Hệ thống quản lý nhân khẩu">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label text="Thống kê nhân khẩu">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </Label>
+      <HBox fx:id="back_btn" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../Images/left-arrow.png" />
+         </ImageView>
+         <Label text="Thống kê theo độ tuổi">
+            <font>
+               <Font size="20.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="10.0" />
+            </HBox.margin>
+         </Label>
+      </HBox>
+   </VBox>
+   <HBox fx:id="age_container" layoutX="60.0" layoutY="300.0">
+      <BarChart fx:id="barChart" style="-fx-bar-gap: 0;">
+         <xAxis>
+            <CategoryAxis label="Độ tuổi" side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis label="Số lượng" side="LEFT" />
+         </yAxis>
+         <HBox.margin>
+            <Insets top="20.0" />
+         </HBox.margin>
+      </BarChart>
+      <VBox>
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+         <VBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-border-color: BLACK; -fx-background-color: #BDFEDC;">
+               <Label prefWidth="150.0">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+               </Label>
+               <Line endY="30.0" />
+               <Label prefWidth="100.0" text="Độ tuổi">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="25.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label prefWidth="100.0" text="Số lượng">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="20.0" />
+                  </padding>
+               </Label>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-border-color: BLACK;">
+               <Label prefHeight="29.0" prefWidth="150.0" style="-fx-background-color: #BDFEDC;" text="Trẻ em">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="10.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label prefWidth="100.0" text="&lt;18">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="35.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label fx:id="one_lbl" prefWidth="100.0" text="0">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="45.0" />
+                  </padding>
+               </Label>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-border-color: BLACK;">
+               <Label prefHeight="29.0" prefWidth="150.0" style="-fx-background-color: #BDFEDC;" text="Thanh thiếu niên">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="10.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label prefWidth="100.0" text="18-24">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="32.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label fx:id="two_lbl" prefWidth="100.0" text="0">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="45.0" />
+                  </padding>
+               </Label>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-border-color: BLACK;">
+               <Label prefHeight="29.0" prefWidth="150.0" style="-fx-background-color: #BDFEDC;" text="Thanh niên">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="10.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label prefWidth="100.0" text="25-34">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="32.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label fx:id="three_lbl" prefWidth="100.0" text="0">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="45.0" />
+                  </padding>
+               </Label>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-border-color: BLACK;">
+               <Label prefHeight="29.0" prefWidth="150.0" style="-fx-background-color: #BDFEDC;" text="Trung niên">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="10.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label prefWidth="100.0" text="35-54">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="32.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label fx:id="four_lbl" prefWidth="100.0" text="0">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="45.0" />
+                  </padding>
+               </Label>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-border-color: BLACK;">
+               <Label prefHeight="29.0" prefWidth="150.0" style="-fx-background-color: #BDFEDC;" text="Cao tuổi">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="10.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label prefWidth="100.0" text="&gt;55">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="35.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label fx:id="five_lbl" prefWidth="100.0" text="0">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="45.0" />
+                  </padding>
+               </Label>
+            </HBox>
+         </VBox>
+         <PieChart fx:id="pieChart" prefHeight="250.0" prefWidth="300.0" />
+      </VBox>
+   </HBox>
+</AnchorPane>

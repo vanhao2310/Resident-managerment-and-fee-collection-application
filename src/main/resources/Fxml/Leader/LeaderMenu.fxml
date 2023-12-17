@@ -11,7 +11,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="menu-container" stylesheets="@../../Styles/menu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.LeaderMenuController">
    <VBox prefHeight="800.0" prefWidth="250.0">
-      <HBox id="menu-logo" alignment="CENTER" prefHeight="140.0" prefWidth="281.0" />
+      <HBox id="menu-logo" alignment="CENTER" prefHeight="140.0" prefWidth="281.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/leader_gif.gif" />
+               </image>
+            </ImageView>
+         </children></HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
          <padding>
             <Insets left="20.0" right="20.0" />
@@ -30,9 +37,9 @@
                   </HBox.margin>
                   <Image url="@../../Images/home_icon.png" />
                </ImageView>
-               <Label text="Trang chủ">
+               <Label fx:id="dashboard_lbl" text="Trang chủ">
                   <font>
-                     <Font size="20.0" />
+                     <Font name="System Bold" size="20.0" />
                   </font>
                </Label>
             </HBox>
@@ -56,7 +63,7 @@
                   </HBox.margin>
                   <Image url="@../../Images/order_icon.png" />
                </ImageView>
-               <Label text="Quản lý">
+               <Label fx:id="manage_lbl" text="Quản lý">
                   <font>
                      <Font size="20.0" />
                   </font>
@@ -79,7 +86,7 @@
                   </HBox.margin>
                   <Image url="@../../Images/history_icon.png" />
                </ImageView>
-               <Label text="Lịch sử thay đổi">
+               <Label fx:id="history_lbl" text="Lịch sử thay đổi">
                   <font>
                      <Font size="20.0" />
                   </font>
