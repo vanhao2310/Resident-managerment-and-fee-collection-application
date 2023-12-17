@@ -26,6 +26,8 @@ public class FamilyInfoController implements Initializable {
     public Label address_lbl;
     public Label id_ho_lbl;
     public VBox member_vbox;
+    public Label dispart_btn;
+
 
     public void updateFamilyInfo(String id_ho) {
         System.out.println("FamilyInfo: " + id_ho);
@@ -48,6 +50,21 @@ public class FamilyInfoController implements Initializable {
         });
         delete_member_btn.setOnMouseClicked(actionEvent -> {
             this.deleteMember();
+        });
+
+        dispart_btn.setOnMouseClicked(event -> {
+            Stage stage = (Stage) add_member_btn.getScene().getWindow();
+            List<Integer> listDispart = this.listDispartFamily();
+            if(listDispart != null) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/AddFamily.fxml"));
+                    stage.setScene(new Scene(loader.load()));
+                    AddFamilyController addFamilyController = loader.getController();
+                    addFamilyController.dispartFamily(listDispart, id_ho_lbl.getText());
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         });
     }
     public void showListMember(String id_ho){
@@ -98,5 +115,34 @@ public class FamilyInfoController implements Initializable {
             member_vbox.getChildren().remove((Parent) controller.delete_check_box.getParent()); // Xóa thành viên khỏi giao diện
             updateFamilyInfo(id_ho_lbl.getText());
         }
+    }
+
+    public List<Integer> listDispartFamily(){
+        List<MemberListController> selectedMembers = new ArrayList<>();
+        boolean hasCheckedMember = false;
+        // Lặp qua tất cả các thành viên trong member_vbox và kiểm tra xem đã chọn chưa
+        for (int i = 0; i < member_vbox.getChildren().size(); i++) {
+            MemberListController controller = (MemberListController) member_vbox.getChildren().get(i).getUserData();
+            if (controller != null && controller.isChecked()) {
+                selectedMembers.add(controller);
+                hasCheckedMember = true;
+            }
+        }
+
+        if (!hasCheckedMember) {
+            // Hiển thị thông báo phải chọn ít nhất 1 người để tách hộ khác
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Thông báo");
+            alert.setHeaderText(null);
+            alert.setContentText("Không thể tách hộ. Hãy chọn ít nhất một thành viên để tách.");
+            alert.showAndWait();
+            return null;
+        }
+        List<Integer> listDispart = new ArrayList<>();
+        for(MemberListController controller : selectedMembers) {
+            String memberId = controller.id_lbl.getText();
+            listDispart.add(Integer.parseInt(memberId));
+        }
+        return listDispart;
     }
 }

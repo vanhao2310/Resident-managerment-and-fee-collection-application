@@ -62,7 +62,8 @@ public class AddMemberController implements Initializable {
                 warning_label.setVisible(false);
 
                 //TODO: get infor from form
-                NhanKhau newNhanKhau = new NhanKhau(Integer.valueOf(this.id_ho), full_name_field.getText(), nick_name_field.getText(), java.sql.Date.valueOf(birth_date_picker.getValue()),
+                NhanKhau newNhanKhau = new NhanKhau(Integer.valueOf(this.id_ho), full_name_field.getText(), nick_name_field.getText(),
+                        java.sql.Date.valueOf(birth_date_picker.getValue()),
                         " ", born_field.getText(), native_field.getText(), nation_field.getText(), job_field.getText(), work_place_field.getText(),
                         id_field.getText(), java.sql.Date.valueOf(create_date_picker.getValue()), create_place_field.getText(),
                         java.sql.Date.valueOf(sign_up_date_picker.getValue()), prev_address_field.getText());

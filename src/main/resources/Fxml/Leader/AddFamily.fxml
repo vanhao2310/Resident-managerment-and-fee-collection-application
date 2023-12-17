@@ -19,7 +19,7 @@
       </ImageView>
    </AnchorPane>
    <HBox alignment="TOP_CENTER" layoutY="50.0" prefWidth="1150.0">
-      <Label text="Thêm hộ khẩu" textFill="#3a47ff">
+      <Label fx:id="lbl_todo" text="Thêm hộ khẩu" textFill="#3a47ff">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
@@ -51,112 +51,112 @@
             </VBox>
             <VBox>
                <HBox.margin>
-                  <Insets left="50.0"/>
+                  <Insets left="50.0" />
                </HBox.margin>
                <Label text="Họ tên chủ hộ">
                   <font>
-                     <Font size="25.0"/>
+                     <Font size="25.0" />
                   </font>
                </Label>
                <TextField fx:id="owner_name_lbl" promptText="Nguyễn Văn A">
                   <font>
-                     <Font size="25.0"/>
+                     <Font size="25.0" />
                   </font>
                </TextField>
             </VBox>
          </HBox>
          <HBox alignment="CENTER_LEFT">
             <VBox.margin>
-               <Insets bottom="10.0" top="10.0"/>
+               <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
             <VBox>
                <HBox.margin>
-                  <Insets/>
+                  <Insets />
                </HBox.margin>
                <Label text="Số nhà">
                   <font>
-                     <Font size="25.0"/>
+                     <Font size="25.0" />
                   </font>
                </Label>
                <TextField fx:id="house_num_lbl" prefWidth="310.0" promptText="12">
                   <font>
-                     <Font size="25.0"/>
+                     <Font size="25.0" />
                   </font>
                </TextField>
             </VBox>
             <VBox>
                <HBox.margin>
-                  <Insets left="50.0"/>
+                  <Insets left="50.0" />
                </HBox.margin>
                <Label text="Đường phố (Ấp)">
                   <font>
-                     <Font size="25.0"/>
+                     <Font size="25.0" />
                   </font>
                </Label>
                <TextField fx:id="street_lbl" prefWidth="490.0" promptText="Đường Giải Phóng">
                   <font>
-                     <Font size="25.0"/>
+                     <Font size="25.0" />
                   </font>
                </TextField>
             </VBox>
          </HBox>
          <HBox alignment="CENTER_LEFT">
             <VBox.margin>
-               <Insets bottom="10.0" top="10.0"/>
+               <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
             <VBox>
                <Label text="Phường (Xã, Thị trấn)">
                   <font>
-                     <Font size="25.0"/>
+                     <Font size="25.0" />
                   </font>
                </Label>
                <TextField fx:id="town_lbl" prefWidth="310.0" promptText="Phường Đống Đa">
                   <font>
-                     <Font size="25.0"/>
+                     <Font size="25.0" />
                   </font>
                </TextField>
             </VBox>
             <VBox>
                <HBox.margin>
-                  <Insets left="50.0"/>
+                  <Insets left="50.0" />
                </HBox.margin>
                <Label text="Quận (Huyện)">
                   <font>
-                     <Font size="25.0"/>
+                     <Font size="25.0" />
                   </font>
                </Label>
                <TextField fx:id="city_lbl" prefWidth="490.0" promptText="Thành phố Hà Nội">
                   <font>
-                     <Font size="25.0"/>
+                     <Font size="25.0" />
                   </font>
                </TextField>
             </VBox>
          </HBox>
          <AnchorPane>
             <VBox.margin>
-               <Insets/>
+               <Insets />
             </VBox.margin>
             <Label fx:id="warning_label" layoutX="280.0" text="Vui lòng điền đủ các thông tin bắt buộc!" textFill="RED">
                <font>
-                  <Font size="20.0"/>
+                  <Font size="20.0" />
                </font>
             </Label>
          </AnchorPane>
          <HBox alignment="CENTER">
             <VBox.margin>
-               <Insets bottom="20.0" top="10.0"/>
+               <Insets bottom="20.0" top="10.0" />
             </VBox.margin>
             <Button fx:id="add_done_btn" mnemonicParsing="false" text="Hoàn thành">
                <font>
-                  <Font size="20.0"/>
+                  <Font size="20.0" />
                </font>
                <HBox.margin>
-                  <Insets right="20.0"/>
+                  <Insets right="20.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="add_cancel_btn" mnemonicParsing="false" text="Hủy bỏ">
                <font>
-                  <Font size="20.0"/>
+                  <Font size="20.0" />
                </font>
             </Button>
          </HBox>

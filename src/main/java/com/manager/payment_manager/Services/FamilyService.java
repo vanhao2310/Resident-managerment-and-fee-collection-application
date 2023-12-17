@@ -82,4 +82,24 @@ public class FamilyService {
             System.out.println(e.getMessage());
         }
     }
+
+    public static int getIdHo(String chuHo, String diaChi){
+        int idHo = 0;
+        try(Connection conn = Utils.getConnection()){
+            String sql = "select ID_HO from HoKhau where chu_ho = ? and dia_chi = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, chuHo);
+            pst.setString(2, diaChi);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                idHo = rs.getInt("ID_HO");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e){
+            System.out.println("Error in get id ho");
+            System.out.println(e.getMessage());
+        }
+        return idHo;
+    }
 }

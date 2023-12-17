@@ -151,4 +151,39 @@ public class NhanKhauService {
         }
         return result;
     }
+
+    public static void dispartFamily(List<Integer> members, int newIdHo) {
+        try(Connection conn = Utils.getConnection()){
+            String sql = "update nhankhau set ID_HO = ? where ID_NGUOI = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            for(int id : members){
+                pst.setInt(1, newIdHo);
+                pst.setInt(2, id);
+                pst.executeUpdate();
+            }
+            pst.close();
+        }catch(SQLException e){
+            System.out.println("Exeption in NhanKhauService dispartFamily");
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static List<Integer> findByName(String name){
+        List<Integer> result = new ArrayList<>();
+        try(Connection conn = Utils.getConnection()){
+            String sql = "select * from nhankhau where ho_ten like ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, "%" + name.trim() + "%");
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                result.add(rs.getInt("ID_NGUOI"));
+            }
+            rs.close();
+            pst.close();
+        }catch(SQLException e){
+            System.out.println("Exeption in NhanKhauService findByName");
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
 }

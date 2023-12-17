@@ -117,27 +117,27 @@
       <AnchorPane fx:id="add_member_btn" styleClass="option">
          <Label text="Thêm nhân khẩu">
             <font>
-               <Font size="25.0"/>
+               <Font size="25.0" />
             </font>
          </Label>
       </AnchorPane>
       <AnchorPane fx:id="delete_member_btn" styleClass="option">
          <Label text="Xóa nhân khẩu">
             <font>
-               <Font size="25.0"/>
+               <Font size="25.0" />
             </font>
          </Label>
          <VBox.margin>
-            <Insets top="10.0"/>
+            <Insets top="10.0" />
          </VBox.margin>
       </AnchorPane>
       <AnchorPane fx:id="delete_member_btn1" styleClass="option">
          <VBox.margin>
-            <Insets top="10.0"/>
+            <Insets top="10.0" />
          </VBox.margin>
-         <Label text="Tách hộ">
+         <Label fx:id="dispart_btn" text="Tách hộ">
             <font>
-               <Font size="25.0"/>
+               <Font size="25.0" />
             </font>
          </Label>
       </AnchorPane>
