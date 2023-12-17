@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,18 +9,16 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.manager.payment_manager.Controllers.Leader.LeaderStatisticController">
+<AnchorPane prefHeight="800.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.LeaderStatisticController">
    <VBox layoutX="60.0" layoutY="60.0">
       <Label text="LỊCH SỬ THAY ĐỔI NHÂN KHẨU">
          <font>
-            <Font name="System Bold" size="50.0"/>
+            <Font name="System Bold" size="50.0" />
          </font>
       </Label>
       <Label text="Hệ thống quản lý nhân khẩu">
          <font>
-            <Font size="30.0"/>
+            <Font size="30.0" />
          </font>
       </Label>
    </VBox>
@@ -30,64 +27,59 @@
          <HBox alignment="CENTER_LEFT" prefHeight="30.0" style="-fx-background-color: #2772aa;">
             <Label prefWidth="40.0" text="ID" textFill="WHITE">
                <font>
-                  <Font size="20.0"/>
+                  <Font size="20.0" />
                </font>
                <HBox.margin>
-                  <Insets left="20.0"/>
+                  <Insets left="20.0" />
                </HBox.margin>
                <padding>
-                  <Insets right="20.0"/>
+                  <Insets right="20.0" />
                </padding>
             </Label>
-            <Line startY="30.0"/>
+            <Line startY="30.0" />
             <Label prefWidth="400.0" text="Nội dung thay đổi" textFill="WHITE">
                <font>
-                  <Font size="20.0"/>
+                  <Font size="20.0" />
                </font>
                <HBox.margin>
-                  <Insets left="20.0" right="20.0"/>
+                  <Insets left="20.0" right="20.0" />
                </HBox.margin>
                <padding>
-                  <Insets left="100.0"/>
+                  <Insets left="100.0" />
                </padding>
             </Label>
-            <Line startY="30.0"/>
+            <Line startY="30.0" />
             <Label prefWidth="275.0" text="Ngày thay đổi" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="20.0"/>
+                  <Font size="20.0" />
                </font>
                <HBox.margin>
-                  <Insets left="20.0" right="20.0"/>
+                  <Insets left="20.0" right="20.0" />
                </HBox.margin>
                <padding>
-                  <Insets left="80.0"/>
+                  <Insets left="80.0" />
                </padding>
             </Label>
-            <Line layoutX="579.0" layoutY="11.0" startY="30.0"/>
+            <Line layoutX="579.0" layoutY="11.0" startY="30.0" />
             <Label prefWidth="150.0" text="Chi tiết" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="20.0"/>
+                  <Font size="20.0" />
                </font>
                <padding>
-                  <Insets left="40.0"/>
+                  <Insets left="40.0" />
                </padding>
             </Label>
-            <Line startY="30.0"/>
+            <Line startY="30.0" />
             <Label prefWidth="50.0" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="20.0"/>
+                  <Font size="20.0" />
                </font>
                <padding>
-                  <Insets left="40.0"/>
+                  <Insets left="40.0" />
                </padding>
             </Label>
          </HBox>
-         <VBox fx:id="change_vbox"/>
+         <VBox fx:id="change_vbox" />
       </VBox>
    </ScrollPane>
-   <Button layoutX="60.0" layoutY="720.0" mnemonicParsing="false" text="Xóa lịch sử thay đổi đã chọn">
-      <font>
-         <Font size="25.0"/>
-      </font>
-   </Button>
 </AnchorPane>

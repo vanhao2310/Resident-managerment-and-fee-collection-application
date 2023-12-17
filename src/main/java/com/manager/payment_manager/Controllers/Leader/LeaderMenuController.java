@@ -3,6 +3,7 @@ package com.manager.payment_manager.Controllers.Leader;
 import com.manager.payment_manager.Models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -15,10 +16,13 @@ public class LeaderMenuController implements Initializable {
     public HBox managing_select;
     public HBox statistic_select;
     public HBox logout_btn;
+    public Label dashboard_lbl;
+    public Label manage_lbl;
+    public Label history_lbl;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dashboard_select.setStyle("-fx-background-color: #BDFEDC;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        onDashboard();
         addListener();
     }
     private void addListener() {
@@ -34,20 +38,29 @@ public class LeaderMenuController implements Initializable {
 
     private void onDashboard() {
         Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Dashboard");
-        dashboard_select.setStyle("-fx-background-color: #BDFEDC;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        managing_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        statistic_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        dashboard_select.setStyle("-fx-background-color: #7766c6;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        managing_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        statistic_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        dashboard_lbl.setStyle("-fx-text-fill: #e0dffd;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
+        manage_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
+        history_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
     }
     public void onManaging() {
         Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Managing");
-        dashboard_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        managing_select.setStyle("-fx-background-color: #BDFEDC;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        statistic_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        dashboard_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        managing_select.setStyle("-fx-background-color: #7766c6;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        statistic_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        dashboard_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
+        manage_lbl.setStyle("-fx-text-fill: #e0dffd;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
+        history_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
     }
     private void onStatistic() {
         Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Statistic");
-        dashboard_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        managing_select.setStyle("-fx-background-color: #F6F4F5;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        statistic_select.setStyle("-fx-background-color: #BDFEDC;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        dashboard_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        managing_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        statistic_select.setStyle("-fx-background-color: #7766c6;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
+        dashboard_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
+        manage_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
+        history_lbl.setStyle("-fx-text-fill: #e0dffd;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
     }
 }

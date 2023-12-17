@@ -132,4 +132,23 @@ public class NhanKhauService {
         }
         return result;
     }
+
+    public static int ageRangeCount(int start, int end) {
+        int result = 0;
+        try (Connection conn = Utils.getConnection()) {
+            PreparedStatement pst = conn.prepareStatement("select count(ID_NGUOI) from nhankhau where YEAR(CURDATE()) - YEAR(ngay_sinh) BETWEEN ? AND ?");
+            pst.setString(1, String.valueOf(start));
+            pst.setString(2, String.valueOf(end));
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                result = rs.getInt(1);
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Can not query ageRange");
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
 }

@@ -17,6 +17,7 @@ public class LeaderController implements Initializable {
                 case "Statistic" -> leader_parent.setCenter(Model.getInstance().getViewFactory().getLeaderStatisticView());
                 case "AddFamily" -> leader_parent.setCenter(Model.getInstance().getViewFactory().getAddFamilyView());
                 case "GenderStat" -> leader_parent.setCenter(Model.getInstance().getViewFactory().getLeaderGenderStatView());
+                case "AgeStat" -> leader_parent.setCenter(Model.getInstance().getViewFactory().getLeaderAgeStatView());
                 default -> leader_parent.setCenter(Model.getInstance().getViewFactory().getLeaderDashboardView());
             }
         }));

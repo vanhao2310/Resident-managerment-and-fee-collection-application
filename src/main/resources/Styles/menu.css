@@ -1,5 +1,5 @@
 .menu-container {
-    -fx-background-color: #F6F4F5;
+    -fx-background-color: WHITE;
     -fx-border-width: 1px;
     -fx-border-color: #BDBCBD;
 }
@@ -14,7 +14,7 @@
     -fx-border-radius: 20px;
 }
 #dashboard:hover {
-    -fx-background-color: #BDFEDC;
+    -fx-background-color: #7766c6;
 }
 
 #managing {
@@ -22,7 +22,7 @@
     -fx-border-radius: 20px;
 }
 #managing:hover {
-    -fx-background-color: #BDFEDC;
+    -fx-background-color: #7766c6;
 }
 
 #statistic {
@@ -30,5 +30,5 @@
     -fx-border-radius: 20px;
 }
 #statistic:hover {
-    -fx-background-color: #BDFEDC;
+    -fx-background-color: #7766c6;
 }

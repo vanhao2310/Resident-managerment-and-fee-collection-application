@@ -1,52 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.manager.payment_manager.Controllers.Leader.LeaderGenderStatController">
+<AnchorPane prefHeight="800.0" prefWidth="1150.0" stylesheets="@../../Styles/gender_stat.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.LeaderGenderStatController">
    <VBox layoutX="60.0" layoutY="60.0" prefHeight="105.0" prefWidth="534.0">
       <Label text="TRANG CHỦ ">
          <font>
-            <Font name="System Bold" size="50.0"/>
+            <Font name="System Bold" size="50.0" />
          </font>
       </Label>
       <Label text="Hệ thống quản lý nhân khẩu">
          <font>
-            <Font size="20.0"/>
+            <Font size="20.0" />
          </font>
       </Label>
       <Label text="Thống kê nhân khẩu">
          <font>
-            <Font name="System Bold" size="30.0"/>
+            <Font name="System Bold" size="30.0" />
          </font>
          <VBox.margin>
-            <Insets top="20.0"/>
+            <Insets top="20.0" />
          </VBox.margin>
       </Label>
       <HBox fx:id="back_btn" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
          <VBox.margin>
-            <Insets top="10.0"/>
+            <Insets top="10.0" />
          </VBox.margin>
          <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../Images/left-arrow.png"/>
+            <Image url="@../../Images/left-arrow.png" />
          </ImageView>
          <Label text="Thống kê theo giới tính">
             <font>
-               <Font size="20.0"/>
+               <Font size="20.0" />
             </font>
             <HBox.margin>
-               <Insets left="10.0"/>
+               <Insets left="10.0" />
             </HBox.margin>
          </Label>
       </HBox>
    </VBox>
-   <HBox fx:id="gender_container" layoutX="60.0" layoutY="300.0"/>
+   <HBox fx:id="gender_container" layoutX="60.0" layoutY="300.0">
+      <BarChart fx:id="barChart" style="-fx-bar-gap: 0;">
+         <xAxis>
+            <CategoryAxis label="Giới tính" side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis label="Số lượng" side="LEFT" />
+         </yAxis>
+      </BarChart>
+      <VBox>
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+         <VBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-border-color: BLACK; -fx-background-color: #BDFEDC;">
+               <Label prefWidth="150.0">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+               </Label>
+               <Line endY="30.0" />
+               <Label prefWidth="100.0" text="Nam">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="35.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label prefWidth="100.0" text="Nữ">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="40.0" />
+                  </padding>
+               </Label>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-border-color: BLACK;">
+               <Label prefHeight="29.0" prefWidth="150.0" style="-fx-background-color: #BDFEDC;" text="Số lượng">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="45.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label fx:id="male_count_lbl" prefWidth="100.0" text="20">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="42.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label fx:id="female_count_lbl" prefWidth="100.0" text="30">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="42.0" />
+                  </padding>
+               </Label>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" style="-fx-border-color: BLACK;">
+               <Label prefHeight="29.0" prefWidth="150.0" style="-fx-background-color: #BDFEDC;" text="Tỷ lệ sinh (%)">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="35.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label fx:id="male_ratio_lbl" prefWidth="100.0" text="12.12">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="32.0" />
+                  </padding>
+               </Label>
+               <Line endY="30.0" />
+               <Label fx:id="female_ratio_lbl" prefWidth="100.0" text="12.12">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <padding>
+                     <Insets left="32.0" />
+                  </padding>
+               </Label>
+            </HBox>
+         </VBox>
+         <PieChart fx:id="pieChart" prefHeight="250.0" prefWidth="200.0" />
+      </VBox>
+   </HBox>
 </AnchorPane>
