@@ -27,7 +27,7 @@ public class LeaderManagingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadFamily();
+        this.loadFamily();
 
         add_family_btn.setOnMouseClicked(mouseEvent -> Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("AddFamily"));
 
