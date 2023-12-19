@@ -8,19 +8,19 @@ create table HoKhau
     chu_ho nvarchar(100),
     dia_chi nvarchar(100),
     so_thanh_vien int,
-    tt_nop_tien bool, 
+    /*tt_nop_tien bool, */
     primary key(ID_HO)
 );
 
 insert into HoKhau
 values
-    (1, 'Nguyễn Văn A', 'Số nhà 20 - Ngách A /120 - Đường B', 4, 1),
-    (2, 'Nguyễn Thị Dung', 'Số nhà 58 - Ngách G/220 - Đường F', 5, 1),
-    (3, 'Trịnh Hoàng Hải', 'Số nhà 234 - Ngách A /342 - Đường T', 3, 0),
-    (4, 'Đoàn Trần Minh', 'Số nhà 356 - Ngách E  - Đường B', 4, 1),
-    (5, 'Lê Ngọc Mờ', 'Số nhà 520 - Ngách A /120 - Đường H', 4, 1),
-    (6, 'Trần Hữu Cơ', 'Số nhà 15 - Đường A', 5, 0),
-    (7, 'Lê Tuấn Hờ', 'Số nhà 145 - Đường B', 2, 1);
+    (1, 'Nguyễn Văn A', 'Số nhà 20 - Ngách A /120 - Đường B', 4),
+    (2, 'Nguyễn Thị Dung', 'Số nhà 58 - Ngách G/220 - Đường F', 5),
+    (3, 'Trịnh Hoàng Hải', 'Số nhà 234 - Ngách A /342 - Đường T', 3),
+    (4, 'Đoàn Trần Minh', 'Số nhà 356 - Ngách E  - Đường B', 4),
+    (5, 'Lê Ngọc Mờ', 'Số nhà 520 - Ngách A /120 - Đường H', 4),
+    (6, 'Trần Hữu Cơ', 'Số nhà 15 - Đường A', 5),
+    (7, 'Lê Tuấn Hờ', 'Số nhà 145 - Đường B', 2);
 
 --------------------------------------------------------------------------------------------------
 --#update 2023/11/26
@@ -119,45 +119,59 @@ insert into data_log values
                          
 
 create table Khoan_thu(
-					  id_khoan_thu int auto_increment primary key,
+		      id_khoan_thu int auto_increment primary key,
                       loai int not null,
-                      ten nvarchar(50) not null
+                      ten nvarchar(50) not null,
+                      don_gia int,
+                      ngay_bat_dau date,
+                      ngay_ket_thuc date
 );
 
 insert into Khoan_thu values
-						(1, 1, 'Phí vệ sinh'),
-                        (2, 2, 'Ủng hộ ngày tết thiếu nhi'),
-                        (3, 3, 'Ủng hộ vì người nghèo'),
-                        (4, 4, 'Trợ giúp đồng bào bị ảnh hưởng bão lụt'),
-                        (5, 5, 'Ủng hộ Tết Trung thu'),
-                        (6, 6, 'Ủng hộ Trại Tết 2024'),
-                        (7, 7, 'Quỹ khuyến học Phường'),
-                        (8, 8, 'Ủng hộ ngày thương binh-liệt sỹ 27/07');
+			(1, 1, 'Phí vệ sinh', 6000, NULL, NULL),
+                        (2, 2, 'Phí an ninh', 10000, NULL, NULL),
+                        (3, 3, 'Phí xã hội', 5000, NULL, NULL),
+                        (4, 4, 'Ủng hộ ngày tết thiếu nhi', NULL, '2023-05-01', '2023-05-25'),
+                        (5, 5, 'Ủng hộ vì người nghèo', NULL, '2023-10-01', '2023-12-31'),
+                        (6, 6, 'Trợ giúp đồng bào bị ảnh hưởng bão lụt', NULL, '2023-07-07', '2023-08-30'),
+                        (7, 7, 'Ủng hộ ngày thương binh-liệt sỹ 27/07', NULL, '2023-06-15', '2023-07-20');
 
 create table Khoan_thu_log(
-						ID_HO int,
+			ID_HO int,
                         id_khoan_thu int, 
                         so_tien int,
                         dot_nop int,
+                        ngay_nop date,
                         primary key (ID_HO, id_khoan_thu),
                         foreign key (ID_HO) references HOKHAU(ID_HO),
                         foreign key (id_khoan_thu) references Khoan_thu(id_khoan_thu)
 );
 
 insert into Khoan_thu_log values
-						(1, 1, 288000, 1),
-                        (2, 1, 360000, 3),
-                        (4, 1, 288000, 1),
-                        (5, 1, 288000, 1),
-                        (7, 1, 144000, 5),
-                        (1, 8, 20000, 5),
-                        (1, 5, 40000, 5),
-                        (7, 7, 50000, 4),
-                        (2, 6, 100000, 10),
-                        (2, 2, 50000, 5),
-                        (4, 3, 200000, 3),
-                        (4, 4, 500000, 8),
-                        (4, 6, 200000, 11),
-                        (5, 7, 20000, 5),
-                        (7, 4, 20000, 9);
+			(1, 1, 288000, 1, '2023-01-15'),
+                        (2, 1, 360000, 3, '2023-03-12'),
+                        (4, 1, 288000, 1, '2023-01-19'),
+                        (5, 1, 288000, 1, '2023-01-29'),
+                        (7, 1, 144000, 5, '2023-05-19'),
+                        (1, 2, 480000, 1, '2023-01-15'),
+                        (2, 2, 600000, 2, '2023-02-25'),
+                        (3, 2, 360000, 9, '2023-09-09'),
+                        (4, 2, 480000, 4, '2023-04-30'),
+                        (6, 2, 600000, 8, '2023-08-12'),
+                        (1, 3, 240000, 1, '2023-01-15'),
+                        (3, 3, 180000, 3, '2023-03-08'),
+                        (4, 3, 240000, 7, '2023-07-27'),
+                        (5, 3, 240000, 5, '2023-05-20'),
+                        (1, 7, 20000, 6, '2023-06-30'),
+                        (1, 5, 40000, 11, '2023-11-11'),
+                        (7, 7, 50000, 7, '2023-07-09'),
+                        (2, 6, 100000, 8, '2023-08-08'),
+			(2, 4, 50000, 5, '2023-05-15'),	
+                        (4, 4, 500000, 5, '2023-05-25'),
+                        (4, 6, 200000, 7, '2023-07-29'),
+                        (5, 7, 20000, 6, '2023-06-19'),
+                        (7, 4, 20000, 5, '2023-05-05'),
+                        (3, 5, 30000, 10, '2023-10-21'),
+                        (3, 6, 100000, 8, '2023-08-16'),
+                        (6, 6, 200000, 8, '2023-08-01');
                        
