@@ -17,10 +17,10 @@ public class LeaderStatisticController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadChangeData();
+        this.loadChangeData();
     }
 
-    private void loadChangeData() {
+    public void loadChangeData() {
         change_vbox.getChildren().clear();
 
         List<ChangeInfo> allChangeInfo = ChangeInfoService.getAllChangeInfo();

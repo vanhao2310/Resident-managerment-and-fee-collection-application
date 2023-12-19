@@ -1,7 +1,9 @@
 package com.manager.payment_manager.Controllers.Leader;
 
+import com.manager.payment_manager.Models.ChangeInfo;
 import com.manager.payment_manager.Models.Model;
 import com.manager.payment_manager.Models.NhanKhau;
+import com.manager.payment_manager.Services.ChangeInfoService;
 import com.manager.payment_manager.Services.NhanKhauService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +17,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.text.DateFormat;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -70,6 +73,9 @@ public class AddMemberController implements Initializable {
                 // TODO: Add to database
                 NhanKhauService.addNhanKhau(newNhanKhau);
                 // TODO: Return to Managing View
+                ChangeInfo change = new ChangeInfo(1, "Đăng kí thường trú", NhanKhauService.findByName(full_name_field.getText()).get(0), "Thêm nhân khẩu mới", java.sql.Date.valueOf(LocalDate.now()));
+                ChangeInfoService.addChangeInfor(change);
+                Model.getInstance().getViewFactory().updateChangeList();
                 this.clear_input();
                 this.getBackToFamilyInfo();
             } else {

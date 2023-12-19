@@ -95,12 +95,12 @@ insert into user_account values
 
 
 create table data_log(
-	id int auto_increment primary key,
+	    id int auto_increment primary key,
         loai int not null,
         ten_loai nvarchar(50) not null, 
         ID_NGUOI int,
         ghi_chu nvarchar(200),
-	noi_den nvarchar(100),
+	    noi_den nvarchar(100),
         ngay_thay_doi date,
         ngay_ket_thuc date,
         foreign key (ID_NGUOI) references NHANKHAU(ID_NGUOI)
@@ -109,12 +109,12 @@ create table data_log(
 insert into data_log values
 			 (1, 1, 'Đăng ký thường trú', 11,  'Mới sinh', 'Số nhà 520 - Ngách A /120 - Đường H', '2016-3-1', NULL),
 			 (2, 2, 'Đăng ký tạm trú', 22, NULL, 'Số nhà 58 - Ngách G/220 - Đường F', '2022-1-1', '2024-1-1'),
-                         (3, 3, 'Đăng ký tạm vắng', 8, NULL, 'Thanh Hoá', '2023-6-5', NULL),
-                         (4, 4, 'Xoá nhân khẩu', 13, 'Đã mất', NULL, '2023-9-5', NULL),
-                         (5, 5, 'Thay đổi hộ', 17, 'Tách hộ', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
-                         (6, 5, 'Thay đổi hộ', 18, 'Tách hộ', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
-                         (7, 5, 'Thay đổi hộ', 8, 'Đổi chủ hộ', NULL, '2023-1-1', NULL),
-                         (8, 1, 'Đăng ký thường trú', 17, 'Hộ mới', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
+             (3, 3, 'Đăng ký tạm vắng', 8, NULL, 'Thanh Hoá', '2023-6-5', NULL),
+             (4, 4, 'Xoá nhân khẩu', 13, 'Đã mất', NULL, '2023-9-5', NULL),
+             (5, 5, 'Thay đổi hộ', 17, 'Tách hộ', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
+             (6, 5, 'Thay đổi hộ', 18, 'Tách hộ', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
+             (7, 5, 'Thay đổi hộ', 8, 'Đổi chủ hộ', NULL, '2023-1-1', NULL),
+             (8, 1, 'Đăng ký thường trú', 17, 'Hộ mới', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
 			 (9, 1, 'Đăng ký thường trú', 18, 'Hộ mới', 'Số nhà 145 - Đường B', '2010-10-10', NULL);
                          
 

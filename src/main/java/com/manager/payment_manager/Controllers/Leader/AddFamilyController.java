@@ -1,8 +1,10 @@
 package com.manager.payment_manager.Controllers.Leader;
 
+import com.manager.payment_manager.Models.ChangeInfo;
 import com.manager.payment_manager.Models.Family;
 import com.manager.payment_manager.Models.Model;
 import com.manager.payment_manager.Models.NhanKhau;
+import com.manager.payment_manager.Services.ChangeInfoService;
 import com.manager.payment_manager.Services.FamilyService;
 import com.manager.payment_manager.Services.NhanKhauService;
 import javafx.fxml.FXML;
@@ -14,6 +16,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -61,16 +66,23 @@ public class AddFamilyController implements Initializable {
                         FamilyService.addFamily(newFamily);
                         int newIdHo = FamilyService.getIdHo(owner_name_lbl.getText(), address);
                         NhanKhauService.dispartFamily(listDispart, newIdHo);
+                        List<ChangeInfo> listChange = new ArrayList<>();
+                        for (Integer id : listDispart) {
+                            listChange.add(new ChangeInfo(5, "Thay đổi hộ", id, "Tách hộ", Date.valueOf(LocalDate.now())));
+                        }
+                        ChangeInfoService.addChangeInfor(listChange);
                         this.clear_input();
                         this.listDispart.clear();
                         Model.getInstance().getViewFactory().updateListFamily();
+                        Model.getInstance().getViewFactory().updateChangeList();
                         this.getBackToFamilyInfo();
                     }else{
-                        warning_label.setText("Tên chủ hộ có trong danh sách cần tách");
+                        warning_label.setText("Tên chủ hộ không có trong danh sách cần tách");
                         warning_label.setVisible(true);
                     }
                 }else{
                     FamilyService.addFamily(newFamily);this.clear_input();
+                    //ChangeInfoService.addChangeInfor(new ChangeInfo(6, "Thêm hộ mới","Hộ mới",  java.sql.Date.valueOf(LocalDate.now())));
                     // back to managing
                     Model.getInstance().getViewFactory().updateListFamily();
                     Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Managing");
