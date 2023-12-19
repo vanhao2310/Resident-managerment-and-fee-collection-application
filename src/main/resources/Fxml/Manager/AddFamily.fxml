@@ -10,14 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="262.0" prefWidth="600.0" stylesheets="@../../Styles/manager_add_family.css"
-            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.manager.payment_manager.Controllers.Manager.AddFamilyController">
+<AnchorPane prefHeight="300.0" prefWidth="600.0" stylesheets="@../../Styles/manager_add_family.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Manager.AddFamilyController">
     <HBox alignment="CENTER" layoutY="20.0" prefWidth="600.0">
         <Label text="Thêm khoản đóng góp">
             <font>
-                <Font name="System Bold" size="20.0"/>
+                <Font name="System Bold" size="20.0" />
             </font>
         </Label>
     </HBox>
@@ -25,58 +22,75 @@
         <HBox alignment="CENTER_LEFT">
             <Label text="Số hộ khẩu: ">
                 <font>
-                    <Font size="20.0"/>
+                    <Font size="20.0" />
                 </font>
             </Label>
             <TextField fx:id="family_id_field" prefWidth="50.0" promptText="12">
                 <font>
-                    <Font size="15.0"/>
+                    <Font size="15.0" />
                 </font>
             </TextField>
         </HBox>
         <HBox alignment="CENTER_LEFT">
             <VBox.margin>
-                <Insets top="10.0"/>
+                <Insets top="10.0" />
             </VBox.margin>
             <Label text="Sự kiện đóng góp: ">
                 <font>
-                    <Font size="20.0"/>
+                    <Font size="20.0" />
                 </font>
             </Label>
-            <ComboBox fx:id="combobox" prefHeight="31.0" prefWidth="318.0"
-                      promptText="Ủng hộ ngày thương binh liệt sỹ 27/07" styleClass="combobox"/>
+            <ComboBox fx:id="combobox" prefHeight="31.0" prefWidth="318.0" promptText="Ủng hộ ngày thương binh liệt sỹ 27/07" styleClass="combobox" />
         </HBox>
         <HBox alignment="CENTER_LEFT">
             <VBox.margin>
-                <Insets top="10.0"/>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <Label text="Đợt thu: ">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <ComboBox fx:id="combobox_phase" prefHeight="31.0" prefWidth="100.0" promptText="1" styleClass="combobox" />
+        </HBox>
+        <HBox alignment="CENTER_LEFT">
+            <VBox.margin>
+                <Insets top="10.0" />
             </VBox.margin>
             <Label text="Số tiền: ">
                 <font>
-                    <Font size="20.0"/>
+                    <Font size="20.0" />
                 </font>
             </Label>
             <TextField fx:id="money_field" prefWidth="150.0" promptText="1000000">
                 <font>
-                    <Font size="15.0"/>
+                    <Font size="15.0" />
                 </font>
             </TextField>
         </HBox>
+      <HBox alignment="CENTER">
+         <children>
+            <Label text="Vui lòng điền đủ các thông tin yêu cầu!" textFill="RED" />
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </HBox>
         <HBox alignment="CENTER">
             <VBox.margin>
-                <Insets top="30.0"/>
+                <Insets top="5.0" />
             </VBox.margin>
-            <Button fx:id="done_btn" mnemonicParsing="false" text="Hoàn thành">
-                <font>
-                    <Font size="15.0"/>
-                </font>
-            </Button>
+            <Button fx:id="add_done_btn" mnemonicParsing="false" text="Hoàn thành">
+            <font>
+               <Font size="15.0" />
+            </font></Button>
             <Button fx:id="cancel_btn" mnemonicParsing="false" text="Hủy bỏ">
-                <font>
-                    <Font size="15.0"/>
-                </font>
                 <HBox.margin>
-                    <Insets left="10.0"/>
+                    <Insets left="20.0" />
                 </HBox.margin>
+            <font>
+               <Font size="15.0" />
+            </font>
             </Button>
         </HBox>
     </VBox>

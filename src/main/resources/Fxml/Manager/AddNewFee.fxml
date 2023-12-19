@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="420.0" prefWidth="800.0" stylesheets="@../../Styles/add_fee.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Manager.AddNewFeeController">
+    <VBox layoutY="20.0">
+        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="800.0">
+            <Label style="-fx-text-fill: #46467a;" text="Thêm khoản thu">
+                <font>
+                    <Font name="System Bold" size="30.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER">
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <HBox>
+                <Label text="Tên khoản thu">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="fee_name_field" promptText="Ủng hộ người khuyết tật">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </TextField>
+            </HBox>
+            <HBox alignment="CENTER_LEFT">
+                <HBox.margin>
+                    <Insets left="50.0" />
+                </HBox.margin>
+                <Label text="Loại khoản thu">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="fee_type" prefWidth="186.4" promptText="Bắt buộc" styleClass="combobox">
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </ComboBox>
+            </HBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT">
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <padding>
+                <Insets left="46.0" />
+            </padding>
+            <HBox>
+                <Label text="Ngày bắt đầu">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="begin_date" prefHeight="30.0" prefWidth="186.0">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                </DatePicker>
+            </HBox>
+            <HBox alignment="CENTER_LEFT">
+                <HBox.margin>
+                    <Insets left="50.0" />
+                </HBox.margin>
+                <Label text="Ngày hết hạn">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="end_date" prefHeight="30.0" prefWidth="186.0">
+                    <HBox.margin>
+                        <Insets left="22.0" />
+                    </HBox.margin>
+                </DatePicker>
+            </HBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT">
+            <padding>
+                <Insets left="46.0" />
+            </padding>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <Label text="Số tiền mỗi nhà cần đóng (chỉ với khoản thu bắt buộc)">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <TextField fx:id="money_field" promptText="1000000">
+                <font>
+                    <Font size="15.0" />
+                </font>
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </TextField>
+        </HBox>
+        <HBox alignment="CENTER_LEFT">
+            <padding>
+                <Insets left="46.0" />
+            </padding>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <Label text="Nội dung khoản thu">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER_LEFT">
+            <padding>
+                <Insets left="46.0" />
+            </padding>
+            <VBox.margin>
+                <Insets top="5.0" />
+            </VBox.margin>
+            <TextArea fx:id="info_field" prefHeight="100.0" prefWidth="700.0" promptText="Mục tiêu, chi tiết về khoản thu, ...">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </TextArea>
+        </HBox>
+        <HBox alignment="CENTER">
+            <VBox.margin>
+                <Insets top="5.0" />
+            </VBox.margin>
+            <Label fx:id="warning_lbl" text="Vui lòng điền đủ các thông tin!" textFill="RED">
+                <font>
+                    <Font size="15.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER">
+            <VBox.margin>
+                <Insets top="5.0" />
+            </VBox.margin>
+            <Button fx:id="add_done_btn" mnemonicParsing="false" text="Hoàn thành">
+                <font>
+                    <Font size="15.0" />
+                </font>
+            </Button>
+            <Button fx:id="cancel_btn" mnemonicParsing="false" text="Hủy bỏ">
+                <font>
+                    <Font size="15.0" />
+                </font>
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </Button>
+        </HBox>
+    </VBox>
+</AnchorPane>
