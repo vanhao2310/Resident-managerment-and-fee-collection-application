@@ -3,6 +3,7 @@ package com.manager.payment_manager.Views;
 import com.manager.payment_manager.Controllers.Leader.FamilyInfoController;
 import com.manager.payment_manager.Controllers.Leader.LeaderController;
 import com.manager.payment_manager.Controllers.Leader.LeaderManagingController;
+import com.manager.payment_manager.Controllers.Leader.LeaderStatisticController;
 import com.manager.payment_manager.Controllers.Manager.ManagerController;
 import com.manager.payment_manager.Controllers.Manager.ManagerManagingController;
 import com.manager.payment_manager.Controllers.Manager.ManagerMenuController;
@@ -34,6 +35,7 @@ public class ViewFactory {
 
     private Scene familyInfoScene;
     private FamilyInfoController familyInfoController;
+    private LeaderStatisticController leaderStatisticController;
 
     public ViewFactory() {
         this.managerSelectedMenuItem = new SimpleStringProperty("");
@@ -85,6 +87,10 @@ public class ViewFactory {
         System.out.println("ViewFactory: " + id_ho);
         familyInfoController.updateFamilyInfo(id_ho);
     }
+    public void updateChangeList(){
+        System.out.println("update change list");
+        this.leaderStatisticController.loadChangeData();
+    }
 
     // TODO: SET MENU OPTION SCENE
     public AnchorPane getLeaderDashboardView() {
@@ -115,7 +121,9 @@ public class ViewFactory {
     public AnchorPane getLeaderStatisticView() {
         if (leaderStatisticView == null) {
             try {
-                leaderStatisticView = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderStatistic.fxml")).load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderStatistic.fxml"));
+                leaderStatisticView = loader.load();
+                leaderStatisticController = loader.getController();
             } catch (Exception e) {
                 System.out.println("Error while loading leaderStatistic");
                 System.out.println(e.getMessage());
