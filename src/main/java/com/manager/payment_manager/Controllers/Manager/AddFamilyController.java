@@ -1,32 +1,48 @@
 package com.manager.payment_manager.Controllers.Manager;
 
+import com.manager.payment_manager.Services.FeeService;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddFamilyController implements Initializable {
     public TextField family_id_field;
-    public ComboBox<String> combobox;
+
+    public ComboBox<String> combobox; // feeName
     public TextField money_field;
-    public Button done_btn;
+    public ComboBox<Integer> combobox_phase;
+    public Button add_done_btn;
     public Button cancel_btn;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setComboboxData();
+        loadFeeNameData();
+
+        combobox.setOnAction(actionEvent -> {
+            String feeName = combobox.getValue();
+            System.out.println(feeName);
+            loadPhaseData(feeName);
+        });
     }
 
-    private void setComboboxData() {
-        combobox.getItems().add("Ủng hộ ngày thương binh liệt sỹ 27/07");
-        combobox.getItems().add("Ủng hộ ngày tết thiếu nhi");
-        combobox.getItems().add("Ủng hộ người nghèo");
-        combobox.getItems().add("Trợ giúp đồng bào bị ảnh hưởng bão lụt");
-        combobox.getItems().add("Phí vệ sinh");
+    private void loadFeeNameData() {
+        combobox.getItems().clear();
+        List<String> allFeeName = FeeService.getAllFeeName();
+        for (String name : allFeeName)
+            combobox.getItems().add(name);
+    }
+
+    private void loadPhaseData(String feeName) {
+        combobox_phase.getItems().clear();
+        int maxPhase = FeeService.phaseMax(feeName);
+        for (int i = 1; i <= maxPhase; i++)
+            combobox_phase.getItems().add(i);
     }
 
     public void setComboItem(String content) {

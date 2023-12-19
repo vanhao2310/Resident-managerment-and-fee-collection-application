@@ -3,11 +3,9 @@ package com.manager.payment_manager.Controllers.Leader;
 import com.manager.payment_manager.Models.ChangeInfo;
 import com.manager.payment_manager.Models.Family;
 import com.manager.payment_manager.Models.Model;
-import com.manager.payment_manager.Models.NhanKhau;
 import com.manager.payment_manager.Services.ChangeInfoService;
 import com.manager.payment_manager.Services.FamilyService;
 import com.manager.payment_manager.Services.NhanKhauService;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,7 +21,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddFamilyController implements Initializable {
-    public TextField family_id; // số hộ khẩu
     public TextField owner_name_lbl; // tên chủ hộ
     public TextField house_num_lbl; // số nhà
     public TextField street_lbl; // tên đường
@@ -114,7 +111,6 @@ public class AddFamilyController implements Initializable {
     }
 
     private void clear_input() {
-        family_id.clear();
         owner_name_lbl.clear();
         house_num_lbl.clear();
         street_lbl.clear();

@@ -27,7 +27,7 @@
    </HBox>
    <ScrollPane layoutY="120.0" prefHeight="680.0" prefWidth="1150.0">
       <padding>
-         <Insets left="150.0" />
+         <Insets left="250.0" />
       </padding>
       <VBox>
          <padding>
@@ -38,12 +38,15 @@
                <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
             <VBox>
-               <Label text="Số hộ khẩu">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <Label text="Họ tên chủ hộ">
                   <font>
                      <Font size="25.0" />
                   </font>
                </Label>
-               <TextField fx:id="family_id" prefWidth="310.0">
+               <TextField fx:id="owner_name_lbl" promptText="Nguyễn Văn A">
                   <font>
                      <Font size="25.0" />
                   </font>
@@ -53,12 +56,12 @@
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>
-               <Label text="Họ tên chủ hộ">
+               <Label text="Số nhà">
                   <font>
                      <Font size="25.0" />
                   </font>
                </Label>
-               <TextField fx:id="owner_name_lbl" promptText="Nguyễn Văn A">
+               <TextField fx:id="house_num_lbl" prefWidth="310.0" promptText="12">
                   <font>
                      <Font size="25.0" />
                   </font>
@@ -73,37 +76,17 @@
                <HBox.margin>
                   <Insets />
                </HBox.margin>
-               <Label text="Số nhà">
-                  <font>
-                     <Font size="25.0" />
-                  </font>
-               </Label>
-               <TextField fx:id="house_num_lbl" prefWidth="310.0" promptText="12">
-                  <font>
-                     <Font size="25.0" />
-                  </font>
-               </TextField>
-            </VBox>
-            <VBox>
-               <HBox.margin>
-                  <Insets left="50.0" />
-               </HBox.margin>
                <Label text="Đường phố (Ấp)">
                   <font>
                      <Font size="25.0" />
                   </font>
                </Label>
-               <TextField fx:id="street_lbl" prefWidth="490.0" promptText="Đường Giải Phóng">
+               <TextField fx:id="street_lbl" prefWidth="309.0" promptText="Đường Giải Phóng">
                   <font>
                      <Font size="25.0" />
                   </font>
                </TextField>
             </VBox>
-         </HBox>
-         <HBox alignment="CENTER_LEFT">
-            <VBox.margin>
-               <Insets bottom="10.0" top="10.0" />
-            </VBox.margin>
             <VBox>
                <Label text="Phường (Xã, Thị trấn)">
                   <font>
@@ -115,17 +98,25 @@
                      <Font size="25.0" />
                   </font>
                </TextField>
-            </VBox>
-            <VBox>
                <HBox.margin>
                   <Insets left="50.0" />
+               </HBox.margin>
+            </VBox>
+         </HBox>
+         <HBox alignment="CENTER_LEFT">
+            <VBox.margin>
+               <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
+            <VBox>
+               <HBox.margin>
+                  <Insets />
                </HBox.margin>
                <Label text="Quận (Huyện)">
                   <font>
                      <Font size="25.0" />
                   </font>
                </Label>
-               <TextField fx:id="city_lbl" prefWidth="490.0" promptText="Thành phố Hà Nội">
+               <TextField fx:id="city_lbl" prefWidth="309.0" promptText="Thành phố Hà Nội">
                   <font>
                      <Font size="25.0" />
                   </font>
@@ -136,7 +127,7 @@
             <VBox.margin>
                <Insets />
             </VBox.margin>
-            <Label fx:id="warning_label" layoutX="280.0" text="Vui lòng điền đủ các thông tin bắt buộc!" textFill="RED">
+            <Label fx:id="warning_label" layoutX="160.0" text="Vui lòng điền đủ các thông tin bắt buộc!" textFill="RED">
                <font>
                   <Font size="20.0" />
                </font>
