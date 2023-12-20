@@ -35,6 +35,7 @@ public class ManagerController implements Initializable {
                 }
                 case "Dashboard" -> manager_parent.setCenter(Model.getInstance().getViewFactory().getManagerDashboardView());
                 case "Managing" -> manager_parent.setCenter(Model.getInstance().getViewFactory().getManagerManagingView());
+                case "Statistic" -> manager_parent.setCenter(Model.getInstance().getViewFactory().getManagerStatisticView());
             }
         });
     }

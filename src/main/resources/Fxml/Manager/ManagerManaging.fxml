@@ -34,129 +34,115 @@
       </Button>
    </HBox>
    <ScrollPane layoutX="50.0" layoutY="200.0" prefHeight="550.0" prefWidth="800.0">
-      <content>
-         <VBox>
-            <children>
-               <HBox alignment="CENTER_LEFT" prefHeight="30.0" style="-fx-background-color: #2772aa;">
-                  <children>
-                     <Label prefWidth="40.0" text="ID" textFill="WHITE">
-                        <font>
-                           <Font size="20.0" />
-                        </font>
-                        <HBox.margin>
-                           <Insets left="20.0" />
-                        </HBox.margin>
-                        <padding>
-                           <Insets right="20.0" />
-                        </padding>
-                     </Label>
-                     <Line startY="30.0" />
-                     <Label prefWidth="230.0" text="Họ tên chủ hộ" textFill="WHITE">
-                        <font>
-                           <Font size="20.0" />
-                        </font>
-                        <HBox.margin>
-                           <Insets left="20.0" right="20.0" />
-                        </HBox.margin>
-                        <padding>
-                           <Insets left="45.0" />
-                        </padding>
-                     </Label>
-                     <Line startY="30.0" />
-                     <Label prefWidth="300.0" text="Địa chỉ" textAlignment="CENTER" textFill="WHITE">
-                        <font>
-                           <Font size="20.0" />
-                        </font>
-                        <HBox.margin>
-                           <Insets left="20.0" right="20.0" />
-                        </HBox.margin>
-                        <padding>
-                           <Insets left="120.0" />
-                        </padding>
-                     </Label>
-                     <Line startY="30.0" />
-                     <Label prefWidth="200.0" text="Trạng thái" textFill="WHITE">
-                        <font>
-                           <Font size="20.0" />
-                        </font>
-                        <padding>
-                           <Insets left="50.0" />
-                        </padding>
-                     </Label>
-                     <Line startY="30.0" />
-                     <Label prefWidth="80.0" text="Chi tiết" textFill="WHITE">
-                        <font>
-                           <Font size="20.0" />
-                        </font>
-                        <HBox.margin>
-                           <Insets left="20.0" right="20.0" />
-                        </HBox.margin>
-                        <padding>
-                           <Insets left="10.0" />
-                        </padding>
-                     </Label>
-                     <Line layoutX="579.0" layoutY="11.0" startY="30.0" />
-                     <Label layoutX="600.0" layoutY="11.0" prefWidth="50.0" textFill="WHITE">
-                        <font>
-                           <Font size="20.0" />
-                        </font>
-                     </Label>
-                  </children>
-               </HBox>
-               <VBox fx:id="family_vbox" />
-            </children>
-         </VBox>
-      </content>
+      <VBox>
+         <HBox alignment="CENTER_LEFT" prefHeight="30.0" style="-fx-background-color: #2772aa;">
+            <Label prefWidth="40.0" text="ID" textFill="WHITE">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0"/>
+               </HBox.margin>
+               <padding>
+                  <Insets right="20.0"/>
+               </padding>
+            </Label>
+            <Line startY="30.0"/>
+            <Label prefWidth="230.0" text="Họ tên chủ hộ" textFill="WHITE">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0"/>
+               </HBox.margin>
+               <padding>
+                  <Insets left="45.0"/>
+               </padding>
+            </Label>
+            <Line startY="30.0"/>
+            <Label prefWidth="300.0" text="Địa chỉ" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0"/>
+               </HBox.margin>
+               <padding>
+                  <Insets left="120.0"/>
+               </padding>
+            </Label>
+            <Line startY="30.0"/>
+            <Label prefWidth="200.0" text="Trạng thái" textFill="WHITE">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+               <padding>
+                  <Insets left="50.0"/>
+               </padding>
+            </Label>
+            <Line startY="30.0"/>
+            <Label prefWidth="80.0" text="Chi tiết" textFill="WHITE">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0"/>
+               </HBox.margin>
+               <padding>
+                  <Insets left="10.0"/>
+               </padding>
+            </Label>
+            <Line layoutX="579.0" layoutY="11.0" startY="30.0"/>
+            <Label layoutX="600.0" layoutY="11.0" prefWidth="50.0" textFill="WHITE">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+            </Label>
+         </HBox>
+         <VBox fx:id="family_vbox"/>
+      </VBox>
    </ScrollPane>
    <VBox layoutX="880.0" layoutY="200.0">
-      <children>
-         <Label text="Chi tiết đóng góp">
+      <Label text="Chi tiết đóng góp">
+         <font>
+            <Font name="System Bold" size="25.0"/>
+         </font>
+      </Label>
+      <HBox>
+         <Label text="Số hộ khẩu: ">
             <font>
-               <Font name="System Bold" size="25.0" />
+               <Font name="System Bold" size="25.0"/>
             </font>
          </Label>
-         <HBox>
-            <children>
-               <Label text="Số hộ khẩu: ">
-                  <font>
-                     <Font name="System Bold" size="25.0" />
-                  </font>
-               </Label>
-               <Label text="1">
-                  <font>
-                     <Font name="System Bold" size="25.0" />
-                  </font>
-               </Label>
-            </children>
-         </HBox>
-         <HBox>
-            <children>
-               <Label text="Trạng thái: ">
-                  <font>
-                     <Font name="System Bold" size="25.0" />
-                  </font>
-               </Label>
-               <Label text="Đã đóng">
-                  <font>
-                     <Font name="System Bold" size="25.0" />
-                  </font>
-               </Label>
-            </children>
-         </HBox>
-         <HBox>
-            <children>
-               <Label text="Số tiền: ">
-                  <font>
-                     <Font name="System Bold" size="25.0" />
-                  </font>
-               </Label>
-               <Label text="1000000">
-                  <font>
-                     <Font name="System Bold" size="25.0" />
-                  </font>
-               </Label>
-            </children>
-         </HBox>
-      </children>
+         <Label text="1">
+            <font>
+               <Font name="System Bold" size="25.0"/>
+            </font>
+         </Label>
+      </HBox>
+      <HBox>
+         <Label text="Trạng thái: ">
+            <font>
+               <Font name="System Bold" size="25.0"/>
+            </font>
+         </Label>
+         <Label text="Đã đóng">
+            <font>
+               <Font name="System Bold" size="25.0"/>
+            </font>
+         </Label>
+      </HBox>
+      <HBox>
+         <Label text="Số tiền: ">
+            <font>
+               <Font name="System Bold" size="25.0"/>
+            </font>
+         </Label>
+         <Label text="1000000">
+            <font>
+               <Font name="System Bold" size="25.0"/>
+            </font>
+         </Label>
+      </HBox>
    </VBox>
 </AnchorPane>

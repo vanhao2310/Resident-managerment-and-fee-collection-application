@@ -17,7 +17,7 @@
    </Label>
    <VBox layoutX="40.0" layoutY="60.0">
       <HBox>
-         <Label text="Số hộ khẩu: ">
+         <Label text="ID Hộ  ">
             <font>
                <Font size="25.0" />
             </font>

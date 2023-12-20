@@ -1,5 +1,7 @@
 package com.manager.payment_manager.Models;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ChangeInfo {
@@ -18,6 +20,21 @@ public class ChangeInfo {
         this.ten_loai = ten_loai;
         this.ngay_thay_doi = ngay_thay_doi;
     }
+
+    public ChangeInfo(int loai, String ten_loai, int ID_nguoi, String ghi_chu, Date ngay_thay_doi) {
+        this.loai = loai;
+        this.ten_loai = ten_loai;
+        this.ID_nguoi = ID_nguoi;
+        this.ghi_chu = ghi_chu;
+        this.ngay_thay_doi = ngay_thay_doi;
+    }
+
+//    public ChangeInfo(int loai, String ten_loai, String ghi_chu, Date ngay_thay_doi) {
+//        this.loai = loai;
+//        this.ten_loai = ten_loai;
+//        this.ghi_chu = ghi_chu;
+//        this.ngay_thay_doi = ngay_thay_doi;
+//    }
 
     public int getId() {
         return id;
@@ -55,8 +72,8 @@ public class ChangeInfo {
     public void setNoi_den(String noi_den) {
         this.noi_den = noi_den;
     }
-    public Date getNgay_thay_doi() {
-        return ngay_thay_doi;
+    public java.sql.Date getNgay_thay_doi() {
+        return (java.sql.Date) ngay_thay_doi;
     }
     public void setNgay_thay_doi(Date ngay_thay_doi) {
         this.ngay_thay_doi = ngay_thay_doi;

@@ -1,6 +1,8 @@
 package com.manager.payment_manager.Controllers.Leader;
 
+import com.manager.payment_manager.Models.Family;
 import com.manager.payment_manager.Models.NhanKhau;
+import com.manager.payment_manager.Services.FamilyService;
 import com.manager.payment_manager.Services.NhanKhauService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,6 +72,10 @@ public class FamilyInfoController implements Initializable {
     public void showListMember(String id_ho){
         member_vbox.getChildren().clear();
         List<NhanKhau> dsNhanKhau = NhanKhauService.getNhanKhau(id_ho);
+        Family family = FamilyService.getFamilyWithID(id_ho);
+        this.chu_ho_lbl.setText(family.getFamilyHead());
+        this.address_lbl.setText(family.getFamilyAddress());
+
         for(NhanKhau tmp : dsNhanKhau){
             System.out.println(tmp.toString());
             try{

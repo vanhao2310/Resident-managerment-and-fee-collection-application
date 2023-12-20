@@ -1,5 +1,6 @@
 package com.manager.payment_manager.Controllers.Manager;
 
+import com.manager.payment_manager.Services.FeeService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -50,11 +52,9 @@ public class ManagerManagingController implements Initializable {
     }
 
     private void setComboboxData() {
-        combobox.getItems().add("Ủng hộ ngày thương binh liệt sỹ 27/07");
-        combobox.getItems().add("Ủng hộ ngày tết thiếu nhi");
-        combobox.getItems().add("Ủng hộ người nghèo");
-        combobox.getItems().add("Trợ giúp đồng bào bị ảnh hưởng bão lụt");
-        combobox.getItems().add("Phí vệ sinh");
+        List<String> nameList = FeeService.getAllFeeName();
+        for (String name : nameList)
+            combobox.getItems().add(name);
     }
 
     public void setComboItem(String content) {
@@ -67,7 +67,8 @@ public class ManagerManagingController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/FeeList.fxml"));
             Parent familyList = loader.load();
-            // FamilyListController controller = loader.getController();
+            FeeListController controller = loader.getController();
+            // TODO: Xem LoadFamily trong file LeaderManagingController sẽ hiểu
             family_vbox.getChildren().add(familyList);
         } catch (IOException e) {
             System.out.println(e.getMessage());

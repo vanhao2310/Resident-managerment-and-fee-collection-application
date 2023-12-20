@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" minWidth="1040.0" styleClass="header-row" xmlns="http://javafx.com/javafx/19"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.manager.payment_manager.Controllers.Manager.SubmittedFamController">
+   <Label fx:id="family_id" prefWidth="150.0" text="1">
+      <font>
+         <Font size="25.0"/>
+      </font>
+      <padding>
+         <Insets left="63.0"/>
+      </padding>
+   </Label>
+   <Line endY="40.0" strokeWidth="2.0"/>
+   <Label fx:id="owner_name" prefWidth="230.0" text="Họ tên chủ hộ">
+      <font>
+         <Font size="25.0"/>
+      </font>
+      <padding>
+         <Insets left="10.0"/>
+      </padding>
+   </Label>
+   <Line endY="40.0" strokeWidth="2.0"/>
+   <Label fx:id="address" prefWidth="400.0" text="Địa chỉ">
+      <font>
+         <Font size="25.0"/>
+      </font>
+      <padding>
+         <Insets left="10.0"/>
+      </padding>
+   </Label>
+   <Line endY="40.0" strokeWidth="2.0"/>
+   <Label fx:id="money" prefHeight="36.0" prefWidth="235.0" text="Số tiền đã nộp">
+      <font>
+         <Font size="25.0"/>
+      </font>
+      <padding>
+         <Insets left="10.0"/>
+      </padding>
+   </Label>
+</HBox>

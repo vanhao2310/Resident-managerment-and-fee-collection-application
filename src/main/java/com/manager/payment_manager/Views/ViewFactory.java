@@ -3,7 +3,9 @@ package com.manager.payment_manager.Views;
 import com.manager.payment_manager.Controllers.Leader.FamilyInfoController;
 import com.manager.payment_manager.Controllers.Leader.LeaderController;
 import com.manager.payment_manager.Controllers.Leader.LeaderManagingController;
+import com.manager.payment_manager.Controllers.Leader.LeaderStatisticController;
 import com.manager.payment_manager.Controllers.Manager.ManagerController;
+import com.manager.payment_manager.Controllers.Manager.ManagerDashboardController;
 import com.manager.payment_manager.Controllers.Manager.ManagerManagingController;
 import com.manager.payment_manager.Controllers.Manager.ManagerMenuController;
 import javafx.beans.property.SimpleStringProperty;
@@ -30,10 +32,13 @@ public class ViewFactory {
     // View in manager
     private AnchorPane managerDashboardView;
     private AnchorPane managerManagingView;
+    private AnchorPane managerStatisticView;
     private AnchorPane managerMenuView;
 
     private Scene familyInfoScene;
     private FamilyInfoController familyInfoController;
+    private LeaderStatisticController leaderStatisticController;
+    private ManagerDashboardController managerDashboardController;
 
     public ViewFactory() {
         this.managerSelectedMenuItem = new SimpleStringProperty("");
@@ -85,6 +90,10 @@ public class ViewFactory {
         System.out.println("ViewFactory: " + id_ho);
         familyInfoController.updateFamilyInfo(id_ho);
     }
+    public void updateChangeList(){
+        System.out.println("update change list");
+        this.leaderStatisticController.loadChangeData();
+    }
 
     // TODO: SET MENU OPTION SCENE
     public AnchorPane getLeaderDashboardView() {
@@ -115,7 +124,9 @@ public class ViewFactory {
     public AnchorPane getLeaderStatisticView() {
         if (leaderStatisticView == null) {
             try {
-                leaderStatisticView = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderStatistic.fxml")).load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderStatistic.fxml"));
+                leaderStatisticView = loader.load();
+                leaderStatisticController = loader.getController();
             } catch (Exception e) {
                 System.out.println("Error while loading leaderStatistic");
                 System.out.println(e.getMessage());
@@ -161,7 +172,9 @@ public class ViewFactory {
     public AnchorPane getManagerDashboardView() {
         if (managerDashboardView == null) {
             try {
-                managerDashboardView = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerDashboard.fxml")).load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerDashboard.fxml"));
+                managerDashboardView = loader.load();
+                managerDashboardController = loader.getController();
             } catch (Exception e) {
                 System.out.println("Error while loading managerDashboard");
                 System.out.println(e.getMessage());
@@ -179,6 +192,17 @@ public class ViewFactory {
             }
         }
         return managerManagingView;
+    }
+    public AnchorPane getManagerStatisticView() {
+        if (managerStatisticView == null) {
+            try {
+                managerStatisticView = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerStatistic.fxml")).load();
+            } catch (Exception e) {
+                System.out.println("Error loading managerStatistic");
+                System.out.println(e.getMessage());
+            }
+        }
+        return managerStatisticView;
     }
     public AnchorPane getManagerManageView(String content) {
         try {
@@ -205,6 +229,21 @@ public class ViewFactory {
         return managerMenuView;
     }
 
+    public void addNewFee(String newFee) {
+        if (managerDashboardController == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerDashboard.fxml"));
+                managerDashboardView = loader.load();
+                managerDashboardController = loader.getController();
+                managerDashboardController.addFee(newFee);
+                System.out.println(newFee);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        } else {
+            managerDashboardController.addFee(newFee);
+        }
+    }
 
     // TODO: IGNORE THESE
     private void createStage(FXMLLoader loader) {

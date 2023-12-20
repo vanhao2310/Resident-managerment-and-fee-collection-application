@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,10 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1150.0" styleClass="dashboard-container"
-            stylesheets="@../../Styles/manager_dashboard.css"
-            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.manager.payment_manager.Controllers.Manager.ManagerDashboardController">
+<AnchorPane prefHeight="800.0" prefWidth="1150.0" styleClass="dashboard-container" stylesheets="@../../Styles/manager_dashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Manager.ManagerDashboardController">
    <VBox layoutX="50.0" layoutY="50.0" prefHeight="105.0" prefWidth="534.0">
       <Label text="TRANG CHỦ ">
          <font>
@@ -33,79 +32,88 @@
          </VBox.margin>
       </Label>
    </VBox>
-   <VBox layoutX="50.0" layoutY="300.0">
-      <HBox>
-         <AnchorPane id="pane-soldier" fx:id="soldier_btn" prefHeight="150.0" prefWidth="426.0">
-            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
-                        styleClass="image-container">
-               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
-                          pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../Images/soldier_icon.png"/>
-               </ImageView>
-            </AnchorPane>
-            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="230.0"
-                   text="Ủng hộ ngày thương binh liệt sỹ 27/07" textFill="WHITE" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="20.0"/>
-               </font>
-            </Label>
-         </AnchorPane>
-         <AnchorPane id="pane-child" fx:id="child_btn" prefHeight="150.0" prefWidth="426.0">
-            <HBox.margin>
-               <Insets left="30.0"/>
-            </HBox.margin>
-            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
-                        styleClass="image-container">
-               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
-                          pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../Images/child_icon.png"/>
-               </ImageView>
-            </AnchorPane>
-            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="198.0"
-                   text="Ủng hộ ngày tết thiếu nhi" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="20.0"/>
-               </font>
-            </Label>
-         </AnchorPane>
-      </HBox>
-      <HBox>
-         <VBox.margin>
-            <Insets top="30.0"/>
-         </VBox.margin>
-         <AnchorPane id="pane-poor" fx:id="poor_btn" prefHeight="150.0" prefWidth="426.0">
-            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
-                        styleClass="image-container">
-               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
-                          pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../Images/homeless_icon.png"/>
-               </ImageView>
-            </AnchorPane>
-            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="230.0" text="Ủng hộ vì người nghèo"
-                   wrapText="true">
-               <font>
-                  <Font name="System Bold" size="20.0"/>
-               </font>
-            </Label>
-         </AnchorPane>
-         <AnchorPane id="pane-storm" fx:id="storm_btn" prefHeight="150.0" prefWidth="426.0">
-            <HBox.margin>
-               <Insets left="30.0"/>
-            </HBox.margin>
-            <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
-                        styleClass="image-container">
-               <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
-                          pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../Images/storm_icon.png"/>
-               </ImageView>
-            </AnchorPane>
-            <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="239.0"
-                   text="Trợ giúp đồng bào bị ảnh hưởng bão lụt" textFill="WHITE" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="20.0"/>
-               </font>
-            </Label>
-         </AnchorPane>
-      </HBox>
-   </VBox>
+   <ScrollPane layoutX="50.0" layoutY="280.0" prefHeight="350.0" prefWidth="1000.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0">
+         <VBox>
+            <HBox fx:id="hbox_row_one">
+               <AnchorPane id="pane-soldier" fx:id="soldier_btn" prefHeight="150.0" prefWidth="426.0">
+                  <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
+                              styleClass="image-container">
+                     <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
+                                pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../Images/soldier_icon.png"/>
+                     </ImageView>
+                  </AnchorPane>
+                  <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="230.0"
+                         text="Ủng hộ ngày thương binh liệt sỹ 27/07" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="20.0"/>
+                     </font>
+                  </Label>
+               </AnchorPane>
+               <AnchorPane id="pane-child" fx:id="child_btn" prefHeight="150.0" prefWidth="426.0">
+                  <HBox.margin>
+                     <Insets left="30.0" right="30.0"/>
+                  </HBox.margin>
+                  <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
+                              styleClass="image-container">
+                     <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
+                                pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../Images/child_icon.png"/>
+                     </ImageView>
+                  </AnchorPane>
+                  <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="198.0"
+                         text="Ủng hộ ngày tết thiếu nhi" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="20.0"/>
+                     </font>
+                  </Label>
+               </AnchorPane>
+            </HBox>
+            <HBox fx:id="hbox_row_two">
+               <VBox.margin>
+                  <Insets top="30.0"/>
+               </VBox.margin>
+               <AnchorPane id="pane-poor" fx:id="poor_btn" prefHeight="150.0" prefWidth="426.0">
+                  <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
+                              styleClass="image-container">
+                     <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
+                                pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../Images/homeless_icon.png"/>
+                     </ImageView>
+                  </AnchorPane>
+                  <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="230.0"
+                         text="Ủng hộ vì người nghèo" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="20.0"/>
+                     </font>
+                  </Label>
+               </AnchorPane>
+               <AnchorPane id="pane-storm" fx:id="storm_btn" prefHeight="150.0" prefWidth="426.0">
+                  <HBox.margin>
+                     <Insets left="30.0" right="30.0"/>
+                  </HBox.margin>
+                  <AnchorPane layoutX="20.0" layoutY="25.0" prefHeight="100.0" prefWidth="100.0"
+                              styleClass="image-container">
+                     <ImageView id="soldier" fitHeight="80.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0"
+                                pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../Images/storm_icon.png"/>
+                     </ImageView>
+                  </AnchorPane>
+                  <Label layoutX="148.0" layoutY="28.0" prefHeight="94.0" prefWidth="239.0"
+                         text="Trợ giúp đồng bào bị ảnh hưởng bão lụt" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="20.0"/>
+                     </font>
+                  </Label>
+               </AnchorPane>
+            </HBox>
+         </VBox>
+      </AnchorPane>
+   </ScrollPane>
+   <Button fx:id="add_fee" layoutX="50.0" layoutY="700.0" mnemonicParsing="false" text="Thêm khoản thu">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Button>
 </AnchorPane>
