@@ -1,3 +1,7 @@
 .combobox {
     -fx-font-size: 20;
 }
+
+.date-picker {
+    -fx-font-size: 20;
+}

@@ -1,34 +1,20 @@
 .menu-container {
-    -fx-background-color: WHITE;
+    -fx-background-color: #2b2d42;
     -fx-border-width: 1px;
-    -fx-border-color: #BDBCBD;
-}
-
-#menu-logo {
-    /*-fx-border-width: 1px;*/
-    /*-fx-border-color: #BDBCBD;*/
+    -fx-border-color: #2b2d42;
 }
 
 #dashboard {
     -fx-background-radius: 10px;
     -fx-border-radius: 20px;
 }
-#dashboard:hover {
-    -fx-background-color: #7766c6;
-}
 
 #managing {
     -fx-background-radius: 10px;
     -fx-border-radius: 20px;
 }
-#managing:hover {
-    -fx-background-color: #7766c6;
-}
 
 #statistic {
     -fx-background-radius: 10px;
     -fx-border-radius: 20px;
-}
-#statistic:hover {
-    -fx-background-color: #7766c6;
 }

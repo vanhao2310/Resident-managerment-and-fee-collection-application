@@ -39,7 +39,7 @@ public class MemberListController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/EditMember.fxml"));
                 stage.setScene(new Scene(loader.load()));
                 EditMemberController editMemberController = loader.getController();
-                editMemberController.saveID(this.id_ho);
+                editMemberController.saveID(this.id_ho, id_lbl.getText());
                 editMemberController.fillOldInfo(NhanKhauService.getThongTinNhanKhau(id_lbl.getText()));
             } catch (Exception e) {
                 System.out.println(e.getMessage());

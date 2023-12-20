@@ -1,9 +1,6 @@
 package com.manager.payment_manager.Views;
 
-import com.manager.payment_manager.Controllers.Leader.FamilyInfoController;
-import com.manager.payment_manager.Controllers.Leader.LeaderController;
-import com.manager.payment_manager.Controllers.Leader.LeaderManagingController;
-import com.manager.payment_manager.Controllers.Leader.LeaderStatisticController;
+import com.manager.payment_manager.Controllers.Leader.*;
 import com.manager.payment_manager.Controllers.Manager.ManagerController;
 import com.manager.payment_manager.Controllers.Manager.ManagerDashboardController;
 import com.manager.payment_manager.Controllers.Manager.ManagerManagingController;
@@ -14,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import java.util.Date;
 
 // TODO: MANAGE SCENE CHANGING
 public class ViewFactory {
@@ -29,12 +27,13 @@ public class ViewFactory {
     private AnchorPane addFamilyView;
     private AnchorPane leaderGenderStatView;
     private AnchorPane leaderAgeStatView;
+    private Scene changeDetailScene;
+    private ChangeDetailController changeDetailController;
     // View in manager
     private AnchorPane managerDashboardView;
     private AnchorPane managerManagingView;
     private AnchorPane managerStatisticView;
     private AnchorPane managerMenuView;
-
     private Scene familyInfoScene;
     private FamilyInfoController familyInfoController;
     private LeaderStatisticController leaderStatisticController;
@@ -87,13 +86,41 @@ public class ViewFactory {
         stage.show();
     }
     public void updateFamilyDetail(String id_ho) {
-        System.out.println("ViewFactory: " + id_ho);
+        // System.out.println("ViewFactory: " + id_ho);
         familyInfoController.updateFamilyInfo(id_ho);
     }
-    public void updateChangeList(){
-        System.out.println("update change list");
-        this.leaderStatisticController.loadChangeData();
+
+    public void showChangeDetail() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/ChangeDetail.fxml"));
+        try {
+            changeDetailScene = new Scene(loader.load());
+            changeDetailController = loader.getController();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        Stage stage = new Stage();
+        stage.setScene(changeDetailScene);
+        stage.show();
     }
+    public void updateChangeDetail(int id_nguoi, int id_ho, String ten_loai, String change_date, String note) {
+        changeDetailController.updateInfo(id_nguoi, id_ho, ten_loai, change_date, note);
+    }
+
+//    public void updateChangeList() {
+//        System.out.println("update change list");
+//       if (this.leaderStatisticController == null) {
+//           FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderStatistic.fxml"));
+//           try {
+//                leaderStatisticView = loader.load();
+//            } catch (Exception e) {
+//                System.out.println("Error while loading leaderStatistic");
+//                System.out.println(e.getMessage());
+//            }
+//            leaderStatisticController = loader.getController();
+//        }
+//        if (leaderStatisticController != null)
+//            this.leaderStatisticController.loadChangeData();
+//    }
 
     // TODO: SET MENU OPTION SCENE
     public AnchorPane getLeaderDashboardView() {
@@ -132,6 +159,8 @@ public class ViewFactory {
                 System.out.println(e.getMessage());
             }
         }
+        // TODO: LOAD CHANGE DATA HEREEEEEEEEEEEE
+        leaderStatisticController.loadChangeData();
         return leaderStatisticView;
     }
     public AnchorPane getLeaderGenderStatView() {

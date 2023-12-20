@@ -32,7 +32,7 @@ public class FamilyInfoController implements Initializable {
 
 
     public void updateFamilyInfo(String id_ho) {
-        System.out.println("FamilyInfo: " + id_ho);
+        // System.out.println("FamilyInfo: " + id_ho);
         this.id_ho_lbl.setText(id_ho);
         showListMember(id_ho);
     }
@@ -77,7 +77,7 @@ public class FamilyInfoController implements Initializable {
         this.address_lbl.setText(family.getFamilyAddress());
 
         for(NhanKhau tmp : dsNhanKhau){
-            System.out.println(tmp.toString());
+            // System.out.println(tmp.toString());
             try{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Leader/MemberList.fxml"));
                 Parent memberList = loader.load();
