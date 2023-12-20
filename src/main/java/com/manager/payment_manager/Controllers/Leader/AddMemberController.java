@@ -7,18 +7,12 @@ import com.manager.payment_manager.Services.ChangeInfoService;
 import com.manager.payment_manager.Services.NhanKhauService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.text.DateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class AddMemberController implements Initializable {
@@ -26,6 +20,7 @@ public class AddMemberController implements Initializable {
     public Button add_done_btn;
     @FXML
     public Button add_cancel_btn;
+    public ComboBox<String> gender_combobox;
     private String id_ho;
 
     // DATA INPUT
@@ -53,6 +48,8 @@ public class AddMemberController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         warning_label.setVisible(false);
+        loadGenderCombobox();
+        gender_combobox.setValue("Nam");
 
         back_btn.setOnMouseClicked(mouseEvent -> {
             this.clear_input();
@@ -65,9 +62,9 @@ public class AddMemberController implements Initializable {
                 warning_label.setVisible(false);
 
                 //TODO: get infor from form
-                NhanKhau newNhanKhau = new NhanKhau(Integer.valueOf(this.id_ho), full_name_field.getText(), nick_name_field.getText(),
+                NhanKhau newNhanKhau = new NhanKhau(Integer.parseInt(this.id_ho), full_name_field.getText(), nick_name_field.getText(),
                         java.sql.Date.valueOf(birth_date_picker.getValue()),
-                        " ", born_field.getText(), native_field.getText(), nation_field.getText(), job_field.getText(), work_place_field.getText(),
+                        gender_combobox.getValue(), born_field.getText(), native_field.getText(), nation_field.getText(), job_field.getText(), work_place_field.getText(),
                         id_field.getText(), java.sql.Date.valueOf(create_date_picker.getValue()), create_place_field.getText(),
                         java.sql.Date.valueOf(sign_up_date_picker.getValue()), prev_address_field.getText());
                 // TODO: Add to database
@@ -75,7 +72,7 @@ public class AddMemberController implements Initializable {
                 // TODO: Return to Managing View
                 ChangeInfo change = new ChangeInfo(1, "Đăng kí thường trú", NhanKhauService.findByName(full_name_field.getText()).get(0), "Thêm nhân khẩu mới", java.sql.Date.valueOf(LocalDate.now()));
                 ChangeInfoService.addChangeInfor(change);
-                Model.getInstance().getViewFactory().updateChangeList();
+                // Model.getInstance().getViewFactory().updateChangeList();
                 this.clear_input();
                 this.getBackToFamilyInfo();
             } else {
@@ -127,5 +124,10 @@ public class AddMemberController implements Initializable {
         stage.close();
         Model.getInstance().getViewFactory().showFamilyDetail();
         Model.getInstance().getViewFactory().updateFamilyDetail(this.id_ho);
+    }
+
+    private void loadGenderCombobox() {
+        gender_combobox.getItems().add("Nam");
+        gender_combobox.getItems().add("Nữ");
     }
 }

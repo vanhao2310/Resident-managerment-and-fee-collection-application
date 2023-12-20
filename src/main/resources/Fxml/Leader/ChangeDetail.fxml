@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.ChangeDetailController">
+   <VBox>
+      <HBox alignment="CENTER" prefWidth="600.0">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+         <Label text="Thông tin thay đổi nhân khẩu">
+            <font>
+               <Font name="System Bold" size="25.0" />
+            </font>
+         </Label>
+      </HBox>
+      <HBox>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+         <children>
+            <Label text="Họ tên nhân khẩu: ">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="name_lbl" text="Nguyễn Văn A">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+         <Label text="Số hộ khẩu: ">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="id_ho_lbl" text="1">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </HBox>
+      <HBox>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+         <Label text="Hoạt động thay đổi: ">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="type_lbl" text="ten_loai">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </HBox>
+      <HBox>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+         <Label text="Ngày thay đổi: ">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="change_date_lbl" text="DD-MM-YYYY">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </HBox>
+      <HBox>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+         <Label text="Ghi chú: ">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="note_lbl" text="ghi_chu">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </HBox>
+   </VBox>
+</AnchorPane>

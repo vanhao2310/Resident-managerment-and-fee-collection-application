@@ -23,7 +23,7 @@ public class FamilyListController implements Initializable {
             this.id_ho = this.id_lbl.getText();
             Model.getInstance().getViewFactory().showFamilyDetail();
             Model.getInstance().getViewFactory().updateFamilyDetail(id_ho);
-            System.out.println(id_ho);
+            // System.out.println(id_ho);
         });
     }
 

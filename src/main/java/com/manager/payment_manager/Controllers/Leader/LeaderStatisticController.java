@@ -17,7 +17,7 @@ public class LeaderStatisticController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.loadChangeData();
+        // loadChangeData();
     }
 
     public void loadChangeData() {

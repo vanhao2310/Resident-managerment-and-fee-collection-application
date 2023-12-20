@@ -71,7 +71,7 @@ public class AddFamilyController implements Initializable {
                         this.clear_input();
                         this.listDispart.clear();
                         Model.getInstance().getViewFactory().updateListFamily();
-                        Model.getInstance().getViewFactory().updateChangeList();
+                        // Model.getInstance().getViewFactory().updateChangeList();
                         this.getBackToFamilyInfo();
                     }else{
                         warning_label.setText("Tên chủ hộ không có trong danh sách cần tách");

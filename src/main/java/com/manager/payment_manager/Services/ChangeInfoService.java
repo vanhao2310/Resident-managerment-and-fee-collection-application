@@ -19,9 +19,13 @@ public class ChangeInfoService {
 
             while (rs.next()) {
                 ChangeInfo changeInfo = new ChangeInfo( rs.getInt("id"),
+                                                        rs.getInt("loai"),
                                                         rs.getString("ten_loai"),
+                                                        rs.getInt("ID_NGUOI"),
+                                                        rs.getString("ghi_chu"),
                                                         rs.getDate("ngay_thay_doi"));
-                result.add(changeInfo);
+                if (rs.getDate("ngay_thay_doi") != null)
+                    result.add(changeInfo);
             }
         } catch (SQLException e) {
             System.out.println("Can not query ChangeInfo");

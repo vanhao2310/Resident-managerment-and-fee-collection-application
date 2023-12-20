@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.AddMemberController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../Styles/add_member.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.AddMemberController">
    <AnchorPane fx:id="back_btn" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="50.0">
       <ImageView fitHeight="1000.0" fitWidth="40.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../../Images/arrow_back.png" />
@@ -56,11 +57,23 @@
                      <Font size="25.0" />
                   </font>
                </Label>
-               <TextField fx:id="nick_name_field" promptText="dodat">
+               <TextField fx:id="nick_name_field" prefWidth="290.0">
                   <font>
                      <Font size="25.0" />
                   </font>
                </TextField>
+            </VBox>
+            <VBox>
+               <HBox.margin>
+                  <Insets left="50.0"/>
+               </HBox.margin>
+               <Label text="Giới tính">
+                  <font>
+                     <Font size="25.0"/>
+                  </font>
+               </Label>
+               <ComboBox fx:id="gender_combobox" prefHeight="52.0" prefWidth="150.0" promptText="Nam"
+                         styleClass="combobox"/>
             </VBox>
          </HBox>
          <HBox alignment="CENTER_LEFT">
@@ -119,7 +132,7 @@
                      <Font size="25.0" />
                   </font>
                </Label>
-               <TextField fx:id="native_field" prefWidth="490.0" promptText="Nguyễn Văn A">
+               <TextField fx:id="native_field" prefWidth="490.0" promptText="Thành phố Hà Nội">
                   <font>
                      <Font size="25.0" />
                   </font>

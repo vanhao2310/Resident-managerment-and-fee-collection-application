@@ -59,6 +59,27 @@ public class NhanKhau {
         this.diaChiTruoc = diaChiTruoc;
     }
 
+    public NhanKhau(int idHo, String hoTen, String biDanh, Date ngaySinh, String gioiTinh, String noiSinh,
+                    String nguyenQuan, String danToc, String ngheNghiep, String noiLamViec, String CCCD, Date ngayCap,
+                    String noiCap, Date ngayDangKiThuongTru, String diaChiTruoc, int ID_HO) {
+        this.idHo = idHo;
+        this.hoTen = hoTen;
+        this.biDanh = biDanh;
+        this.ngaySinh = ngaySinh;
+        this.gioiTinh = gioiTinh;
+        this.noiSinh = noiSinh;
+        this.nguyenQuan = nguyenQuan;
+        this.danToc = danToc;
+        this.ngheNghiep = ngheNghiep;
+        this.noiLamViec = noiLamViec;
+        this.CCCD = CCCD;
+        this.ngayCap = ngayCap;
+        this.noiCap = noiCap;
+        this.ngayDangKiThuongTru = ngayDangKiThuongTru;
+        this.diaChiTruoc = diaChiTruoc;
+        this.idHo = ID_HO;
+    }
+
     @Override
     public String toString (){
         return this.id + " " + this.hoTen + " " + this.CCCD + " " + this.ngaySinh;
@@ -150,4 +171,14 @@ public class NhanKhau {
     public String getGioiTinh(){
         return this.gioiTinh;
     }
+    public void setId(String id) {
+        this.id = id;
+    }
+    public void setIdHo(int idHo) {
+        this.idHo = idHo;
+    }
+    public void setGioiTinh(String gioiTinh) {
+        this.gioiTinh = gioiTinh;
+    }
+
 }

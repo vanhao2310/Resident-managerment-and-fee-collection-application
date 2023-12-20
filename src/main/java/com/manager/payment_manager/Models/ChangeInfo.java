@@ -29,6 +29,15 @@ public class ChangeInfo {
         this.ngay_thay_doi = ngay_thay_doi;
     }
 
+    public ChangeInfo(int id, int loai, String ten_loai, int ID_nguoi, String ghi_chu, Date ngay_thay_doi) {
+        this.id = id;
+        this.loai = loai;
+        this.ten_loai = ten_loai;
+        this.ID_nguoi = ID_nguoi;
+        this.ghi_chu = ghi_chu;
+        this.ngay_thay_doi = ngay_thay_doi;
+    }
+
 //    public ChangeInfo(int loai, String ten_loai, String ghi_chu, Date ngay_thay_doi) {
 //        this.loai = loai;
 //        this.ten_loai = ten_loai;

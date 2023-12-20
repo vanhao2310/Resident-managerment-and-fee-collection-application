@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +62,49 @@ public class NhanKhauService {
             System.out.println(e.getMessage());
         }
     }
+// ID_HO, ho_ten, ngay_sinh, gioi_tinh, dan_toc,
+// nghe_nghiep, nguyen_quan, noi_sinh, noi_lam_viec,
+// CCCD, ngay_cap_CCCD, noi_cap_CCCD, dia_chi_cu, bi_danh
+    public static void updateNhanKhau(NhanKhau nhanKhau) {
+        try (Connection conn = Utils.getConnection()) {
+            String sql = "update NHANKHAU set " +
+                    "ho_ten = ?," +
+                    "ngay_sinh = ?," +
+                    "gioi_tinh = ?," +
+                    "dan_toc = ?," +
+                    "nghe_nghiep = ?," +
+                    "nguyen_quan = ?," +
+                    "noi_sinh = ?," +
+                    "noi_lam_viec = ?," +
+                    "CCCD = ?," +
+                    "ngay_cap_CCCD = ?," +
+                    "noi_cap_CCCD = ?," +
+                    "dia_chi_cu = ?," +
+                    "bi_danh = ?" +
+                    "where ID_NGUOI = ?;";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, nhanKhau.getHoTen());
+            pst.setDate(2, nhanKhau.getNgaySinh());
+            pst.setString(3, nhanKhau.getGioiTinh());
+            pst.setString(4, nhanKhau.getDanToc());
+            pst.setString(5, nhanKhau.getNgheNghiep());
+            pst.setString(6, nhanKhau.getNguyenQuan());
+            pst.setString(7, nhanKhau.getNoiSinh());
+            pst.setString(8, nhanKhau.getNoiLamViec());
+            pst.setString(9, nhanKhau.getCCCD());
+            pst.setDate(10, nhanKhau.getNgayCap());
+            pst.setString(11, nhanKhau.getNoiCap());
+            pst.setString(12, nhanKhau.getDiaChiTruoc());
+            pst.setString(13, nhanKhau.getBiDanh());
+            pst.setString(14, nhanKhau.getId());
+
+            pst.executeUpdate();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static NhanKhau getThongTinNhanKhau(String idNhanKhau){
         NhanKhau result = null;
         try (Connection conn = Utils.getConnection()){
@@ -71,12 +113,12 @@ public class NhanKhauService {
             pst.setString(1, idNhanKhau);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                result = new NhanKhau(rs.getString("ID_Nguoi"), rs.getString("ho_ten"),
-                        rs.getString("bi_danh"), rs.getDate("ngay_sinh"), rs.getString("noi_sinh"),
+                result = new NhanKhau(rs.getInt("ID_Nguoi"), rs.getString("ho_ten"),
+                        rs.getString("bi_danh"), rs.getDate("ngay_sinh"), rs.getString("gioi_tinh"), rs.getString("noi_sinh"),
                         rs.getString("nguyen_quan"), rs.getString("dan_toc"),
                         rs.getString("nghe_nghiep"), rs.getString("noi_lam_viec"), rs.getString("CCCD"),
                         rs.getDate("ngay_cap_CCCD"), rs.getString("noi_cap_CCCD"), rs.getDate("date_thuong_tru"),
-                        rs.getString("dia_chi_cu"));
+                        rs.getString("dia_chi_cu"), rs.getInt("ID_HO"));
             }
             rs.close();
             pst.close();

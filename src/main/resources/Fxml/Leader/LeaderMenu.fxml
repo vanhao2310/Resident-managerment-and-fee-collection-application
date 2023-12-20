@@ -13,9 +13,9 @@
    <VBox prefHeight="800.0" prefWidth="250.0">
       <HBox id="menu-logo" alignment="CENTER" prefHeight="140.0" prefWidth="281.0">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Images/leader_gif.gif" />
+                  <Image url="@../../Images/white_logo.png" />
                </image>
             </ImageView>
          </children></HBox>
@@ -31,15 +31,15 @@
                <padding>
                   <Insets left="20.0" />
                </padding>
-               <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="150.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                   <HBox.margin>
                      <Insets right="10.0" />
                   </HBox.margin>
-                  <Image url="@../../Images/home_icon.png" />
+                  <Image url="@../../Images/white_home_icon.png" />
                </ImageView>
-               <Label fx:id="dashboard_lbl" text="Trang chủ">
+               <Label fx:id="dashboard_lbl" text="Trang chủ" textFill="WHITE">
                   <font>
-                     <Font name="System Bold" size="20.0" />
+                     <Font size="20.0" />
                   </font>
                </Label>
             </HBox>
@@ -57,13 +57,13 @@
                <padding>
                   <Insets left="20.0" />
                </padding>
-               <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="150.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                   <HBox.margin>
                      <Insets right="10.0" />
                   </HBox.margin>
-                  <Image url="@../../Images/order_icon.png" />
+                  <Image url="@../../Images/white_manage.png" />
                </ImageView>
-               <Label fx:id="manage_lbl" text="Quản lý">
+               <Label fx:id="manage_lbl" text="Quản lý" textFill="WHITE">
                   <font>
                      <Font size="20.0" />
                   </font>
@@ -80,13 +80,13 @@
                <padding>
                   <Insets left="20.0" />
                </padding>
-               <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="150.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                   <HBox.margin>
                      <Insets right="10.0" />
                   </HBox.margin>
-                  <Image url="@../../Images/history_icon.png" />
+                  <Image url="@../../Images/white_change.png" />
                </ImageView>
-               <Label fx:id="history_lbl" text="Lịch sử thay đổi">
+               <Label fx:id="history_lbl" text="Lịch sử thay đổi" textFill="WHITE">
                   <font>
                      <Font size="20.0" />
                   </font>
@@ -95,34 +95,18 @@
          </HBox>
       </HBox>
       <AnchorPane prefHeight="456.0" prefWidth="250.0">
-         <VBox layoutY="340.0" prefHeight="101.0" prefWidth="250.0">
-            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-               <padding>
-                  <Insets left="30.0" />
-               </padding>
-               <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                  <HBox.margin>
-                     <Insets right="10.0" />
-                  </HBox.margin>
-                  <Image url="@../../Images/account_icon.png" />
-               </ImageView>
-               <Label text="User">
-                  <font>
-                     <Font size="20.0" />
-                  </font>
-               </Label>
-            </HBox>
+         <VBox layoutY="380.0" prefWidth="250.0">
             <HBox fx:id="logout_btn" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                <padding>
-                  <Insets left="30.0" />
+                  <Insets left="40.0" />
                </padding>
-               <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="150.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                   <HBox.margin>
                      <Insets right="10.0" />
                   </HBox.margin>
-                  <Image url="@../../Images/logout_icon.png" />
+                  <Image url="@../../Images/white_logout.png" />
                </ImageView>
-               <Label text="Logout">
+               <Label text="Logout" textFill="WHITE">
                   <font>
                      <Font size="20.0" />
                   </font>

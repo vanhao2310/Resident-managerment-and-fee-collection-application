@@ -38,29 +38,27 @@ public class LeaderMenuController implements Initializable {
 
     private void onDashboard() {
         Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Dashboard");
-        dashboard_select.setStyle("-fx-background-color: #7766c6;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        managing_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        statistic_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        dashboard_lbl.setStyle("-fx-text-fill: #e0dffd;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
-        manage_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
-        history_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
+        setStyleButton("Dashboard");
     }
     public void onManaging() {
         Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Managing");
-        dashboard_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        managing_select.setStyle("-fx-background-color: #7766c6;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        statistic_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        dashboard_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
-        manage_lbl.setStyle("-fx-text-fill: #e0dffd;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
-        history_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
+        setStyleButton("Managing");
     }
     private void onStatistic() {
         Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Statistic");
-        dashboard_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        managing_select.setStyle("-fx-background-color: #e0dffd;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        statistic_select.setStyle("-fx-background-color: #7766c6;" + "-fx-background-radius: 10px;" + "-fx-border-radius: 20px;");
-        dashboard_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
-        manage_lbl.setStyle("-fx-text-fill: #7766c6;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
-        history_lbl.setStyle("-fx-text-fill: #e0dffd;" + "-fx-font-weight: bold;" + "-fx-font-size: 20px;");
+        setStyleButton("Statistic");
+    }
+
+    public void setStyleButton(String hBox) {
+        dashboard_lbl.setStyle("-fx-font-weight: normal");
+        manage_lbl.setStyle("-fx-font-weight: normal");
+        history_lbl.setStyle("-fx-font-weight: normal");
+
+//      System.out.println("Set Button " + hBox);
+        switch (hBox) {
+            case "Dashboard" -> dashboard_lbl.setStyle("-fx-font-weight: bold");
+            case "Managing" -> manage_lbl.setStyle("-fx-font-weight: bold");
+            case "Statistic" -> history_lbl.setStyle("-fx-font-weight: bold");
+        }
     }
 }
