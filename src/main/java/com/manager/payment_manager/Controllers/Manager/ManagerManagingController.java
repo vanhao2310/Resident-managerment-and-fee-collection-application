@@ -1,5 +1,10 @@
 package com.manager.payment_manager.Controllers.Manager;
 
+import com.manager.payment_manager.Models.Family;
+import com.manager.payment_manager.Models.Fee;
+import com.manager.payment_manager.Models.FeeLog;
+import com.manager.payment_manager.Services.FamilyService;
+import com.manager.payment_manager.Services.FeeLogService;
 import com.manager.payment_manager.Services.FeeService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -23,28 +29,32 @@ public class ManagerManagingController implements Initializable {
     public ComboBox<String> combobox;
     public Button add_family;
     public VBox family_vbox;
+    public ComboBox<Integer> combobox_phase;
 
     private String feeType;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // load type
         setComboboxData();
-        add_family.setVisible(true);
-        feeType = combobox.getValue();
-        loadFamily(feeType);
-        if (Objects.equals(feeType, "Phí vệ sinh"))
-            add_family.setVisible(false);
+        add_family.setVisible(false);
+        loadFamily("Phí vệ sinh", 1);
 
         combobox.setOnAction(mouseEvent -> {
             feeType = combobox.getValue();
-            System.out.println("fee:" + feeType);
+            // System.out.println("fee:" + feeType);
             if (Objects.equals(feeType, "Phí vệ sinh")) {
                 add_family.setVisible(false);
                 System.out.println("no add");
             }
-            else
+            else {
                 add_family.setVisible(true);
-            loadFamily(feeType);
+            }
+            loadPhaseData(feeType);
+        });
+
+        combobox_phase.setOnAction(actionEvent -> {
+            feeType = combobox.getValue();
+            loadFamily(feeType, combobox_phase.getValue());
         });
 
         System.out.println("feeType: " + feeType);
@@ -62,17 +72,42 @@ public class ManagerManagingController implements Initializable {
         combobox.setValue(content);
     }
 
-    private void loadFamily(String feeType) {
+    private void loadFamily(String feeType, int phase_num) {
         family_vbox.getChildren().clear();
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/FeeList.fxml"));
-            Parent familyList = loader.load();
-            FeeListController controller = loader.getController();
-            // TODO: Xem LoadFamily trong file LeaderManagingController sẽ hiểu
-            family_vbox.getChildren().add(familyList);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        // TODO: DISPLAY KHOẢN BẮT BUỘC
+        if (FeeService.checkForce(feeType) == 1) {
+            List<Family> allFamily = FamilyService.getAllFamily();
+            if (!allFamily.isEmpty()) {
+                for (Family family : allFamily) {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/FeeList.fxml"));
+                        Parent feeList = loader.load();
+                        FeeListController controller = loader.getController();
+                        controller.updateInfoForce(family, FeeLogService.getIdKhoanThuFromKhoanThuLog(feeType), phase_num);
+                        family_vbox.getChildren().add(feeList);
+                    } catch (IOException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            }
+        }
+        // TODO: DISPLAY KHOẢN ĐÓNG GÓP
+        else {
+            List<FeeLog> feeLogs = FeeLogService.getAllLog(feeType, phase_num);
+            if (!feeLogs.isEmpty()) {
+                for (FeeLog feeLog : feeLogs) {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/FeeList.fxml"));
+                        Parent feeList = loader.load();
+                        FeeListController controller = loader.getController();
+                        controller.updateInfoTempo(feeLog);
+                        family_vbox.getChildren().add(feeList);
+                    } catch (IOException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            }
         }
     }
 
@@ -87,5 +122,12 @@ public class ManagerManagingController implements Initializable {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private void loadPhaseData(String feeName) {
+        combobox_phase.getItems().clear();
+        int maxPhase = FeeService.phaseMax(feeName);
+        for (int i = 1; i <= maxPhase + 1; i++)
+            combobox_phase.getItems().add(i);
     }
 }

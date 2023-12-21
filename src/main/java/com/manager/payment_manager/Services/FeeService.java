@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FeeService {
+    // TODO: Lấy danh sách tất cả các phí hiện có
     public static List<String> getAllFeeName() {
         List<String> result = new ArrayList<>();
         try (Connection conn = Utils.getConnection()) {
@@ -25,6 +26,8 @@ public class FeeService {
         }
         return result;
     }
+
+    // TODO: Tìm đợt mới nhất hiện tại
     public static int phaseMax(String feeName) {
         int result = 1;
         try (Connection conn = Utils.getConnection()) {
@@ -61,6 +64,23 @@ public class FeeService {
             System.out.println("Error in Insert Khoan Thu to database");
             System.out.println(e.getMessage());
         }
+    }
+
+    // TODO: Kiểm tra xem đây là đóng góp - 0 hay bắt buộc - 1
+    public static int checkForce(String feeName) {
+        int res = 0;
+        try (Connection conn = Utils.getConnection()) {
+            PreparedStatement pst = conn.prepareStatement("select loai from Khoan_thu where ten LIKE ?");
+            pst.setString(1, feeName);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next())
+                res = rs.getInt(1);
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return res;
     }
 
 }

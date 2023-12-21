@@ -1,8 +1,11 @@
 package com.manager.payment_manager.Services;
 
+import com.manager.payment_manager.Models.Fee;
 import com.manager.payment_manager.Models.FeeLog;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FeeLogService {
     public static void addKhoanThuHo(FeeLog feelog){
@@ -24,6 +27,34 @@ public class FeeLogService {
         }
     }
 
+    // TODO: Lấy tất cả log thuộc đợt phase_num của feeType
+    public static List<FeeLog> getAllLog(String feeType, int phase_num) {
+        List<FeeLog> result = new ArrayList<>();
+        try (Connection conn = Utils.getConnection()) {
+            int id_log = getIdKhoanThuFromKhoanThuLog(feeType);
+            PreparedStatement pst = conn.prepareStatement("select * from Khoan_thu_log where id_khoan_thu = ? AND dot_nop = ?");
+            pst.setInt(1, id_log);
+            pst.setInt(2, phase_num);
+
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                FeeLog feeLog = new FeeLog(rs.getInt("ID_HO"),
+                                        rs.getInt("id_khoan_thu"),
+                                        rs.getInt("so_tien"),
+                                        rs.getInt("dot_nop"),
+                                        rs.getDate("ngay_nop"));
+                result.add(feeLog);
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Error in getAllLog");
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
+
+    // TODO: Lấy id_khoan_thu từ tên
     public static int getIdKhoanThuFromKhoanThuLog(String ten) {
         int idKhoanThu = -1;
 
@@ -42,9 +73,8 @@ public class FeeLogService {
 
             rs.close();
             stmt.close();
-            conn.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
         return idKhoanThu;
@@ -71,9 +101,31 @@ public class FeeLogService {
             stmt.close();
             conn.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
         return isDuplicate;
+    }
+
+    // TODO: Kiểm tra xem nhà này đã đóng phí này đợt này chưa
+    public static boolean checkSubmit(int id_ho, int id_khoan_thu, int dot_nop) {
+        boolean res = false;
+        try (Connection conn = Utils.getConnection()) {
+            PreparedStatement pst = conn.prepareStatement("select so_tien from Khoan_thu_log where ID_HO = ? AND id_khoan_thu = ? AND dot_nop = ?");
+            pst.setInt(1, id_ho);
+            pst.setInt(2, id_khoan_thu);
+            pst.setInt(3, dot_nop);
+
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()) {
+                if (rs.getInt(1) != 0)
+                    res = true;
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return res;
     }
 }
