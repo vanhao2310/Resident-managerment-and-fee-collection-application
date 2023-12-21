@@ -93,7 +93,7 @@ public class AddFamilyController implements Initializable {
     private void loadPhaseData(String feeName) {
         combobox_phase.getItems().clear();
         int maxPhase = FeeService.phaseMax(feeName);
-        for (int i = 1; i <= maxPhase; i++)
+        for (int i = 1; i <= maxPhase + 1; i++)
             combobox_phase.getItems().add(i);
     }
 

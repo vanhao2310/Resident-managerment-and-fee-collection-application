@@ -74,17 +74,17 @@
       </HBox>
    </VBox>
    <VBox layoutX="60.0" layoutY="60.0" prefHeight="105.0" prefWidth="534.0">
-      <Label style="-fx-text-fill: #46467a;" text="TRANG CHỦ ">
+      <Label style="-fx-text-fill: #2b2d42;" text="TRANG CHỦ ">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <Label style="-fx-text-fill: #46467a;" text="Hệ thống quản lý nhân khẩu">
+      <Label style="-fx-text-fill: #2b2d42;" text="Hệ thống quản lý nhân khẩu">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label style="-fx-text-fill: #46467a;" text="Thống kê nhân khẩu">
+      <Label style="-fx-text-fill: #2b2d42;" text="Thống kê nhân khẩu">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>

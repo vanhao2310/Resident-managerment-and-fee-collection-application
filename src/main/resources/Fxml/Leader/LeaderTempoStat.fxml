@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1150.0" stylesheets="@../../Styles/time_stat.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.LeaderTemporaryStatController">
+    <VBox layoutX="60.0" layoutY="60.0" prefHeight="105.0" prefWidth="534.0">
+        <Label styleClass="text-color" text="TRANG CHỦ ">
+            <font>
+                <Font name="System Bold" size="50.0" />
+            </font>
+        </Label>
+        <Label styleClass="text-color" text="Hệ thống quản lý nhân khẩu">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label styleClass="text-color" text="Thống kê nhân khẩu">
+            <font>
+                <Font name="System Bold" size="30.0" />
+            </font>
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+        </Label>
+        <HBox fx:id="back_btn" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../Images/left-arrow.png" />
+            </ImageView>
+            <Label styleClass="text-color" text="Thống kê tạm vắng, tạm trú">
+                <font>
+                    <Font size="20.0" />
+                </font>
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </Label>
+        </HBox>
+    </VBox>
+      <HBox fx:id="tempo_container" layoutX="60.0" layoutY="300.0">
+          <VBox alignment="CENTER_RIGHT">
+              <ComboBox fx:id="year_pick" prefHeight="31.0" prefWidth="93.0" promptText="2023" visibleRowCount="5" />
+              <BarChart fx:id="bar_chart">
+                  <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                  </xAxis>
+                  <yAxis>
+                      <NumberAxis side="LEFT" />
+                  </yAxis>
+              </BarChart>
+          </VBox>
+      </HBox>
+</AnchorPane>

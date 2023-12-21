@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
@@ -14,13 +13,13 @@
          <Font size="20.0" />
       </font>
       <HBox.margin>
-         <Insets left="20.0" />
+         <Insets left="30.0" />
       </HBox.margin>
       <padding>
          <Insets right="20.0" />
       </padding>
    </Label>
-   <Line startY="38.0" />
+   <Line startY="38.0" strokeWidth="2.0" />
    <Label fx:id="ten_loai_lbl" prefWidth="400.0" text="Nội dung thay đổi">
       <font>
          <Font size="20.0" />
@@ -29,7 +28,7 @@
          <Insets left="20.0" right="20.0" />
       </HBox.margin>
    </Label>
-   <Line startY="38.0" />
+   <Line startY="38.0" strokeWidth="2.0" />
    <Label fx:id="ngay_thay_doi_lbl" prefWidth="275.0" text="Ngày thay đổi" textAlignment="CENTER">
       <font>
          <Font size="20.0" />
@@ -41,7 +40,7 @@
          <Insets left="80.0" />
       </padding>
    </Label>
-   <Line layoutX="579.0" layoutY="11.0" startY="38.0" />
+   <Line layoutX="579.0" layoutY="11.0" startY="38.0" strokeWidth="2.0" />
    <Hyperlink fx:id="detail_btn" prefWidth="150.0" text="Chi tiết">
       <font>
          <Font size="20.0" />
@@ -50,13 +49,4 @@
          <Insets left="40.0" />
       </padding>
    </Hyperlink>
-   <Line startY="38.0" />
-   <CheckBox fx:id="check_box" mnemonicParsing="false" prefWidth="50.0">
-      <font>
-         <Font size="20.0" />
-      </font>
-      <padding>
-         <Insets left="10.0" />
-      </padding>
-   </CheckBox>
 </HBox>

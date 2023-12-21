@@ -27,6 +27,8 @@ public class ViewFactory {
     private AnchorPane addFamilyView;
     private AnchorPane leaderGenderStatView;
     private AnchorPane leaderAgeStatView;
+    private AnchorPane leaderTimeStatView;
+    private AnchorPane leaderTemporaryStatView;
     private Scene changeDetailScene;
     private ChangeDetailController changeDetailController;
     // View in manager
@@ -184,6 +186,28 @@ public class ViewFactory {
             }
         }
         return leaderAgeStatView;
+    }
+    public AnchorPane getLeaderTimeStatView() {
+        if (leaderTimeStatView == null) {
+            try {
+                leaderTimeStatView = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderTimeStat.fxml")).load();
+            } catch (Exception e) {
+                System.out.println("Error while loading leaderTimeStat");
+                System.out.println(e.getMessage());
+            }
+        }
+        return leaderTimeStatView;
+    }
+    public AnchorPane getLeaderTemporaryStatView() {
+        if (leaderTemporaryStatView == null) {
+            try {
+                leaderTemporaryStatView = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderTempoStat.fxml")).load();
+            } catch (Exception e) {
+                System.out.println("Error while loading leaderTempoStat");
+                System.out.println(e.getMessage());
+            }
+        }
+        return leaderTemporaryStatView;
     }
 
 

@@ -9,35 +9,35 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.LeaderStatisticController">
+<AnchorPane prefHeight="800.0" prefWidth="1150.0" styleClass="container" stylesheets="@../../Styles/leader_history.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.LeaderStatisticController">
    <VBox layoutX="60.0" layoutY="60.0">
-      <Label text="LỊCH SỬ THAY ĐỔI NHÂN KHẨU">
+      <Label text="LỊCH SỬ THAY ĐỔI NHÂN KHẨU" textFill="#2b2d42">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <Label text="Hệ thống quản lý nhân khẩu">
+      <Label text="Hệ thống quản lý nhân khẩu" textFill="#2b2d42">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
    </VBox>
-   <ScrollPane layoutX="60.0" layoutY="200.0" prefHeight="500.0" prefWidth="1025.0">
+   <ScrollPane layoutX="60.0" layoutY="200.0" prefHeight="500.0" prefWidth="1010.0">
       <VBox>
-         <HBox alignment="CENTER_LEFT" prefHeight="30.0" style="-fx-background-color: #2772aa;">
-            <Label prefWidth="50.0" text="ID" textFill="WHITE">
+         <HBox alignment="CENTER_LEFT" prefHeight="30.0" style="-fx-background-color: #2b2d42;">
+            <Label prefWidth="50.0" styleClass="text-bold" text="ID" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
                <HBox.margin>
-                  <Insets left="20.0" />
+                  <Insets left="30.0" />
                </HBox.margin>
                <padding>
                   <Insets right="20.0" />
                </padding>
             </Label>
-            <Line startY="30.0" />
-            <Label prefWidth="400.0" text="Nội dung thay đổi" textFill="WHITE">
+            <Line startY="30.0" stroke="WHITE" strokeWidth="2.0" />
+            <Label prefWidth="400.0" styleClass="text-bold" text="Nội dung thay đổi" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -48,8 +48,8 @@
                   <Insets left="100.0" />
                </padding>
             </Label>
-            <Line startY="30.0" />
-            <Label prefWidth="275.0" text="Ngày thay đổi" textAlignment="CENTER" textFill="WHITE">
+            <Line startY="30.0" stroke="WHITE" strokeWidth="2.0" />
+            <Label prefWidth="275.0" styleClass="text-bold" text="Ngày thay đổi" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -60,17 +60,8 @@
                   <Insets left="80.0" />
                </padding>
             </Label>
-            <Line layoutX="579.0" layoutY="11.0" startY="30.0" />
-            <Label prefWidth="150.0" text="Chi tiết" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <padding>
-                  <Insets left="40.0" />
-               </padding>
-            </Label>
-            <Line startY="30.0" />
-            <Label prefWidth="50.0" textAlignment="CENTER" textFill="WHITE">
+            <Line layoutX="579.0" layoutY="11.0" startY="30.0" stroke="WHITE" strokeWidth="2.0" />
+            <Label prefWidth="150.0" styleClass="text-bold" text="Chi tiết" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>

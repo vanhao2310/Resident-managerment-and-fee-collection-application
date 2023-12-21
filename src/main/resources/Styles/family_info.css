@@ -1,0 +1,8 @@
+.option {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 20px;
+}
+
+.bold-text {
+    -fx-font-weight: bold;
+}

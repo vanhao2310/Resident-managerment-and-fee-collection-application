@@ -86,7 +86,7 @@
                   </HBox.margin>
                   <Image url="@../../Images/white_change.png" />
                </ImageView>
-               <Label fx:id="history_lbl" text="Lịch sử thay đổi" textFill="WHITE">
+               <Label fx:id="history_lbl" text="Lịch sử" textFill="WHITE">
                   <font>
                      <Font size="20.0" />
                   </font>

@@ -138,13 +138,13 @@ insert into Khoan_thu values
 
 create table Khoan_thu_log(
 			ID_HO int,
-                        id_khoan_thu int, 
-                        so_tien int,
-                        dot_nop int,
-                        ngay_nop date,
-                        primary key (ID_HO, id_khoan_thu),
-                        foreign key (ID_HO) references HOKHAU(ID_HO),
-                        foreign key (id_khoan_thu) references Khoan_thu(id_khoan_thu)
+            id_khoan_thu int,
+            so_tien int,
+            dot_nop int,
+            ngay_nop date,
+            primary key (ID_HO, id_khoan_thu),
+            foreign key (ID_HO) references HOKHAU(ID_HO),
+            foreign key (id_khoan_thu) references Khoan_thu(id_khoan_thu)
 );
 
 insert into Khoan_thu_log values

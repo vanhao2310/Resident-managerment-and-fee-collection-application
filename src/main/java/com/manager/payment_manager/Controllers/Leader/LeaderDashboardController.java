@@ -20,6 +20,8 @@ public class LeaderDashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gender_btn.setOnMouseClicked(mouseEvent -> Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("GenderStat"));
         age_btn.setOnMouseClicked(mouseEvent -> Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("AgeStat"));
+        time_btn.setOnMouseClicked(mouseEvent -> Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("TimeStat"));
+        absence_btn.setOnMouseClicked(mouseEvent -> Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("TempoStat"));
     }
 
 }

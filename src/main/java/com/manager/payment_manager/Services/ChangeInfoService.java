@@ -35,7 +35,7 @@ public class ChangeInfoService {
     }
 
     public static void addChangeInfor(List<ChangeInfo> listChange){
-        try(Connection conn = Utils.getConnection()){
+        try (Connection conn = Utils.getConnection()){
             String sql = "insert into data_log (loai, ten_loai, ID_NGUOI, ghi_chu, ngay_thay_doi) values (?, ?, ?, ?, ?)";
             PreparedStatement pst = conn.prepareStatement(sql);
             for(ChangeInfo changeInfo : listChange){
@@ -54,7 +54,7 @@ public class ChangeInfoService {
     }
 
     public static void addChangeInfor(ChangeInfo changeInfor){
-        try(Connection conn = Utils.getConnection()){
+        try (Connection conn = Utils.getConnection()) {
             String sql = "insert into data_log (loai, ten_loai, ID_NGUOI, ghi_chu, ngay_thay_doi) values (?, ?, ?, ?, ?)";
             PreparedStatement pst = conn.prepareStatement(sql);
                 pst.setInt(1, changeInfor.getLoai());
@@ -64,9 +64,27 @@ public class ChangeInfoService {
                 pst.setDate(5, changeInfor.getNgay_thay_doi());
                 pst.executeUpdate();
             pst.close();
-        }catch(SQLException e){
+        } catch(SQLException e) {
             System.out.println("Exeption in ChangeInfoService addChangeInfor");
             System.out.println(e.getMessage());
         }
+    }
+
+    public static int countLog(int loai, int year) {
+        int result = 0;
+        try (Connection conn = Utils.getConnection()) {
+            String sql = "select count(id) from data_log where loai = ? AND YEAR(ngay_thay_doi) = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, loai);
+            pst.setInt(2, year);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next())
+                result = rs.getInt(1);
+        } catch (SQLException e) {
+            System.out.println("Can not query countTamTru");
+            System.out.println(e.getMessage());
+        }
+        return result;
     }
 }
