@@ -82,5 +82,20 @@ public class FeeService {
         }
         return res;
     }
+    public static int getIdByName(String feeName){
+        int feeId = 0;
+        try (Connection conn = Utils.getConnection()) {
+            PreparedStatement pst = conn.prepareStatement("select id_khoan_thu from Khoan_thu where ten = ?");
+            pst.setString(1, feeName);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next())
+                feeId = rs.getInt(1);
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return feeId;
+    }
 
 }
