@@ -107,6 +107,29 @@ public class FeeLogService {
         return isDuplicate;
     }
 
+    //TODO: Lấy danh sách các hộ đóng khoản phí theo đợt trong phần thống kê
+    public static List<FeeLog> getListFamilyWithPhase(int feeId, int phase){
+        List<FeeLog> result = new ArrayList<>();
+        try(Connection conn = Utils.getConnection()){
+            String sql = "select ktl.id_ho, ktl.id_khoan_thu, ktl.so_tien, ktl.dot_nop, hk.chu_ho, hk.dia_chi " +
+                    "from khoan_thu_log as ktl, HOKHAU as hk " +
+                    "where ktl.id_khoan_thu = ? and ktl.dot_nop = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, feeId);
+            pst.setInt(2, phase);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                result.add(new FeeLog(rs.getInt("id_ho"), rs.getInt("id_khoan_thu"), rs.getInt("so_tien"),
+                        rs.getInt("dot_nop"), rs.getString("chu_ho"), rs.getString("dia_chi")));
+            }
+        }catch(SQLException e){
+            System.out.println("Error in getListFamilyWithPhase in FeeLogService!");
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
+
+
     // TODO: Kiểm tra xem nhà này đã đóng phí này đợt này chưa
     public static boolean checkSubmit(int id_ho, int id_khoan_thu, int dot_nop) {
         boolean res = false;
