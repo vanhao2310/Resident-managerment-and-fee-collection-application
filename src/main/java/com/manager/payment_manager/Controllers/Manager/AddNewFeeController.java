@@ -1,10 +1,17 @@
 package com.manager.payment_manager.Controllers.Manager;
 
+import com.manager.payment_manager.Models.Fee;
 import com.manager.payment_manager.Models.Model;
+import com.manager.payment_manager.Services.FeeService;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddNewFeeController implements Initializable {
@@ -35,13 +42,40 @@ public class AddNewFeeController implements Initializable {
             else {
                 warning_lbl.setVisible(false);
                 // TODO: ADD FEE TO DATABASE
+                int feeTypeValue = fee_type.getValue().equals("Bắt buộc") ? 1 : 0;
+                int moneyValue = !money_field.getText().isEmpty() ? Integer.parseInt(money_field.getText()) : 0;
+
+                Fee fee;
+                if (feeTypeValue == 1) {
+                    fee = new Fee(feeTypeValue, fee_name_field.getText(), moneyValue, null, null);
+                } else {
+                    int defaultValue = -1;
+                    LocalDate beginDateValue = begin_date.getValue();
+                    LocalDate endDateValue = end_date.getValue();
+                    Date beginDate = Date.valueOf(beginDateValue);
+                    Date endDate = Date.valueOf(endDateValue);
+                    fee = new Fee(feeTypeValue, fee_name_field.getText(), defaultValue, beginDate, endDate);
+                }
+                FeeService.addKhoanThu(fee);
 
                 // Update Dashboard
-                Model.getInstance().getViewFactory().addNewFee(fee_name_field.getText());
-                Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Dashboard");
+                if (fee_type.getValue().equals("Không bắt buộc")) {
+                    Model.getInstance().getViewFactory().addNewFee(fee_name_field.getText());
+                    Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Dashboard");}
                 // Close Window
                 Stage stage = (Stage) add_done_btn.getScene().getWindow();
                 stage.close();
+            }
+        });
+
+        loadFeeNameData();
+        fee_type.setOnAction(actionEvent -> {
+            if (fee_type.getValue().equals("Bắt buộc")) {
+                begin_date.setDisable(true);
+                end_date.setDisable(true);
+            } else {
+                begin_date.setDisable(false);
+                end_date.setDisable(false);
             }
         });
     }
@@ -57,5 +91,14 @@ public class AddNewFeeController implements Initializable {
         fee_type.setValue("Bắt buộc");
         money_field.clear();
         info_field.clear();
+    }
+
+    private void loadFeeNameData() {
+        fee_type.getItems().clear();
+        List<String> allFeeType = new ArrayList<>();
+        allFeeType.add("Bắt buộc");
+        allFeeType.add("Không bắt buộc");
+        for (String name : allFeeType)
+            fee_type.getItems().add(name);
     }
 }
