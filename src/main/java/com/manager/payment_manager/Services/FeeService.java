@@ -1,5 +1,7 @@
 package com.manager.payment_manager.Services;
 
+import com.manager.payment_manager.Models.Fee;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,6 +42,25 @@ public class FeeService {
             System.out.println(e.getMessage());
         }
         return result;
+    }
+
+    public static void addKhoanThu(Fee fee){
+        try(Connection conn = Utils.getConnection()){
+            String sql = "insert into Khoan_thu (loai, ten, don_gia, ngay_bat_dau, ngay_ket_thuc) " +
+                    "value (?, ?, ?, ?, ?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, fee.getFee_type());
+            pst.setString(2, fee.getFee_name());
+            pst.setInt(3, fee.getDon_gia());
+            pst.setDate(4, fee.getNgay_bat_dau());
+            pst.setDate(5, fee.getNgay_ket_thuc());
+            pst.executeUpdate();
+
+            pst.close();
+        }catch(SQLException e){
+            System.out.println("Error in Insert Khoan Thu to database");
+            System.out.println(e.getMessage());
+        }
     }
 
 }

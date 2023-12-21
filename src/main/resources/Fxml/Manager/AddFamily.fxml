@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0" stylesheets="@../../Styles/manager_add_family.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Manager.AddFamilyController">
+<AnchorPane prefHeight="300.0" prefWidth="600.0" stylesheets="@../../Styles/manager_add_family.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Manager.AddFamilyController">
     <HBox alignment="CENTER" layoutY="20.0" prefWidth="600.0">
         <Label text="Thêm khoản đóng góp">
             <font>
@@ -70,7 +70,7 @@
         </HBox>
       <HBox alignment="CENTER">
          <children>
-            <Label text="Vui lòng điền đủ các thông tin yêu cầu!" textFill="RED" />
+            <Label fx:id="warning_lbl" text="Vui lòng điền đủ các thông tin yêu cầu!" textFill="RED" />
          </children>
          <VBox.margin>
             <Insets top="5.0" />
