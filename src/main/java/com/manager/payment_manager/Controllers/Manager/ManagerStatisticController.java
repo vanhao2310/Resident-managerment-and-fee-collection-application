@@ -32,7 +32,7 @@ public class ManagerStatisticController implements Initializable {
         });
     }
 
-    private void loadType() {
+    public void loadType() {
         List<String> allFeeName = FeeService.getAllFeeName();
         combobox_type.getItems().clear();
         for (String name : allFeeName)

@@ -51,7 +51,8 @@ public class ManagerManagingController implements Initializable {
         add_family.setOnMouseClicked(mouseEvent -> setAdd_family(feeType));
     }
 
-    private void setComboboxData() {
+    public void setComboboxData() {
+        combobox.getItems().clear();
         List<String> nameList = FeeService.getAllFeeName();
         for (String name : nameList)
             combobox.getItems().add(name);

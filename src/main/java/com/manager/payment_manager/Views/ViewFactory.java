@@ -1,10 +1,7 @@
 package com.manager.payment_manager.Views;
 
 import com.manager.payment_manager.Controllers.Leader.*;
-import com.manager.payment_manager.Controllers.Manager.ManagerController;
-import com.manager.payment_manager.Controllers.Manager.ManagerDashboardController;
-import com.manager.payment_manager.Controllers.Manager.ManagerManagingController;
-import com.manager.payment_manager.Controllers.Manager.ManagerMenuController;
+import com.manager.payment_manager.Controllers.Manager.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -34,7 +31,9 @@ public class ViewFactory {
     // View in manager
     private AnchorPane managerDashboardView;
     private AnchorPane managerManagingView;
+    private ManagerManagingController managerManagingController;
     private AnchorPane managerStatisticView;
+    private ManagerStatisticController managerStatisticController;
     private AnchorPane managerMenuView;
     private Scene familyInfoScene;
     private FamilyInfoController familyInfoController;
@@ -238,23 +237,29 @@ public class ViewFactory {
     public AnchorPane getManagerManagingView() {
         if (managerManagingView == null) {
             try {
-                managerManagingView = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerManaging.fxml")).load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerManaging.fxml"));
+                managerManagingView = loader.load();
+                managerManagingController = loader.getController();
             } catch (Exception e) {
                 System.out.println("Error while loading managerManaging");
                 System.out.println(e.getMessage());
             }
         }
+        managerManagingController.setComboboxData();
         return managerManagingView;
     }
     public AnchorPane getManagerStatisticView() {
         if (managerStatisticView == null) {
             try {
-                managerStatisticView = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerStatistic.fxml")).load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerStatistic.fxml"));
+                managerStatisticView = loader.load();
+                managerStatisticController = loader.getController();
             } catch (Exception e) {
                 System.out.println("Error loading managerStatistic");
                 System.out.println(e.getMessage());
             }
         }
+        managerStatisticController.loadType();
         return managerStatisticView;
     }
     public AnchorPane getManagerManageView(String content) {
