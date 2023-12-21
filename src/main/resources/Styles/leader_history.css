@@ -1,0 +1,7 @@
+.container {
+    -fx-background-color: #edf2f4;
+}
+
+.text-bold {
+    -fx-font-weight: bold;
+}

@@ -13,7 +13,7 @@
          <VBox.margin>
             <Insets top="20.0" />
          </VBox.margin>
-         <Label text="Thông tin thay đổi nhân khẩu">
+         <Label text="Thông tin thay đổi nhân khẩu" textFill="#2b2d42">
             <font>
                <Font name="System Bold" size="25.0" />
             </font>

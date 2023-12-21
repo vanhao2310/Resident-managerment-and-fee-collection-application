@@ -20,14 +20,14 @@
          <Image url="@../../Images/arrow_back.png" />
       </ImageView>
    </AnchorPane>
-   <HBox alignment="TOP_CENTER" layoutY="50.0" prefWidth="1000.0">
-      <Label text="Thêm nhân khẩu" textFill="#3a47ff">
+   <HBox alignment="TOP_CENTER" layoutY="20.0" prefWidth="1000.0">
+      <Label text="Thêm nhân khẩu" textFill="#2b2d42">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
    </HBox>
-   <ScrollPane layoutY="120.0" prefHeight="500.0" prefWidth="1000.0">
+   <ScrollPane layoutY="90.0" prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: #edf2f4;">
       <padding>
          <Insets left="80.0" />
       </padding>
@@ -65,15 +65,14 @@
             </VBox>
             <VBox>
                <HBox.margin>
-                  <Insets left="50.0"/>
+                  <Insets left="50.0" />
                </HBox.margin>
                <Label text="Giới tính">
                   <font>
-                     <Font size="25.0"/>
+                     <Font size="25.0" />
                   </font>
                </Label>
-               <ComboBox fx:id="gender_combobox" prefHeight="52.0" prefWidth="150.0" promptText="Nam"
-                         styleClass="combobox"/>
+               <ComboBox fx:id="gender_combobox" prefHeight="52.0" prefWidth="150.0" promptText="Nam" styleClass="combobox" />
             </VBox>
          </HBox>
          <HBox alignment="CENTER_LEFT">
@@ -246,11 +245,15 @@
             <VBox.margin>
                <Insets />
             </VBox.margin>
-            <Label fx:id="warning_label" layoutX="280.0" text="Vui lòng điền đủ các thông tin bắt buộc!" textFill="RED">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
+            <HBox alignment="CENTER" prefWidth="852.0">
+               <children>
+                  <Label fx:id="warning_label" text="Vui lòng điền đủ các thông tin bắt buộc!" textFill="RED">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
          </AnchorPane>
          <HBox alignment="CENTER">
             <Button fx:id="add_done_btn" mnemonicParsing="false" text="Hoàn thành">
@@ -267,7 +270,7 @@
                </font>
             </Button>
             <VBox.margin>
-               <Insets top="10.0" />
+               <Insets bottom="30.0" top="10.0" />
             </VBox.margin>
          </HBox>
          <padding>

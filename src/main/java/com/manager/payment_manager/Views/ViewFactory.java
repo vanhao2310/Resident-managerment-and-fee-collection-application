@@ -1,10 +1,7 @@
 package com.manager.payment_manager.Views;
 
 import com.manager.payment_manager.Controllers.Leader.*;
-import com.manager.payment_manager.Controllers.Manager.ManagerController;
-import com.manager.payment_manager.Controllers.Manager.ManagerDashboardController;
-import com.manager.payment_manager.Controllers.Manager.ManagerManagingController;
-import com.manager.payment_manager.Controllers.Manager.ManagerMenuController;
+import com.manager.payment_manager.Controllers.Manager.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -27,12 +24,16 @@ public class ViewFactory {
     private AnchorPane addFamilyView;
     private AnchorPane leaderGenderStatView;
     private AnchorPane leaderAgeStatView;
+    private AnchorPane leaderTimeStatView;
+    private AnchorPane leaderTemporaryStatView;
     private Scene changeDetailScene;
     private ChangeDetailController changeDetailController;
     // View in manager
     private AnchorPane managerDashboardView;
     private AnchorPane managerManagingView;
+    private ManagerManagingController managerManagingController;
     private AnchorPane managerStatisticView;
+    private ManagerStatisticController managerStatisticController;
     private AnchorPane managerMenuView;
     private Scene familyInfoScene;
     private FamilyInfoController familyInfoController;
@@ -185,6 +186,28 @@ public class ViewFactory {
         }
         return leaderAgeStatView;
     }
+    public AnchorPane getLeaderTimeStatView() {
+        if (leaderTimeStatView == null) {
+            try {
+                leaderTimeStatView = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderTimeStat.fxml")).load();
+            } catch (Exception e) {
+                System.out.println("Error while loading leaderTimeStat");
+                System.out.println(e.getMessage());
+            }
+        }
+        return leaderTimeStatView;
+    }
+    public AnchorPane getLeaderTemporaryStatView() {
+        if (leaderTemporaryStatView == null) {
+            try {
+                leaderTemporaryStatView = new FXMLLoader(getClass().getResource("/Fxml/Leader/LeaderTempoStat.fxml")).load();
+            } catch (Exception e) {
+                System.out.println("Error while loading leaderTempoStat");
+                System.out.println(e.getMessage());
+            }
+        }
+        return leaderTemporaryStatView;
+    }
 
 
     public AnchorPane getAddFamilyView() {
@@ -214,23 +237,29 @@ public class ViewFactory {
     public AnchorPane getManagerManagingView() {
         if (managerManagingView == null) {
             try {
-                managerManagingView = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerManaging.fxml")).load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerManaging.fxml"));
+                managerManagingView = loader.load();
+                managerManagingController = loader.getController();
             } catch (Exception e) {
                 System.out.println("Error while loading managerManaging");
                 System.out.println(e.getMessage());
             }
         }
+        managerManagingController.setComboboxData();
         return managerManagingView;
     }
     public AnchorPane getManagerStatisticView() {
         if (managerStatisticView == null) {
             try {
-                managerStatisticView = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerStatistic.fxml")).load();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerStatistic.fxml"));
+                managerStatisticView = loader.load();
+                managerStatisticController = loader.getController();
             } catch (Exception e) {
                 System.out.println("Error loading managerStatistic");
                 System.out.println(e.getMessage());
             }
         }
+        managerStatisticController.loadType();
         return managerStatisticView;
     }
     public AnchorPane getManagerManageView(String content) {
