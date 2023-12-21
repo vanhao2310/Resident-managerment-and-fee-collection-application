@@ -27,9 +27,6 @@
       <HBox.margin>
          <Insets left="20.0" right="20.0" />
       </HBox.margin>
-      <padding>
-         <Insets left="45.0" />
-      </padding>
    </Label>
    <Line startY="30.0" strokeWidth="2.0" />
    <Label fx:id="address" prefWidth="300.0" text="Địa chỉ" textAlignment="CENTER">
@@ -39,17 +36,14 @@
       <HBox.margin>
          <Insets left="20.0" right="20.0" />
       </HBox.margin>
-      <padding>
-         <Insets left="120.0" />
-      </padding>
    </Label>
    <Line startY="30.0" strokeWidth="2.0" />
-   <Label fx:id="status" prefWidth="200.0" text="Trạng thái">
+   <Label fx:id="status" prefWidth="200.0" text="Đã nộp">
       <font>
          <Font size="20.0" />
       </font>
       <padding>
-         <Insets left="50.0" />
+         <Insets left="70.0" />
       </padding>
    </Label>
    <Line startY="30.0" strokeWidth="2.0" />
