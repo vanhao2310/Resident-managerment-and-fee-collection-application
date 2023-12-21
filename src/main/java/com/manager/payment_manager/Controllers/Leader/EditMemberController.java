@@ -91,10 +91,16 @@ public class EditMemberController implements Initializable {
                 this.nhanKhau.setNgheNghiep(job_field.getText());
                 this.nhanKhau.setNoiLamViec(work_place_field.getText());
                 this.nhanKhau.setCCCD(id_field.getText());
-                this.nhanKhau.setNgayCap(java.sql.Date.valueOf(create_date_picker.getValue()));
+                if((create_date_picker.getValue()) != null){
+                    this.nhanKhau.setNgayCap(java.sql.Date.valueOf(create_date_picker.getValue()));
+                }
                 this.nhanKhau.setNoiCap(create_place_field.getText());
-                this.nhanKhau.setNgayDangKiThuongTru(java.sql.Date.valueOf(sign_up_date_picker.getValue()));
-                this.nhanKhau.setDiaChiTruoc(prev_address_field.getText());
+                if(sign_up_date_picker.getValue() != null){
+                    this.nhanKhau.setNgayDangKiThuongTru(java.sql.Date.valueOf(sign_up_date_picker.getValue()));
+                }
+                if(prev_address_field.getText() != null){
+                    this.nhanKhau.setDiaChiTruoc(prev_address_field.getText());
+                }
                 this.nhanKhau.setId(id_nguoi);
 
 
@@ -140,9 +146,11 @@ public class EditMemberController implements Initializable {
         if (nation_field.getText().isEmpty()) return false;
         if (job_field.getText().isEmpty()) return false;
         if (work_place_field.getText().isEmpty()) return false;
-        if (id_field.getText().isEmpty()) return false;
-        if (create_place_field.getText().isEmpty()) return false;
-        return !prev_address_field.getText().isEmpty();
+        ///koong cann check cccd dô duoi 18 tuoi co the chưa co cccd
+        //if (id_field.getText().isEmpty()) return false;
+        //if (create_place_field.getText().isEmpty()) return false;
+        //return !prev_address_field.getText().isEmpty();
+        return true;
     }
 
     public void fillOldInfo(NhanKhau nhanKhau) {
