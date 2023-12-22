@@ -121,6 +121,7 @@ public class EditMemberController implements Initializable {
     }
 
     public void saveID(String id_ho, String id_nguoi) {
+        System.out.println("saved");
         this.id_ho = id_ho;
         this.id_nguoi = id_nguoi;
         System.out.println("saved id_ho: " + id_ho + " and id_nguoi: " + id_nguoi);
