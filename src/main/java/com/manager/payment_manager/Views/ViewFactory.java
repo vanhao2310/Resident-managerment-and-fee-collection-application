@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import java.util.Date;
 
 // TODO: MANAGE SCENE CHANGING
 public class ViewFactory {
@@ -239,7 +238,7 @@ public class ViewFactory {
         return managerDashboardView;
     }
     public AnchorPane getManagerManagingView() {
-        if (managerManagingView == null) {
+        if (managerManagingView == null || managerManagingController == null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerManaging.fxml"));
                 managerManagingView = loader.load();
@@ -280,23 +279,22 @@ public class ViewFactory {
             managerManagingView = loader.load();
             ManagerManagingController managerManagingController = loader.getController();
             managerManagingController.setComboItem(content);
-            System.out.println(content);
+            // System.out.println(content);
         } catch (Exception e) {
             System.out.println("Error while loading managerManaging");
             System.out.println(e.getMessage());
         }
         return managerManagingView;
     }
-    public AnchorPane updateManagerMenuView(String hBox) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerMenu.fxml"));
-            managerMenuView = loader.load();
-            ManagerMenuController managerMenuController = loader.getController();
-            managerMenuController.setStyleButton(hBox);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return managerMenuView;
+    public void updateManagerMenuView(String hBox) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/ManagerMenu.fxml"));
+                managerMenuView = loader.load();
+                ManagerMenuController managerMenuController = loader.getController();
+                managerMenuController.setStyleButton(hBox);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
     }
 
     public void addNewFee(String newFee) {

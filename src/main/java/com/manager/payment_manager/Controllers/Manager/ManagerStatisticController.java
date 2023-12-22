@@ -25,6 +25,25 @@ public class ManagerStatisticController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadType();
 
+        // Init - Phí vệ sinh
+        List<FeeLog> listInit = FeeLogService.getListFamilyWithPhase(FeeService.getIdByName("Phí vệ sinh"), 1);
+        int sum_init = 0;
+        // TODO: Load Family into VBox family_container - fxml: SubmittedFam.fxml
+        for(FeeLog f : listInit) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/SubmittedFam.fxml"));
+                Parent p = loader.load();
+                SubmittedFamController controller = loader.getController();
+                controller.setInfor(f.getHoId(), f.getHotenChuHo(), f.getDiaChi(), f.getSoTien());
+                sum_init += f.getSoTien();
+                family_container.getChildren().add(p);
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        sum_money.setText(String.valueOf(sum_init));
+
+
         combobox_type.setOnAction(actionEvent -> {
             String feeName = combobox_type.getValue();
             loadPhase(feeName);
@@ -54,7 +73,6 @@ public class ManagerStatisticController implements Initializable {
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
                 }
-
             }
 
             // TODO: UPDATE sum_money

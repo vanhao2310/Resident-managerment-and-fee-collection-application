@@ -55,12 +55,11 @@ public class ManagerMenuController implements Initializable {
         manage_lbl.setStyle("-fx-font-weight: normal");
         statistic_lbl.setStyle("-fx-font-weight: normal");
 
-//      System.out.println("Set Button " + hBox);
+        // System.out.println("Set Button " + hBox);
         switch (hBox) {
             case "Dashboard" -> dashboard_lbl.setStyle("-fx-font-weight: bold");
             case "Managing" -> manage_lbl.setStyle("-fx-font-weight: bold");
             case "Statistic" -> statistic_lbl.setStyle("-fx-font-weight: bold");
         }
-
     }
 }
