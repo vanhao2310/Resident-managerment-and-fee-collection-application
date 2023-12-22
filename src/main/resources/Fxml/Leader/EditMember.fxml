@@ -16,7 +16,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../Styles/edit_member.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Leader.EditMemberController">
     <AnchorPane fx:id="back_btn" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="50.0">
-        <ImageView fitHeight="1000.0" fitWidth="40.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="back_bt" fitHeight="1000.0" fitWidth="40.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../Images/arrow_back.png" />
         </ImageView>
     </AnchorPane>

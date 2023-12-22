@@ -19,6 +19,7 @@ public class NhanKhau {
     private String noiCap;
     private Date ngayDangKiThuongTru;
     private String diaChiTruoc;
+    private String trangThai;
 
     public NhanKhau(String id ,String hoTen, String biDanh, Date ngaySinh,
                     String noiSinh, String nguyenQuan, String danToc, String ngheNghiep, String noiLamViec,
@@ -181,4 +182,11 @@ public class NhanKhau {
         this.gioiTinh = gioiTinh;
     }
 
+    public String getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
+    }
 }
