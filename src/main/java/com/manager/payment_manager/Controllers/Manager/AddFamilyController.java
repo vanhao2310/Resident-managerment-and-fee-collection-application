@@ -61,7 +61,6 @@ public class AddFamilyController implements Initializable {
                 // Kiểm tra trùng lặp
                 boolean isDuplicate = FeeLogService.checkDuplicate(hoId, khoanThuId);
                 boolean isIdHoExists = HoKhauService.checkIdHoExists(hoId);
-
                 if (isDuplicate) {
                     // Hiển thị cảnh báo nếu trùng lặp
                     showAlert(Alert.AlertType.WARNING, "Trùng lặp", "Hộ trên đã nộp khoản thu này rồi.");
@@ -90,8 +89,8 @@ public class AddFamilyController implements Initializable {
 
     private void loadFeeNameData() {
         combobox.getItems().clear();
-        List<String> allFeeName = FeeService.getAllFeeName();
-        for (String name : allFeeName)
+        List<String> allFeeNameOption = FeeService.getAllFeeNameOption();
+        for (String name : allFeeNameOption)
             combobox.getItems().add(name);
     }
 
