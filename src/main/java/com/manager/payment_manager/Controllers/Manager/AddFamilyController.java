@@ -1,6 +1,7 @@
 package com.manager.payment_manager.Controllers.Manager;
 
 import com.manager.payment_manager.Models.FeeLog;
+import com.manager.payment_manager.Models.Model;
 import com.manager.payment_manager.Services.FeeLogService;
 import com.manager.payment_manager.Services.FeeService;
 import com.manager.payment_manager.Services.HoKhauService;
@@ -31,7 +32,7 @@ public class AddFamilyController implements Initializable {
 
         combobox.setOnAction(actionEvent -> {
             String feeName = combobox.getValue();
-            System.out.println(feeName);
+            // System.out.println(feeName);
             loadPhaseData(feeName);
         });
 
@@ -75,9 +76,13 @@ public class AddFamilyController implements Initializable {
                     // Thực hiện thêm dữ liệu vào cơ sở dữ liệu
                     FeeLogService.addKhoanThuHo(feeLog);
 
+                    // TODO: Load data
+                    Model.getInstance().getViewFactory().updateManagerManaging(feeName, dotNop);
+
                     // Đóng cửa sổ
                     Stage stage = (Stage) add_done_btn.getScene().getWindow();
                     stage.close();
+
                 }
             }
         });

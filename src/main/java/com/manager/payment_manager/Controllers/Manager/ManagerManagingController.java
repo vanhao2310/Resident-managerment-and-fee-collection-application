@@ -38,14 +38,14 @@ public class ManagerManagingController implements Initializable {
         setComboboxData();
         add_family.setVisible(false);
         loadFamily("Phí vệ sinh", 1);
-        loadPhaseData("Phí vệ sinh");
+        loadPhaseData("Phí vệ sinh", 1);
 
         combobox.setOnAction(mouseEvent -> {
             family_vbox.getChildren().clear();
             feeType = combobox.getValue();
             System.out.println("fee: " + feeType);
             add_family.setVisible(FeeService.checkForce(feeType) != 1);
-            loadPhaseData(feeType);
+            loadPhaseData(feeType, 1);
             // loadFamily(feeType, 1);
         });
 
@@ -77,7 +77,7 @@ public class ManagerManagingController implements Initializable {
         combobox.setValue(content);
     }
 
-    private void loadFamily(String feeType, int phase_num) {
+    public void loadFamily(String feeType, int phase_num) {
         family_vbox.getChildren().clear();
 
         // TODO: DISPLAY KHOẢN BẮT BUỘC
@@ -129,11 +129,11 @@ public class ManagerManagingController implements Initializable {
         }
     }
 
-    private void loadPhaseData(String feeName) {
+    private void loadPhaseData(String feeName, int phase_default) {
         combobox_phase.getItems().clear();
         int maxPhase = FeeService.phaseMax(feeName);
         for (int i = 1; i <= maxPhase + 1; i++)
             combobox_phase.getItems().add(i);
-        combobox_phase.setValue(1);
+        combobox_phase.setValue(phase_default);
     }
 }

@@ -17,167 +17,122 @@
    <AnchorPane prefHeight="100.0" prefWidth="1150.0">
       <Label layoutX="50.0" layoutY="23.0" text="Quản lý thu phí, đóng góp">
          <font>
-            <Font name="System Bold" size="40.0"/>
+            <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <ImageView fitHeight="100.0" fitWidth="50.0" layoutX="1040.0" layoutY="26.0" pickOnBounds="true"
-                 preserveRatio="true">
-         <Image url="@../../Images/account_icon.png"/>
+      <ImageView fitHeight="100.0" fitWidth="50.0" layoutX="1040.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../../Images/account_icon.png" />
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="20.0" layoutX="1095.0" layoutY="45.0" pickOnBounds="true"
-                 preserveRatio="true">
-         <Image url="@../../Images/chevron_down.png"/>
+      <ImageView fitHeight="150.0" fitWidth="20.0" layoutX="1095.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../../Images/chevron_down.png" />
       </ImageView>
    </AnchorPane>
    <AnchorPane layoutY="100.0" prefHeight="700.0" prefWidth="1150.0" style="-fx-background-color: #efefef;">
       <HBox alignment="CENTER_LEFT" layoutX="0.7999992370605469">
          <Label text="Lựa chọn khoản thu: ">
             <font>
-               <Font size="25.0"/>
+               <Font size="25.0" />
             </font>
             <HBox.margin>
-               <Insets left="50.0" top="25.0"/>
+               <Insets left="50.0" top="25.0" />
             </HBox.margin>
          </Label>
-         <ComboBox fx:id="combobox" prefHeight="43.0" prefWidth="345.0" promptText="Phí vệ sinh" styleClass="combobox">
+         <ComboBox fx:id="combobox" prefHeight="43.0" prefWidth="350.0" promptText="Phí vệ sinh" styleClass="combobox">
             <HBox.margin>
-               <Insets top="25.0"/>
+               <Insets top="25.0" />
             </HBox.margin>
          </ComboBox>
          <Label text="Đợt thu: ">
             <font>
-               <Font size="25.0"/>
+               <Font size="25.0" />
             </font>
             <HBox.margin>
-               <Insets left="20.0" top="25.0"/>
+               <Insets left="20.0" top="25.0" />
             </HBox.margin>
          </Label>
          <ComboBox fx:id="combobox_phase" prefHeight="43.0" prefWidth="100.0" promptText="1" styleClass="combobox">
             <HBox.margin>
-               <Insets top="25.0"/>
+               <Insets top="25.0" />
             </HBox.margin>
          </ComboBox>
          <Button fx:id="add_family" mnemonicParsing="false" text="Thêm hộ đóng góp">
             <font>
-               <Font size="20.0"/>
+               <Font size="20.0" />
             </font>
             <HBox.margin>
-               <Insets left="20.0" top="25.0"/>
+               <Insets left="20.0" top="25.0" />
             </HBox.margin>
          </Button>
       </HBox>
-      <ScrollPane layoutX="50.0" layoutY="100.0" prefHeight="550.0" prefWidth="800.0" style="-fx-border-color: white;">
+      <ScrollPane layoutX="50.0" layoutY="100.0" prefHeight="550.0" prefWidth="1030.0" style="-fx-border-color: white;">
          <VBox>
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" style="-fx-background-color: #2d2b42;">
                <Label prefWidth="50.0" text="ID" textFill="WHITE">
                   <font>
-                     <Font name="System Bold" size="20.0"/>
+                     <Font name="System Bold" size="20.0" />
                   </font>
                   <HBox.margin>
-                     <Insets left="20.0"/>
+                     <Insets left="20.0" />
                   </HBox.margin>
                   <padding>
-                     <Insets right="20.0"/>
+                     <Insets right="20.0" />
                   </padding>
                </Label>
-               <Line startY="30.0" stroke="WHITE" strokeWidth="2.0"/>
+               <Line startY="30.0" stroke="WHITE" strokeWidth="2.0" />
                <Label prefWidth="230.0" text="Họ tên chủ hộ" textFill="WHITE">
                   <font>
-                     <Font name="System Bold" size="20.0"/>
+                     <Font name="System Bold" size="20.0" />
                   </font>
                   <HBox.margin>
-                     <Insets left="20.0" right="20.0"/>
+                     <Insets left="20.0" right="20.0" />
                   </HBox.margin>
                   <padding>
-                     <Insets left="45.0"/>
+                     <Insets left="45.0" />
                   </padding>
                </Label>
-               <Line startY="30.0" stroke="WHITE" strokeWidth="2.0"/>
+               <Line startY="30.0" stroke="WHITE" strokeWidth="2.0" />
                <Label prefWidth="300.0" text="Địa chỉ" textAlignment="CENTER" textFill="WHITE">
                   <font>
-                     <Font name="System Bold" size="20.0"/>
+                     <Font name="System Bold" size="20.0" />
                   </font>
                   <HBox.margin>
-                     <Insets left="20.0" right="20.0"/>
+                     <Insets left="20.0" right="20.0" />
                   </HBox.margin>
                   <padding>
-                     <Insets left="120.0"/>
+                     <Insets left="120.0" />
                   </padding>
                </Label>
-               <Line startY="30.0" stroke="WHITE" strokeWidth="2.0"/>
+               <Line startY="30.0" stroke="WHITE" strokeWidth="2.0" />
                <Label prefWidth="200.0" text="Trạng thái" textFill="WHITE">
                   <font>
-                     <Font name="System Bold" size="20.0"/>
+                     <Font name="System Bold" size="20.0" />
                   </font>
                   <padding>
-                     <Insets left="50.0"/>
+                     <Insets left="50.0" />
                   </padding>
                </Label>
-               <Line startY="30.0" stroke="WHITE" strokeWidth="2.0"/>
+               <Line startY="30.0" stroke="WHITE" strokeWidth="2.0" />
                <Label prefWidth="80.0" text="Chi tiết" textFill="WHITE">
                   <font>
-                     <Font name="System Bold" size="20.0"/>
+                     <Font name="System Bold" size="20.0" />
                   </font>
                   <HBox.margin>
-                     <Insets left="20.0" right="20.0"/>
+                     <Insets left="20.0" right="20.0" />
                   </HBox.margin>
                   <padding>
-                     <Insets left="10.0"/>
+                     <Insets left="10.0" />
                   </padding>
                </Label>
                <VBox.margin>
-                  <Insets/>
+                  <Insets />
                </VBox.margin>
             </HBox>
             <VBox fx:id="family_vbox">
                <VBox.margin>
-                  <Insets/>
+                  <Insets />
                </VBox.margin>
             </VBox>
          </VBox>
       </ScrollPane>
-      <VBox layoutX="880.0" layoutY="100.0">
-         <Label text="Chi tiết đóng góp">
-            <font>
-               <Font name="System Bold" size="25.0"/>
-            </font>
-         </Label>
-         <HBox>
-            <Label text="Số hộ khẩu: ">
-               <font>
-                  <Font name="System Bold" size="25.0"/>
-               </font>
-            </Label>
-            <Label text="1">
-               <font>
-                  <Font name="System Bold" size="25.0"/>
-               </font>
-            </Label>
-         </HBox>
-         <HBox>
-            <Label text="Trạng thái: ">
-               <font>
-                  <Font name="System Bold" size="25.0"/>
-               </font>
-            </Label>
-            <Label text="Đã đóng">
-               <font>
-                  <Font name="System Bold" size="25.0"/>
-               </font>
-            </Label>
-         </HBox>
-         <HBox>
-            <Label text="Số tiền: ">
-               <font>
-                  <Font name="System Bold" size="25.0"/>
-               </font>
-            </Label>
-            <Label text="1000000">
-               <font>
-                  <Font name="System Bold" size="25.0"/>
-               </font>
-            </Label>
-         </HBox>
-      </VBox>
    </AnchorPane>
 </AnchorPane>

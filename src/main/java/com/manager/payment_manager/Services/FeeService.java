@@ -98,4 +98,43 @@ public class FeeService {
         return feeId;
     }
 
+    public static String getNameById(int id_khoan_thu) {
+        String feeName = "";
+        try (Connection conn = Utils.getConnection()) {
+            PreparedStatement pst = conn.prepareStatement("select ten from Khoan_thu where id_khoan_thu = ?");
+            pst.setString(1, String.valueOf(id_khoan_thu));
+            ResultSet rs = pst.executeQuery();
+            while (rs.next())
+                feeName = rs.getString(1);
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return feeName;
+    }
+
+    public static int money(String feeName, int id_ho) {
+        int don_gia = 0;
+        int so_thanh_vien = 0;
+        try (Connection conn = Utils.getConnection()) {
+            PreparedStatement pst = conn.prepareStatement("select don_gia from Khoan_thu where ten LIKE N?");
+            pst.setString(1, feeName);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next())
+                don_gia = rs.getInt(1);
+
+            pst = conn.prepareStatement("select so_thanh_vien from HoKhau where ID_HO = ?");
+            pst.setInt(1, id_ho);
+            rs = pst.executeQuery();
+            while (rs.next())
+                so_thanh_vien = rs.getInt(1);
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return don_gia * so_thanh_vien;
+    }
 }

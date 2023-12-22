@@ -2,9 +2,12 @@ package com.manager.payment_manager.Controllers.Manager;
 
 import com.manager.payment_manager.Models.Family;
 import com.manager.payment_manager.Models.FeeLog;
+import com.manager.payment_manager.Models.Model;
 import com.manager.payment_manager.Services.FamilyService;
 import com.manager.payment_manager.Services.FeeLogService;
+import com.manager.payment_manager.Services.FeeService;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 
@@ -16,15 +19,22 @@ public class FeeListController implements Initializable {
     public Label name;
     public Label address;
     public Label status;
-    public Hyperlink details;
+    public Hyperlink submit_hl;
+
+    private Family family;
+    private int id_khoan_thu;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        submit_hl.setOnMouseClicked(mouseEvent -> {
+            Model.getInstance().getViewFactory().showFamilyFeeInfo(family, FeeService.getNameById(id_khoan_thu));
+        });
     }
 
     // BẮT BUỘC
     public void updateInfoForce(Family family, int id_khoan_thu, int dot_nop) {
+        this.family = family;
+        this.id_khoan_thu = id_khoan_thu;
         id.setText(String.valueOf(family.getFamilyId()));
         name.setText(family.getFamilyHead());
         address.setText(family.getFamilyAddress());
@@ -40,5 +50,6 @@ public class FeeListController implements Initializable {
         name.setText(family.getFamilyHead());
         address.setText(family.getFamilyAddress());
         status.setText("Đã đóng góp");
+        submit_hl.setDisable(true);
     }
 }
