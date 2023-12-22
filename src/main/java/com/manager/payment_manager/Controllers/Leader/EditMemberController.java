@@ -7,6 +7,7 @@ import com.manager.payment_manager.Services.ChangeInfoService;
 import com.manager.payment_manager.Services.NhanKhauService;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -39,6 +40,7 @@ public class EditMemberController implements Initializable {
     public Label warning_label;
     public Button edit_done_btn;
     public Button edit_cancel_btn;
+    public ImageView back_bt;
     private NhanKhau nhanKhau;
     private boolean isChange;
 
@@ -49,6 +51,7 @@ public class EditMemberController implements Initializable {
         isChange = false;
         warning_label.setVisible(false);
         back_btn.setOnMouseClicked(mouseEvent -> this.getBackToFamilyInfo());
+        back_bt.setOnMouseClicked(mouseEvent -> this.getBackToFamilyInfo());
         edit_cancel_btn.setOnMouseClicked(mouseEvent -> this.getBackToFamilyInfo());
         edit_done_btn.setDisable(true);
 
@@ -91,6 +94,7 @@ public class EditMemberController implements Initializable {
                 this.nhanKhau.setNgheNghiep(job_field.getText());
                 this.nhanKhau.setNoiLamViec(work_place_field.getText());
                 this.nhanKhau.setCCCD(id_field.getText());
+                this.nhanKhau.setTrangThai(status_combo_box.getValue());
                 if((create_date_picker.getValue()) != null){
                     this.nhanKhau.setNgayCap(java.sql.Date.valueOf(create_date_picker.getValue()));
                 }
@@ -167,18 +171,23 @@ public class EditMemberController implements Initializable {
         id_field.setText(nhanKhau.getCCCD());
         create_place_field.setText(nhanKhau.getNoiCap());
         prev_address_field.setText(nhanKhau.getDiaChiTruoc());
+        status_combo_box.setValue(nhanKhau.getTrangThai());
 
 
         LocalDate localDate = LocalDate.of(nhanKhau.getNgaySinh().getYear() + 1900, nhanKhau.getNgaySinh().getMonth() + 1, nhanKhau.getNgaySinh().getDate());
         birth_date_picker.setValue(localDate);
-        localDate = LocalDate.of(nhanKhau.getNgayCap().getYear() + 1900, nhanKhau.getNgayCap().getMonth() + 1, nhanKhau.getNgayCap().getDate());
-        create_date_picker.setValue(localDate);
-        Date ngayDangKyThuongTru = nhanKhau.getNgayDangKiThuongTru();
-        if (ngayDangKyThuongTru != null)
-            localDate = LocalDate.of(ngayDangKyThuongTru.getYear() + 1900, ngayDangKyThuongTru.getMonth() + 1, ngayDangKyThuongTru.getDate());
-        sign_up_date_picker.setValue(localDate);
-    }
+        if (nhanKhau.getNgayCap() != null) {
+            localDate = LocalDate.of(nhanKhau.getNgayCap().getYear() + 1900, nhanKhau.getNgayCap().getMonth() + 1, nhanKhau.getNgayCap().getDate());
+            create_date_picker.setValue(localDate);
+        }
 
+
+        if (nhanKhau.getNgayDangKiThuongTru() != null) {
+            Date ngayDangKyThuongTru = nhanKhau.getNgayDangKiThuongTru();
+            localDate = LocalDate.of(ngayDangKyThuongTru.getYear() + 1900, ngayDangKyThuongTru.getMonth() + 1, ngayDangKyThuongTru.getDate());
+            sign_up_date_picker.setValue(localDate);
+        }
+    }
     private void updateDataLog(int id_nguoi) {
         int loai = 0;
         String ten_loai = "";

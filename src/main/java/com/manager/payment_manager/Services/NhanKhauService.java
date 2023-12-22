@@ -25,6 +25,7 @@ public class NhanKhauService {
                         rs.getString("nghe_nghiep"), rs.getString("noi_lam_viec"), rs.getString("CCCD"),
                         rs.getDate("ngay_cap_CCCD"), rs.getString("noi_cap_CCCD"), rs.getDate("date_thuong_tru"),
                         rs.getString("dia_chi_cu"));
+                nk.setTrangThai(rs.getString("trang_thai"));
                 dsNhanKhau.add(nk);
             }
             rs.close();
@@ -37,8 +38,8 @@ public class NhanKhauService {
     }
     public static void addNhanKhau(NhanKhau nhankhau){
         try(Connection conn = Utils.getConnection()){
-            String sql = "insert into NHANKHAU (ID_HO, ho_ten, ngay_sinh, gioi_tinh, dan_toc, nghe_nghiep, nguyen_quan, noi_sinh, noi_lam_viec, CCCD, ngay_cap_CCCD, noi_cap_CCCD, dia_chi_cu, bi_danh) " +
-                    "value (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "insert into NHANKHAU (ID_HO, ho_ten, ngay_sinh, gioi_tinh, dan_toc, nghe_nghiep, nguyen_quan, noi_sinh, noi_lam_viec, CCCD, ngay_cap_CCCD, noi_cap_CCCD, dia_chi_cu, bi_danh, trang_thai) " +
+                    "value (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setInt(1, nhankhau.getIdHo());
             pst.setString(2, nhankhau.getHoTen());
@@ -54,6 +55,7 @@ public class NhanKhauService {
             pst.setString(12, nhankhau.getNoiCap());
             pst.setString(13, nhankhau.getDiaChiTruoc());
             pst.setString(14, nhankhau.getBiDanh());
+            pst.setString(15, "Thường trú");
             pst.executeUpdate();
 
             pst.close();
@@ -80,7 +82,8 @@ public class NhanKhauService {
                     "ngay_cap_CCCD = ?," +
                     "noi_cap_CCCD = ?," +
                     "dia_chi_cu = ?," +
-                    "bi_danh = ?" +
+                    "bi_danh = ?, " +
+                    "trang_thai = ? " +
                     "where ID_NGUOI = ?;";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, nhanKhau.getHoTen());
@@ -96,7 +99,8 @@ public class NhanKhauService {
             pst.setString(11, nhanKhau.getNoiCap());
             pst.setString(12, nhanKhau.getDiaChiTruoc());
             pst.setString(13, nhanKhau.getBiDanh());
-            pst.setString(14, nhanKhau.getId());
+            pst.setString(14, nhanKhau.getTrangThai());
+            pst.setString(15, nhanKhau.getId());
 
             pst.executeUpdate();
             pst.close();
@@ -119,6 +123,7 @@ public class NhanKhauService {
                         rs.getString("nghe_nghiep"), rs.getString("noi_lam_viec"), rs.getString("CCCD"),
                         rs.getDate("ngay_cap_CCCD"), rs.getString("noi_cap_CCCD"), rs.getDate("date_thuong_tru"),
                         rs.getString("dia_chi_cu"), rs.getInt("ID_HO"));
+                result.setTrangThai(rs.getString("trang_thai"));
             }
             rs.close();
             pst.close();
@@ -130,7 +135,7 @@ public class NhanKhauService {
     }
     public static void deleteNhanKhau(String idNguoi) {
         try (Connection conn = Utils.getConnection()) {
-            String sql = "DELETE FROM nhankhau WHERE ID_Nguoi = ?";
+            String sql = "UPDATE nhankhau set id_ho = 0 WHERE ID_Nguoi = ?";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, idNguoi);
             pst.executeUpdate();

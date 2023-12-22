@@ -45,6 +45,7 @@ create table NHANKHAU
     dia_chi_cu nvarchar(100),
     primary key (ID_NGUOI),
     ID_HO int,
+    trang_thai nvarchar(30),
     foreign key (ID_HO) references HOKHAU(ID_HO)
 );
 
@@ -95,31 +96,59 @@ insert into user_account values
 
 
 create table data_log(
-	id int auto_increment primary key,
-    loai int not null,
-    ten_loai nvarchar(50) not null,
-    ID_NGUOI int,
-    ghi_chu nvarchar(200),
-	noi_den nvarchar(100),
-    ngay_thay_doi date,
-    ngay_ket_thuc date,
-    foreign key (ID_NGUOI) references NHANKHAU(ID_NGUOI)
+		id int auto_increment primary key,
+        loai int not null,
+        ten_loai nvarchar(50) not null, 
+        ID_NGUOI int,
+        ghi_chu nvarchar(200),
+		noi_den nvarchar(100),
+        ngay_thay_doi date,
+        ngay_ket_thuc date,
+        foreign key (ID_NGUOI) references NHANKHAU(ID_NGUOI)
 );
 
 insert into data_log values
-			 (1, 1, 'Đăng ký thường trú', 11,  'Mới sinh', 'Số nhà 520 - Ngách A /120 - Đường H', '2016-3-1', NULL),
-			 (2, 2, 'Đăng ký tạm trú', 22, NULL, 'Số nhà 58 - Ngách G/220 - Đường F', '2022-1-1', '2024-1-1'),
-             (3, 3, 'Đăng ký tạm vắng', 8, NULL, 'Thanh Hoá', '2023-6-5', NULL),
-             (4, 4, 'Xoá nhân khẩu', 13, 'Đã mất', NULL, '2023-9-5', NULL),
-             (5, 5, 'Thay đổi hộ', 17, 'Tách hộ', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
-             (6, 5, 'Thay đổi hộ', 18, 'Tách hộ', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
-             (7, 5, 'Thay đổi hộ', 8, 'Đổi chủ hộ', NULL, '2023-1-1', NULL),
-             (8, 1, 'Đăng ký thường trú', 17, 'Hộ mới', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
-			 (9, 1, 'Đăng ký thường trú', 18, 'Hộ mới', 'Số nhà 145 - Đường B', '2010-10-10', NULL);
-                         
+						 (1, 1, 'Đăng ký thường trú', 11,  'Mới sinh', 'Số nhà 520 - Ngách A /120 - Đường H', '2016-3-1', NULL),
+						 (2, 2, 'Đăng ký tạm trú', 22, NULL, 'Số nhà 58 - Ngách G/220 - Đường F', '2022-1-1', '2024-1-1'),
+                         (3, 3, 'Đăng ký tạm vắng', 8, NULL, 'Thanh Hoá', '2023-6-5', NULL),
+                         (4, 4, 'Xoá nhân khẩu', 13, 'Đã mất', NULL, '2023-9-5', NULL),
+                         (5, 5, 'Thay đổi hộ', 17, 'Tách hộ', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
+                         (6, 5, 'Thay đổi hộ', 18, 'Tách hộ', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
+                         (7, 5, 'Thay đổi hộ', 8, 'Đổi chủ hộ', NULL, '2023-1-1', NULL),
+                         (8, 1, 'Đăng ký thường trú', 17, 'Hộ mới', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
+						 (9, 1, 'Đăng ký thường trú', 18, 'Hộ mới', 'Số nhà 145 - Đường B', '2010-10-10', NULL),
+                         (10, 2, 'Đăng ký tạm vắng', 22, 'Đi tù', 'Số nhà 58 - Ngách G/220 - Đường F', '2023-1-1', '2026-1-1');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Tạm vắng' WHERE (`ID_NGUOI` = '22');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Tạm vắng' WHERE (`ID_NGUOI` = '8');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '1');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '2');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '3');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '4');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '5');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '6');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '7');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '9');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '10');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '11');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '12');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '13');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '14');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '15');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '16');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '17');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '18');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '19');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '20');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '21');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '23');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '24');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '25');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '26');
+UPDATE `qlydancu`.`nhankhau` SET `trang_thai` = 'Thường trú' WHERE (`ID_NGUOI` = '27');
+
 
 create table Khoan_thu(
-		      id_khoan_thu int auto_increment primary key,
+					  id_khoan_thu int auto_increment primary key,
                       loai int not null,
                       ten nvarchar(50) not null,
                       don_gia int,
@@ -128,7 +157,7 @@ create table Khoan_thu(
 );
 
 insert into Khoan_thu values
-			(1, 1, 'Phí vệ sinh', 6000, NULL, NULL),
+						(1, 1, 'Phí vệ sinh', 6000, NULL, NULL),
                         (2, 1, 'Phí an ninh', 10000, NULL, NULL),
                         (3, 1, 'Phí xã hội', 5000, NULL, NULL),
                         (4, 0, 'Ủng hộ ngày tết thiếu nhi', NULL, '2023-05-01', '2023-05-25'),
@@ -137,18 +166,18 @@ insert into Khoan_thu values
                         (7, 0, 'Ủng hộ ngày thương binh-liệt sỹ 27/07', NULL, '2023-06-15', '2023-07-20');
 
 create table Khoan_thu_log(
-			ID_HO int,
-            id_khoan_thu int,
-            so_tien int,
-            dot_nop int,
-            ngay_nop date,
-            primary key (ID_HO, id_khoan_thu),
-            foreign key (ID_HO) references HOKHAU(ID_HO),
-            foreign key (id_khoan_thu) references Khoan_thu(id_khoan_thu)
+						ID_HO int,
+                        id_khoan_thu int, 
+                        so_tien int,
+                        dot_nop int,
+                        ngay_nop date,
+                        primary key (ID_HO, id_khoan_thu),
+                        foreign key (ID_HO) references HOKHAU(ID_HO),
+                        foreign key (id_khoan_thu) references Khoan_thu(id_khoan_thu)
 );
 
 insert into Khoan_thu_log values
-			(1, 1, 288000, 1, '2023-01-15'),
+						(1, 1, 288000, 1, '2023-01-15'),
                         (2, 1, 360000, 3, '2023-03-12'),
                         (4, 1, 288000, 1, '2023-01-19'),
                         (5, 1, 288000, 1, '2023-01-29'),
@@ -166,7 +195,7 @@ insert into Khoan_thu_log values
                         (1, 5, 40000, 11, '2023-11-11'),
                         (7, 7, 50000, 7, '2023-07-09'),
                         (2, 6, 100000, 8, '2023-08-08'),
-			(2, 4, 50000, 5, '2023-05-15'),	
+						(2, 4, 50000, 5, '2023-05-15'),	
                         (4, 4, 500000, 5, '2023-05-25'),
                         (4, 6, 200000, 7, '2023-07-29'),
                         (5, 7, 20000, 6, '2023-06-19'),
@@ -174,4 +203,4 @@ insert into Khoan_thu_log values
                         (3, 5, 30000, 10, '2023-10-21'),
                         (3, 6, 100000, 8, '2023-08-16'),
                         (6, 6, 200000, 8, '2023-08-01');
-                       
+                    
