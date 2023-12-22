@@ -176,14 +176,18 @@ public class EditMemberController implements Initializable {
 
         LocalDate localDate = LocalDate.of(nhanKhau.getNgaySinh().getYear() + 1900, nhanKhau.getNgaySinh().getMonth() + 1, nhanKhau.getNgaySinh().getDate());
         birth_date_picker.setValue(localDate);
-        localDate = LocalDate.of(nhanKhau.getNgayCap().getYear() + 1900, nhanKhau.getNgayCap().getMonth() + 1, nhanKhau.getNgayCap().getDate());
-        create_date_picker.setValue(localDate);
-        Date ngayDangKyThuongTru = nhanKhau.getNgayDangKiThuongTru();
-        if (ngayDangKyThuongTru != null)
-            localDate = LocalDate.of(ngayDangKyThuongTru.getYear() + 1900, ngayDangKyThuongTru.getMonth() + 1, ngayDangKyThuongTru.getDate());
-        sign_up_date_picker.setValue(localDate);
-    }
+        if (nhanKhau.getNgayCap() != null) {
+            localDate = LocalDate.of(nhanKhau.getNgayCap().getYear() + 1900, nhanKhau.getNgayCap().getMonth() + 1, nhanKhau.getNgayCap().getDate());
+            create_date_picker.setValue(localDate);
+        }
 
+
+        if (nhanKhau.getNgayDangKiThuongTru() != null) {
+            Date ngayDangKyThuongTru = nhanKhau.getNgayDangKiThuongTru();
+            localDate = LocalDate.of(ngayDangKyThuongTru.getYear() + 1900, ngayDangKyThuongTru.getMonth() + 1, ngayDangKyThuongTru.getDate());
+            sign_up_date_picker.setValue(localDate);
+        }
+    }
     private void updateDataLog(int id_nguoi) {
         int loai = 0;
         String ten_loai = "";
