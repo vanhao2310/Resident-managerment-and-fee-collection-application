@@ -118,7 +118,7 @@ public class NhanKhauService {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 result = new NhanKhau(rs.getInt("ID_Nguoi"), rs.getString("ho_ten"),
-                        rs.getString("bi_danh"), rs.getDate("ngay_sinh"), rs.getString("gioi_tinh"), rs.getString("noi_sinh"),
+                        rs.getString("bi_danh"), rs.getDate("ngay_sinh"), rs.getString("gioi_tinh"), rs.getString("vai_tro"), rs.getString("noi_sinh"),
                         rs.getString("nguyen_quan"), rs.getString("dan_toc"),
                         rs.getString("nghe_nghiep"), rs.getString("noi_lam_viec"), rs.getString("CCCD"),
                         rs.getDate("ngay_cap_CCCD"), rs.getString("noi_cap_CCCD"), rs.getDate("date_thuong_tru"),
