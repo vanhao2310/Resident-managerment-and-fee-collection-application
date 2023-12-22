@@ -135,7 +135,7 @@ public class NhanKhauService {
     }
     public static void deleteNhanKhau(String idNguoi) {
         try (Connection conn = Utils.getConnection()) {
-            String sql = "UPDATE nhankhau set id_ho = 0 WHERE ID_Nguoi = ?";
+            String sql = "Delete from nhankhau WHERE ID_Nguoi = ?";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, idNguoi);
             pst.executeUpdate();
