@@ -39,6 +39,6 @@ public class FeeListController implements Initializable {
         Family family = FamilyService.getFamilyWithID(String.valueOf(feeLog.getHoId()));
         name.setText(family.getFamilyHead());
         address.setText(family.getFamilyAddress());
-        status.setText("Đã nộp");
+        status.setText("Đã đóng góp");
     }
 }
