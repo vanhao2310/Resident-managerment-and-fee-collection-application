@@ -38,26 +38,31 @@ public class ManagerManagingController implements Initializable {
         setComboboxData();
         add_family.setVisible(false);
         loadFamily("Phí vệ sinh", 1);
+        loadPhaseData("Phí vệ sinh");
 
         combobox.setOnAction(mouseEvent -> {
+            family_vbox.getChildren().clear();
             feeType = combobox.getValue();
-            // System.out.println("fee:" + feeType);
-            if (Objects.equals(feeType, "Phí vệ sinh")) {
-                add_family.setVisible(false);
-                System.out.println("no add");
-            }
-            else {
-                add_family.setVisible(true);
-            }
+            System.out.println("fee: " + feeType);
+            add_family.setVisible(FeeService.checkForce(feeType) != 1);
             loadPhaseData(feeType);
+            // loadFamily(feeType, 1);
         });
 
         combobox_phase.setOnAction(actionEvent -> {
-            feeType = combobox.getValue();
-            loadFamily(feeType, combobox_phase.getValue());
+            String feeType;
+            if (combobox.getValue() == null)
+                feeType = "Phí vệ sinh";
+            else
+                feeType = combobox.getValue();
+
+            if (combobox_phase.getValue() == null)
+                loadFamily(feeType, 1);
+            else
+                loadFamily(feeType, combobox_phase.getValue());
         });
 
-        System.out.println("feeType: " + feeType);
+        // System.out.println("feeType: " + feeType);
         add_family.setOnMouseClicked(mouseEvent -> setAdd_family(feeType));
     }
 
@@ -129,5 +134,6 @@ public class ManagerManagingController implements Initializable {
         int maxPhase = FeeService.phaseMax(feeName);
         for (int i = 1; i <= maxPhase + 1; i++)
             combobox_phase.getItems().add(i);
+        combobox_phase.setValue(1);
     }
 }
