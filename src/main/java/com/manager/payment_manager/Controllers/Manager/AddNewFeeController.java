@@ -62,6 +62,7 @@ public class AddNewFeeController implements Initializable {
                 if (fee_type.getValue().equals("Không bắt buộc")) {
                     Model.getInstance().getViewFactory().addNewFee(fee_name_field.getText());
                     Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Dashboard");}
+
                 // Close Window
                 Stage stage = (Stage) add_done_btn.getScene().getWindow();
                 stage.close();

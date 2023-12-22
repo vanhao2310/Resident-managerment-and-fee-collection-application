@@ -69,7 +69,7 @@
                 <HBox alignment="CENTER_LEFT" minWidth="1040.0" styleClass="header-row">
                     <Label prefWidth="150.0" text="Số hộ khẩu" textFill="WHITE">
                         <font>
-                            <Font size="25.0" />
+                            <Font size="22.0" />
                         </font>
                         <padding>
                             <Insets left="15.0" />
@@ -78,7 +78,7 @@
                     <Line endY="40.0" stroke="WHITE" strokeWidth="2.0" />
                     <Label prefWidth="230.0" text="Họ tên chủ hộ" textFill="WHITE">
                         <font>
-                            <Font size="25.0" />
+                            <Font size="22.0" />
                         </font>
                         <padding>
                             <Insets left="30.0" />
@@ -87,7 +87,7 @@
                     <Line endY="40.0" stroke="WHITE" strokeWidth="2.0" />
                     <Label prefWidth="400.0" text="Địa chỉ" textFill="WHITE">
                         <font>
-                            <Font size="25.0" />
+                            <Font size="22.0" />
                         </font>
                         <padding>
                             <Insets left="160.0" />
@@ -96,7 +96,7 @@
                     <Line endY="40.0" stroke="WHITE" strokeWidth="2.0" />
                     <Label prefHeight="36.0" prefWidth="235.0" text="Số tiền đã nộp" textFill="WHITE">
                         <font>
-                            <Font size="25.0" />
+                            <Font size="22.0" />
                         </font>
                         <padding>
                             <Insets left="30.0" />

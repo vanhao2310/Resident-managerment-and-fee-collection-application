@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.text.Font?>
+
+<Hyperlink fx:id="link" text="Hyperlink" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.payment_manager.Controllers.Manager.LinkFeeController">
+   <font>
+      <Font size="20.0" />
+   </font>
+</Hyperlink>

@@ -113,7 +113,7 @@ public class FeeLogService {
         try(Connection conn = Utils.getConnection()){
             String sql = "select ktl.id_ho, ktl.id_khoan_thu, ktl.so_tien, ktl.dot_nop, hk.chu_ho, hk.dia_chi " +
                     "from khoan_thu_log as ktl, HOKHAU as hk " +
-                    "where ktl.id_khoan_thu = ? and ktl.dot_nop = ?";
+                    "where ktl.id_khoan_thu = ? and ktl.dot_nop = ? AND ktl.ID_HO = hk.ID_HO";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setInt(1, feeId);
             pst.setInt(2, phase);

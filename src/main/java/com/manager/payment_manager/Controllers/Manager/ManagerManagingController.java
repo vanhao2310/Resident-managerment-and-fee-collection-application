@@ -37,8 +37,6 @@ public class ManagerManagingController implements Initializable {
         // load type
         setComboboxData();
         add_family.setVisible(false);
-        loadFamily("Phí vệ sinh", 1);
-        loadPhaseData("Phí vệ sinh", 1);
 
         combobox.setOnAction(mouseEvent -> {
             family_vbox.getChildren().clear();
@@ -75,6 +73,11 @@ public class ManagerManagingController implements Initializable {
 
     public void setComboItem(String content) {
         combobox.setValue(content);
+        // System.out.println("content: " + content);
+        // this.feeInit = content;
+
+        loadFamily(content, 1);
+        loadPhaseData(content, 1);
     }
 
     public void loadFamily(String feeType, int phase_num) {
