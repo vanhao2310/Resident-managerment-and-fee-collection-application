@@ -49,7 +49,7 @@ public class AddNewFeeController implements Initializable {
                 if (feeTypeValue == 1) {
                     fee = new Fee(feeTypeValue, fee_name_field.getText(), moneyValue, null, null);
                 } else {
-                    int defaultValue = -1;
+                    int defaultValue = 0;
                     LocalDate beginDateValue = begin_date.getValue();
                     LocalDate endDateValue = end_date.getValue();
                     Date beginDate = Date.valueOf(beginDateValue);
