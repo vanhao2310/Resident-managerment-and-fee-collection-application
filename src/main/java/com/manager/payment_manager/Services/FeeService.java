@@ -137,4 +137,20 @@ public class FeeService {
 
         return don_gia * so_thanh_vien;
     }
+
+    public static List<String> getAllFeeNameOption() {
+        List<String> result = new ArrayList<>();
+        try (Connection conn = Utils.getConnection()) {
+            PreparedStatement pst = conn.prepareStatement("SELECT ten FROM Khoan_thu WHERE loai = 0");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                result.add(rs.getString("ten"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Can not query feeName");
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
 }
