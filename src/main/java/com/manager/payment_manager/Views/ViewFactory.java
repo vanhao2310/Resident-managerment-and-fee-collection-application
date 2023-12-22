@@ -2,6 +2,7 @@ package com.manager.payment_manager.Views;
 
 import com.manager.payment_manager.Controllers.Leader.*;
 import com.manager.payment_manager.Controllers.Manager.*;
+import com.manager.payment_manager.Models.Family;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -39,6 +40,9 @@ public class ViewFactory {
     private FamilyInfoController familyInfoController;
     private LeaderStatisticController leaderStatisticController;
     private ManagerDashboardController managerDashboardController;
+
+    private Scene familyFeeInfoScene;
+    private FamilyFeeInfoController familyFeeInfoController;
 
     public ViewFactory() {
         this.managerSelectedMenuItem = new SimpleStringProperty("");
@@ -248,6 +252,14 @@ public class ViewFactory {
         managerManagingController.setComboboxData();
         return managerManagingView;
     }
+
+    public void updateManagerManaging(String feeType, int phase) {
+        managerManagingController.setComboboxData();
+        managerManagingController.setComboItem(feeType);
+        managerManagingController.loadFamily(feeType, phase);
+
+    }
+
     public AnchorPane getManagerStatisticView() {
         if (managerStatisticView == null) {
             try {
@@ -301,6 +313,21 @@ public class ViewFactory {
         } else {
             managerDashboardController.addFee(newFee);
         }
+    }
+
+    public void showFamilyFeeInfo(Family family, String feeName) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/FamilyFeeInfo.fxml"));
+        try {
+            familyFeeInfoScene = new Scene(loader.load());
+            familyFeeInfoController = loader.getController();
+            familyFeeInfoController.updateInfo(family, feeName);
+        } catch (Exception e) {
+            System.out.println("Error loading familyFeeInfo");
+            System.out.println(e.getMessage());
+        }
+        Stage stage = new Stage();
+        stage.setScene(familyFeeInfoScene);
+        stage.show();
     }
 
     // TODO: IGNORE THESE

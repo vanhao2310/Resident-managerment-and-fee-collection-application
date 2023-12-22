@@ -47,12 +47,12 @@
       </padding>
    </Label>
    <Line startY="30.0" strokeWidth="2.0" />
-   <Hyperlink fx:id="details" prefWidth="80.0" text="Chi tiết">
-      <font>
-         <Font size="15.0" />
-      </font>
+   <Hyperlink fx:id="submit_hl" text="Nộp tiền">
       <HBox.margin>
          <Insets left="20.0" right="20.0" />
       </HBox.margin>
+      <font>
+         <Font size="15.0" />
+      </font>
    </Hyperlink>
 </HBox>
