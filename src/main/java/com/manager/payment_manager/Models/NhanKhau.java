@@ -9,6 +9,7 @@ public class NhanKhau {
     private String biDanh;
     private Date ngaySinh;
     private String gioiTinh;
+    private String vaiTro;
     private String noiSinh;
     private String nguyenQuan;
     private String danToc;
@@ -38,6 +39,28 @@ public class NhanKhau {
         this.noiCap = noiCap;
         this.ngayDangKiThuongTru = ngayDangKiThuongTru;
         this.diaChiTruoc = diaChiTruoc;
+    }
+
+    public NhanKhau(int id ,String hoTen, String biDanh, Date ngaySinh, String gioiTinh, String vaiTro,
+                    String noiSinh, String nguyenQuan, String danToc, String ngheNghiep, String noiLamViec,
+                    String CCCD, Date ngayCap, String noiCap, Date ngayDangKiThuongTru, String diaChiTruoc, int idHo) {
+        this.id = String.valueOf(id);
+        this.hoTen = hoTen;
+        this.biDanh = biDanh;
+        this.ngaySinh = ngaySinh;
+        this.gioiTinh = gioiTinh;
+        this.vaiTro = vaiTro;
+        this.noiSinh = noiSinh;
+        this.nguyenQuan = nguyenQuan;
+        this.danToc = danToc;
+        this.ngheNghiep = ngheNghiep;
+        this.noiLamViec = noiLamViec;
+        this.CCCD = CCCD;
+        this.ngayCap = ngayCap;
+        this.noiCap = noiCap;
+        this.ngayDangKiThuongTru = ngayDangKiThuongTru;
+        this.diaChiTruoc = diaChiTruoc;
+        this.idHo = idHo;
     }
 
     public NhanKhau(int idHo, String hoTen, String biDanh, Date ngaySinh, String gioiTinh, String noiSinh,
@@ -80,6 +103,8 @@ public class NhanKhau {
         this.diaChiTruoc = diaChiTruoc;
         this.idHo = ID_HO;
     }
+
+
 
     @Override
     public String toString (){
@@ -181,12 +206,17 @@ public class NhanKhau {
     public void setGioiTinh(String gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
-
     public String getTrangThai() {
         return trangThai;
     }
-
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
     }
+    public String getVaiTro() {
+        return vaiTro;
+    }
+    public void setVaiTro(String vaiTro) {
+        this.vaiTro = vaiTro;
+    }
+
 }

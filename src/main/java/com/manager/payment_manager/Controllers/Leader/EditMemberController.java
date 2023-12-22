@@ -20,6 +20,7 @@ public class EditMemberController implements Initializable {
     public ComboBox<String> gender_combobox;
     public TextField note_field;
     public DatePicker change_info_date;
+    public TextField role_field;
     private String id_ho;
     private String id_nguoi;
     public ComboBox<String> status_combo_box;
@@ -164,6 +165,7 @@ public class EditMemberController implements Initializable {
         nick_name_field.setText(nhanKhau.getBiDanh());
         born_field.setText(nhanKhau.getNoiSinh());
         gender_combobox.setValue(nhanKhau.getGioiTinh());
+        role_field.setText(nhanKhau.getVaiTro());
         nation_field.setText(nhanKhau.getDanToc());
         native_field.setText(nhanKhau.getNguyenQuan());
         job_field.setText(nhanKhau.getNgheNghiep());
