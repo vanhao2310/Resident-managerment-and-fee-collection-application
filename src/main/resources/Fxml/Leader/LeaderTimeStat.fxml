@@ -4,7 +4,6 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -52,7 +51,6 @@
     </VBox>
     <HBox fx:id="time_container" layoutX="60.0" layoutY="300.0">
         <VBox alignment="CENTER_RIGHT">
-            <ComboBox fx:id="year_pick" prefHeight="31.0" prefWidth="93.0" promptText="2023" visibleRowCount="5" />
             <LineChart fx:id="line_chart">
                 <xAxis>
                     <CategoryAxis label="Tháng" side="BOTTOM" />

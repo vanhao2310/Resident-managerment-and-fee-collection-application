@@ -42,7 +42,7 @@
                <Insets top="25.0" />
             </HBox.margin>
          </ComboBox>
-         <Label text="Đợt thu: ">
+         <Label fx:id="phase_lbl" text="Đợt thu: ">
             <font>
                <Font size="25.0" />
             </font>

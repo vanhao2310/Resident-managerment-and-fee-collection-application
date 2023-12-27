@@ -31,6 +31,7 @@ public class FamilyFeeInfoController implements Initializable {
             FeeLog feeLog = new FeeLog(Integer.parseInt(id_ho_lbl.getText()), this.feeId, Integer.parseInt(money_lbl.getText()),
                     1, java.sql.Date.valueOf(LocalDate.now()));
             FeeLogService.addKhoanThuHo(feeLog);
+            Model.getInstance().getViewFactory().getManagerSelectedMenuItem().set("Managing");
             Model.getInstance().getViewFactory().updateManagerManaging(type_lbl.getText(), 1);
             Stage stage = (Stage) cancel_btn.getScene().getWindow();
             stage.close();
