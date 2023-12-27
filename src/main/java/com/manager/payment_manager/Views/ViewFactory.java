@@ -256,7 +256,6 @@ public class ViewFactory {
         managerManagingController.setComboboxData();
         managerManagingController.setComboItem(feeType);
         managerManagingController.loadFamily(feeType, phase);
-
     }
 
     public AnchorPane getManagerStatisticView() {

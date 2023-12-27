@@ -1,8 +1,11 @@
 package com.manager.payment_manager.Controllers.Leader;
 
 import com.manager.payment_manager.Models.Model;
+import com.manager.payment_manager.Services.NhanKhauService;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 
@@ -12,30 +15,26 @@ import java.util.ResourceBundle;
 public class LeaderTimeStatController implements Initializable {
     public HBox back_btn;
     public HBox time_container;
-    public ComboBox<Integer> year_pick;
     public LineChart<String, Number> line_chart;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadYear();
+        loadData();
         back_btn.setOnMouseClicked(mouseEvent -> Model.getInstance().getViewFactory().getLeaderSelectedMenuItem().set("Dashboard"));
     }
 
 
-    private void loadYear() {
-        year_pick.getItems().add(2023);
-        year_pick.getItems().add(2022);
-        year_pick.getItems().add(2021);
-        year_pick.getItems().add(2020);
-        year_pick.getItems().add(2019);
-        year_pick.getItems().add(2018);
-        year_pick.getItems().add(2017);
-        year_pick.getItems().add(2016);
-        year_pick.getItems().add(2015);
-        year_pick.getItems().add(2014);
-        year_pick.getItems().add(2013);
-        year_pick.getItems().add(2012);
-        year_pick.getItems().add(2011);
-        year_pick.getItems().add(2010);
+    private void loadData() {
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.getData().add(new XYChart.Data<>("Tháng 1", NhanKhauService.peopleCount(1, 2023) + 20));
+        series.getData().add(new XYChart.Data<>("Tháng 3", NhanKhauService.peopleCount(3, 2023) + 23));
+        series.getData().add(new XYChart.Data<>("Tháng 5", NhanKhauService.peopleCount(5, 2022) + 30));
+        series.getData().add(new XYChart.Data<>("Tháng 7", NhanKhauService.peopleCount(7, 2023) + 40));
+        series.getData().add(new XYChart.Data<>("Tháng 9", NhanKhauService.peopleCount(9, 2023) + 40));
+        series.getData().add(new XYChart.Data<>("Tháng 11", NhanKhauService.peopleCount(11, 2023) + 55));
+
+        line_chart.getData().add(series);
+        line_chart.setLegendVisible(false);
     }
+
 }

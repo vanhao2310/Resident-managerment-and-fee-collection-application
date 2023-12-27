@@ -32,16 +32,20 @@ public class FeeListController implements Initializable {
     }
 
     // BẮT BUỘC
-    public void updateInfoForce(Family family, int id_khoan_thu, int dot_nop) {
+    public void updateInfoForce(Family family, int id_khoan_thu) {
         this.family = family;
         this.id_khoan_thu = id_khoan_thu;
         id.setText(String.valueOf(family.getFamilyId()));
         name.setText(family.getFamilyHead());
         address.setText(family.getFamilyAddress());
-        if (FeeLogService.checkSubmit(family.getFamilyId(), id_khoan_thu, dot_nop))
+        if (FeeLogService.checkSubmit(family.getFamilyId(), id_khoan_thu, 0)) {
             status.setText("Đã nộp");
-        else
+            submit_hl.setDisable(true);
+        }
+        else {
             status.setText("Chưa nộp");
+            submit_hl.setDisable(false);
+        }
     }
     // ĐÓNG GÓP
     public void updateInfoTempo(FeeLog feeLog) {

@@ -133,22 +133,42 @@ public class FeeLogService {
     // TODO: Kiểm tra xem nhà này đã đóng phí này đợt này chưa
     public static boolean checkSubmit(int id_ho, int id_khoan_thu, int dot_nop) {
         boolean res = false;
-        try (Connection conn = Utils.getConnection()) {
-            PreparedStatement pst = conn.prepareStatement("select so_tien from Khoan_thu_log where ID_HO = ? AND id_khoan_thu = ? AND dot_nop = ?");
-            pst.setInt(1, id_ho);
-            pst.setInt(2, id_khoan_thu);
-            pst.setInt(3, dot_nop);
+        if (dot_nop != 0) {
+            try (Connection conn = Utils.getConnection()) {
+                PreparedStatement pst = conn.prepareStatement("select so_tien from Khoan_thu_log where ID_HO = ? AND id_khoan_thu = ? AND dot_nop = ?");
+                pst.setInt(1, id_ho);
+                pst.setInt(2, id_khoan_thu);
+                pst.setInt(3, dot_nop);
 
-            ResultSet rs = pst.executeQuery();
-            while(rs.next()) {
-                if (rs.getInt(1) != 0)
-                    res = true;
+                ResultSet rs = pst.executeQuery();
+                while(rs.next()) {
+                    if (rs.getInt(1) != 0)
+                        res = true;
+                }
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
             }
-            rs.close();
-            pst.close();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            return res;
         }
-        return res;
+        else {
+            try (Connection conn = Utils.getConnection()) {
+                PreparedStatement pst = conn.prepareStatement("select so_tien from Khoan_thu_log where ID_HO = ? AND id_khoan_thu = ?");
+                pst.setInt(1, id_ho);
+                pst.setInt(2, id_khoan_thu);
+
+                ResultSet rs = pst.executeQuery();
+                while(rs.next()) {
+                    if (rs.getInt(1) != 0)
+                        res = true;
+                }
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            return res;
+        }
     }
 }

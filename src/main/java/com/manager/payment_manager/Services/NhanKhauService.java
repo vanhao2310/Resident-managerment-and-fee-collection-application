@@ -233,4 +233,24 @@ public class NhanKhauService {
         }
         return result;
     }
+
+    public static int peopleCount(int month, int year) {
+        int res = 0;
+        try(Connection conn = Utils.getConnection()) {
+            String date = year + "-" + month + "-28";
+            String sql = "select COUNT(ID_NGUOI) from nhankhau where date_thuong_tru <= ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, date);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                res = rs.getInt(1);
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Can not count people");
+            System.out.println(e.getMessage());
+        }
+        return res;
+    }
 }

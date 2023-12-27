@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -30,6 +31,7 @@ public class ManagerManagingController implements Initializable {
     public Button add_family;
     public VBox family_vbox;
     public ComboBox<Integer> combobox_phase;
+    public Label phase_lbl;
 
     private String feeType;
     @Override
@@ -37,12 +39,16 @@ public class ManagerManagingController implements Initializable {
         // load type
         setComboboxData();
         add_family.setVisible(false);
+        combobox_phase.setVisible(false);
+        phase_lbl.setVisible(false);
 
         combobox.setOnAction(mouseEvent -> {
             family_vbox.getChildren().clear();
             feeType = combobox.getValue();
             System.out.println("fee: " + feeType);
             add_family.setVisible(FeeService.checkForce(feeType) != 1);
+            combobox_phase.setVisible(FeeService.checkForce(feeType) != 1);
+            phase_lbl.setVisible(FeeService.checkForce(feeType) != 1);
             loadPhaseData(feeType, 1);
             // loadFamily(feeType, 1);
         });
@@ -92,7 +98,7 @@ public class ManagerManagingController implements Initializable {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Manager/FeeList.fxml"));
                         Parent feeList = loader.load();
                         FeeListController controller = loader.getController();
-                        controller.updateInfoForce(family, FeeLogService.getIdKhoanThuFromKhoanThuLog(feeType), phase_num);
+                        controller.updateInfoForce(family, FeeLogService.getIdKhoanThuFromKhoanThuLog(feeType));
                         family_vbox.getChildren().add(feeList);
                     } catch (IOException e) {
                         System.out.println(e.getMessage());
